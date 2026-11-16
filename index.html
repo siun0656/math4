@@ -1,0 +1,2201 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>전국 수학 랭커 – 5학년 2학기 4단원 소수의 곱셈</title>
+<meta name="theme-color" content="#0B0720">
+<style>:root{--bg:#0B0720;--bg2:#150F33;--card:#1B1442;--card2:#241A57;--line:#3B2D82;--tx:#F3F1FF;--dim:#A99FD8;--pu:#8B5CF6;--pu2:#6D28D9;--pk:#F472B6;--yl:#FACC15;--gn:#34D399;--rd:#F87171;--bl:#38BDF8}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:radial-gradient(1200px 600px at 20% -10%,#3A1F8A55,transparent),radial-gradient(900px 500px at 100% 10%,#7C2D9255,transparent),var(--bg);color:var(--tx);font-family:'Pretendard','Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;min-height:100%}
+body{padding-bottom:40px;font-size:17px;line-height:1.55;touch-action:manipulation}
+[hidden]{display:none!important}
+button{font-family:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:860px;margin:0 auto;padding:14px 14px 0}
+header.top{text-align:center;padding:10px 0 4px}
+.logo{font-size:12px;letter-spacing:.2em;color:var(--pk);font-weight:800}
+h1{margin:2px 0;font-size:clamp(24px,5.4vw,36px);font-weight:900;background:linear-gradient(90deg,#C4B5FD,#F472B6,#FACC15);-webkit-background-clip:text;background-clip:text;color:transparent;cursor:default;user-select:none}
+.sub{color:var(--dim);font-size:14px}
+.conn{display:inline-block;font-size:12px;padding:3px 10px;border-radius:99px;background:#ffffff12;margin-top:6px}
+.conn.ok{color:var(--gn)}.conn.wait{color:var(--yl)}.conn.bad{color:var(--rd)}
+.tabs{display:flex;gap:6px;margin:12px 0;background:#00000040;padding:5px;border-radius:16px;border:1px solid var(--line)}
+.tab{flex:1;padding:11px 4px;border:0;border-radius:12px;background:transparent;font-weight:800;font-size:15px;color:var(--dim);transition:.2s}
+.tab.on{background:linear-gradient(135deg,var(--pu),var(--pu2));color:#fff;box-shadow:0 4px 14px #6D28D977}
+.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 10px 30px #0006}
+.btn3d{border:0;border-radius:14px;padding:13px 22px;font-size:17px;font-weight:900;color:#fff;background:linear-gradient(180deg,#A78BFA,var(--pu2));box-shadow:0 5px 0 #4C1D95,0 10px 18px #0006;transition:transform .08s,box-shadow .08s;min-height:48px}
+.btn3d:active{transform:translateY(4px);box-shadow:0 1px 0 #4C1D95}
+.btn3d.ghost{background:#ffffff14;box-shadow:0 5px 0 #0004;color:var(--tx)}
+.btn3d.sm{padding:8px 14px;font-size:14px;min-height:38px}
+.btn3d:disabled{opacity:.5}
+.link{background:none;border:0;color:var(--bl);text-decoration:underline;font-size:13px}
+.chip{border:1px solid var(--line);background:#ffffff0d;border-radius:99px;padding:7px 13px;font-size:14px;font-weight:700;color:var(--tx);margin:3px 2px}
+.chip.on{background:var(--pu);border-color:var(--pu)}.chip.del{border-color:#F8717188;color:#FCA5A5}
+.actions{display:flex;gap:10px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+/* 소수점 */
+.dp{display:inline-block;width:.34em;height:.34em;border-radius:50%;background:var(--yl);margin:0 .09em;vertical-align:baseline;box-shadow:0 0 .35em #FACC1599}
+.op{color:var(--pk);font-weight:900;margin:0 .15em}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 .15em;line-height:1.1;font-size:.82em}
+.frac .fn{border-bottom:2px solid currentColor;padding:0 .2em}
+.frac .fd{padding:0 .2em}
+.bigexpr{font-size:clamp(32px,8vw,52px);font-weight:900;text-align:center;margin:10px 0;letter-spacing:.02em}
+.bigexpr .blankq{color:var(--yl)}
+.cmpx{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;font-size:clamp(24px,6vw,38px)}
+.circq,.sqr{display:inline-block;min-width:1.4em;border:3px dashed var(--yl);border-radius:12px;color:var(--yl);padding:0 .2em}
+.big2{font-size:1.4em;color:var(--yl)}
+/* 인트로 */
+.who{text-align:center;color:var(--dim);margin:6px 0 12px;font-size:14px}
+.modes{display:grid;gap:12px}
+.modecard{display:flex;gap:14px;align-items:center;text-align:left;width:100%;border:1px solid var(--line);border-radius:20px;padding:16px;background:linear-gradient(135deg,#2A1B6B,#1B1442);transition:.15s;box-shadow:0 6px 0 #0005}
+.modecard:active{transform:translateY(4px);box-shadow:0 2px 0 #0005}
+.modecard .mi{font-size:38px}.modecard b{font-size:19px;display:block}.modecard span{color:var(--dim);font-size:14px}
+.modecard.rank{background:linear-gradient(135deg,#7C2D92,#4C1D95);border-color:var(--pk)}
+.diffleg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.dl{border-radius:14px;padding:9px 6px;text-align:center;font-size:12px;background:#ffffff0d;border:1px solid var(--line)}.dl b{display:block;font-size:14px}.dl span{display:block;color:var(--dim)}
+.dl.d1{border-color:#34D39988}.dl.d2{border-color:#FACC1588}.dl.d3{border-color:#F4727688}
+/* 플레이 */
+.dash{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:800;position:relative}
+.dash .sc{font-size:26px;color:var(--yl)}.dash small{color:var(--dim);font-weight:600;display:block;font-size:12px}
+.combo{color:var(--pk);min-height:1.4em;font-weight:900}
+.prog{height:6px;background:#ffffff14;border-radius:9px;margin:8px 0;overflow:hidden}.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--pu),var(--pk));transition:width .4s}
+.timer{display:flex;align-items:center;gap:8px;margin:6px 0 10px}.timer .tb{flex:1;height:12px;border-radius:9px;background:#ffffff14;overflow:hidden}
+.tbar{height:100%;background:linear-gradient(90deg,var(--gn),#22D3EE);transition:width .1s linear}.tbar.mid{background:linear-gradient(90deg,var(--yl),#FB923C)}.tbar.low{background:linear-gradient(90deg,var(--rd),#E11D48)}
+#ttxt{min-width:44px;text-align:right;font-weight:900}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.pill{border-radius:99px;padding:3px 10px;font-weight:900;font-size:13px;background:#ffffff18}.pill.d1{color:var(--gn)}.pill.d2{color:var(--yl)}.pill.d3{color:var(--rd)}
+.qinfo{font-size:12px;color:var(--dim)}#q-tag{font-size:12px;color:var(--pk);font-weight:800}
+.qcard{transition:box-shadow .3s,border-color .3s}.qcard.ok{border-color:var(--gn);box-shadow:0 0 0 3px #34D39955,0 10px 30px #0006;animation:pulse .5s}.qcard.bad{border-color:var(--rd);box-shadow:0 0 0 3px #F8717155;animation:shk .45s}
+@keyframes pulse{50%{transform:scale(1.015)}}@keyframes shk{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.shake{animation:shk .4s}
+.q-main{font-size:clamp(18px,4.4vw,22px);font-weight:700;line-height:1.7}
+.hint{display:block;color:var(--dim);font-size:13px;font-weight:500;margin-top:4px}
+.story{background:#0003;border-radius:14px;padding:10px 14px;margin:10px 0;line-height:1.8}
+.fig{text-align:center;margin:10px 0}.gridfig{width:min(300px,86%)}.jumpfig,.nlsvg{width:100%;max-width:440px}
+.figcap{text-align:center;color:var(--dim);font-size:14px}
+.cardrow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px 0}
+.numcard{display:inline-block;min-width:60px;text-align:center;border-radius:12px;padding:8px 12px;background:#fff;color:#2E1065;font-weight:900;font-size:22px;border:0;box-shadow:0 4px 0 #A78BFA}
+.numcard.big{width:68px;height:78px;font-size:34px}.numcard.used{opacity:.25;pointer-events:none}
+.stage{margin-top:12px}.stage.flash{animation:pulse .4s}
+.stitle{font-weight:900;color:var(--yl);margin:8px 0}
+.opts{display:grid;gap:10px}.opts.grid{grid-template-columns:1fr 1fr}.opts.row3{grid-template-columns:repeat(3,1fr)}.opts.list{grid-template-columns:1fr}
+.opt{display:flex;align-items:center;gap:10px;text-align:left;border:2px solid var(--line);background:#ffffff0c;border-radius:16px;padding:12px;font-size:clamp(20px,5vw,28px);font-weight:900;transition:.12s;box-shadow:0 4px 0 #0005;min-height:64px}
+.opt:active:not(:disabled){transform:translateY(3px);box-shadow:0 1px 0 #0005}
+.opt .ol{flex:none;width:30px;height:30px;border-radius:50%;background:var(--pu2);display:grid;place-items:center;font-size:15px}
+.opt .ot{flex:1;text-align:center;word-break:keep-all}.opts.list .ot{text-align:left;font-size:.85em}
+.opt .u{font-size:.55em;color:var(--dim);margin-left:4px}
+.opt.good{border-color:var(--gn);background:#34D39930}.opt.wrong{border-color:var(--rd);background:#F8717130}.opt.picked{border-color:var(--yl);background:#FACC1530}
+.opt:disabled{opacity:1;cursor:default}
+.sym{font-size:1.5em}
+.ansbox{display:flex;align-items:center;justify-content:center;gap:8px;min-height:70px;border:3px solid var(--pu);border-radius:16px;background:#0004;margin:6px auto;max-width:360px;font-size:40px;font-weight:900;padding:4px 14px}
+.adisp .ph{font-size:18px;color:var(--dim);font-weight:600}.unit{font-size:20px;color:var(--dim)}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:360px;margin:10px auto 0}
+.key{border:0;border-radius:14px;background:#ffffff1c;font-size:26px;font-weight:900;padding:12px 0;box-shadow:0 4px 0 #0005;min-height:54px}.key:active{transform:translateY(3px);box-shadow:0 1px 0 #0005}
+.key.go{grid-column:1/4;background:linear-gradient(180deg,#A78BFA,var(--pu2));font-size:20px;box-shadow:0 4px 0 #4C1D95}
+.fillbox{background:#0003;border-radius:16px;padding:12px;display:grid;gap:10px}.fline{font-size:clamp(18px,4.4vw,24px);font-weight:800;line-height:2.2}
+.blank{display:inline-block;min-width:3.4em;min-height:1.7em;border-bottom:4px solid var(--pu);background:#ffffff10;border-radius:8px 8px 0 0;text-align:center;color:var(--yl);padding:0 .3em;cursor:pointer;line-height:1.7}
+.blank.act{border-color:var(--yl);background:#FACC1522;box-shadow:0 0 0 3px #FACC1544}.blank.good{border-color:var(--gn);color:var(--gn)}.blank.wrong{border-color:var(--rd);color:var(--rd)}.blank.mini{min-width:0;padding:0 .3em}
+.mach{display:inline-block;background:var(--pu2);border-radius:10px;padding:0 .5em}
+.hint2{text-align:center;color:var(--dim);font-size:13px}
+.placerow{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:0;margin:10px 0}
+.pd{font-size:clamp(40px,11vw,64px);font-weight:900}.gap{width:clamp(22px,6vw,34px);height:clamp(44px,12vw,64px);border:2px dashed #7C8BD088;background:#ffffff0a;border-radius:10px;color:var(--dim);font-size:16px;margin:0 1px;display:grid;place-items:center}
+.gap.on{border:2px solid var(--yl);background:#FACC1530;font-size:30px}
+.areawrap{display:flex;flex-direction:column;align-items:center;gap:8px}
+.areagrid{display:grid;grid-template-columns:repeat(10,1fr);width:min(320px,90%);aspect-ratio:1;border:2px solid #5B6BB5;background:#0B1230}
+.cell{border:1px solid #3E4C8F;cursor:pointer}.cell.on{background:#FBBF24AA}
+.arealab{font-weight:800;color:var(--yl)}
+.ordergrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ord .ot{font-size:.8em}
+.cardslots{text-align:center;font-size:36px;font-weight:900;margin:8px 0}.slot{display:inline-block;min-width:1.2em;border-bottom:4px solid var(--yl);margin:0 3px;color:var(--yl)}.slot.f{color:#fff;border-color:var(--gn)}.slot.mini{font-size:.9em}
+.cardpool{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px 0}
+.feedback{margin-top:14px;padding:14px;border-radius:18px;background:#0004;border:1px solid var(--line);animation:up .3s}
+@keyframes up{from{opacity:0;transform:translateY(10px)}}
+.fbhead{font-size:22px;font-weight:900;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}.fbhead.ok{color:var(--gn)}.fbhead.bad{color:var(--rd)}.fbpts{color:var(--yl)}.fbhead small{font-size:12px;color:var(--dim);font-weight:600}
+.fbrow{display:flex;gap:10px;align-items:flex-start;margin:8px 0;font-size:18px;font-weight:800}.fbrow b{flex:none;font-size:13px;background:#ffffff18;border-radius:8px;padding:2px 8px;margin-top:4px}.fbrow .rt{color:var(--gn)}.fbrow .mine{color:var(--rd)}
+.fbwhy{background:#FACC1518;border-left:4px solid var(--yl);border-radius:8px;padding:8px 12px;margin:8px 0;font-size:15px}
+details{margin-top:8px}summary{cursor:pointer;color:var(--bl);font-weight:800}
+.st{background:#ffffff0a;border-radius:10px;padding:7px 12px;margin:6px 0;font-size:16px}
+.dim{color:var(--dim)}
+.pop{position:absolute;right:0;top:-8px;font-size:30px;font-weight:900;animation:flo 1s forwards;pointer-events:none}.pop.ok{color:var(--gn)}.pop.bad{color:var(--rd)}@keyframes flo{to{transform:translateY(-34px);opacity:0}}
+/* 결과 */
+.resc{text-align:center}.grade{display:inline-grid;place-items:center;width:110px;height:110px;border-radius:50%;font-size:40px;font-weight:900;color:var(--gc);border:6px solid var(--gc);box-shadow:0 0 30px var(--gc);animation:pulse 1s infinite alternate}
+#res-score{display:block;font-size:56px;font-weight:900;color:var(--yl)}
+.resgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}.rc{background:#0003;border-radius:12px;padding:8px 10px;text-align:left;display:flex;justify-content:space-between;gap:6px;font-size:14px}.rc span{color:var(--dim)}.rc b{text-align:right}
+.rankbox{border:2px solid var(--pk);border-radius:18px;padding:12px;margin:12px 0;background:#F472B614}.rankbox .rr{display:flex;justify-content:space-around;gap:8px;margin:8px 0;text-align:center}.rankbox .rr div{flex:1;background:#0003;border-radius:12px;padding:8px}.rankbox .rr b{display:block;font-size:22px;color:var(--yl)}.rankbox small{color:var(--dim)}
+.wnote{background:#0003;border:1px solid var(--line);border-radius:16px;padding:12px;margin:12px 0;text-align:left}.wnote header{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.wn{background:var(--rd);color:#000;border-radius:8px;padding:1px 8px;font-weight:900}.wq{margin:8px 0;font-size:17px}
+.keycon{background:#34D39914;border:1px solid #34D39966;border-radius:12px;padding:8px 12px;margin-top:8px;font-size:15px}.keycon p{margin:4px 0 0}
+.allright{padding:18px;border-radius:16px;background:#34D39922;font-weight:800}
+/* 명예의 전당 */
+.hrow{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;background:#ffffff0a;margin:6px 0}.hrow.me{outline:2px solid var(--pk);background:#F472B622}
+.hrow.top1{background:linear-gradient(90deg,#FACC1544,#ffffff0a)}.hrow.top2{background:linear-gradient(90deg,#CBD5E144,#ffffff0a)}.hrow.top3{background:linear-gradient(90deg,#FB923C44,#ffffff0a)}
+.hr{width:40px;text-align:center;font-size:22px;font-weight:900}.hn{flex:1;font-weight:800}.hn small,.hs small{display:block;color:var(--dim);font-size:12px;font-weight:500}.hs{text-align:right;font-size:20px;font-weight:900;color:var(--yl)}
+.empty{text-align:center;color:var(--dim);padding:26px}
+/* 사전 */
+.dnav{position:sticky;top:0;z-index:5;background:#150F33EE;padding:6px;border-radius:12px;display:flex;flex-wrap:wrap}
+.dcard{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:20px;padding:16px;margin:14px 0}.dcard header{display:flex;gap:12px;align-items:center}.dcard h3{margin:0;font-size:20px}.dcard small{color:var(--dim)}
+.dno{width:38px;height:38px;border-radius:50%;background:var(--pu);display:grid;place-items:center;font-weight:900;flex:none}.dsum{font-weight:800;color:var(--yl)}
+.dcard h4{margin:14px 0 4px;color:var(--pk)}.plain{padding-left:18px;margin:4px 0}.plain li{margin:6px 0}.plain.warn li::marker{color:var(--rd)}
+.stepl{padding-left:22px}.stepl li{margin:4px 0}
+.exm{background:#0003;border-radius:14px;padding:10px 12px;margin:10px 0}.exm-h{font-size:22px;font-weight:900;margin-bottom:4px}
+.mis{background:#F8717114;border-left:4px solid var(--rd);border-radius:10px;padding:6px 12px;margin:8px 0}.mis p{margin:2px 0}
+.shift-table{display:grid;grid-template-columns:1fr 1fr;gap:8px}.sr{background:#0003;border-radius:10px;padding:8px;display:flex;justify-content:space-between;gap:6px;font-weight:800}.sr b{color:var(--yl)}
+.lab{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.lab input{width:110px}
+input,select{background:#0006;border:2px solid var(--line);border-radius:12px;color:var(--tx);padding:11px;font-size:17px;font-family:inherit;width:100%;margin:5px 0}.lab input{width:110px}
+.dintro{color:var(--dim);text-align:center}
+/* 모달 */
+.modal{position:fixed;inset:0;background:#000A;display:grid;place-items:center;z-index:50;padding:14px;overflow:auto}.modal .card{width:min(460px,100%);max-height:92vh;overflow:auto}
+.amsg{min-height:1.5em;font-size:14px;margin:6px 0}.amsg.ok{color:var(--gn)}.amsg.bad{color:var(--rd)}.amsg.info{color:var(--bl)}
+.modal h3{margin:0 0 6px}
+#modal-admin .card{width:min(720px,100%)}.adhead{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}.adlist{max-height:55vh;overflow:auto}
+.adrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:7px 4px;border-bottom:1px solid #ffffff14}.adrow small{flex:1;color:var(--dim)}.stat div{padding:6px 0;border-bottom:1px solid #ffffff14}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,40px);background:#000D;border:1px solid var(--pu);padding:10px 18px;border-radius:99px;opacity:0;transition:.3s;z-index:90;max-width:90%;text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}
+.fx{position:fixed;inset:0;pointer-events:none;z-index:80;overflow:hidden}.fx i{position:absolute;top:-20px;width:10px;height:16px;border-radius:2px;animation:fall linear forwards}@keyframes fall{to{transform:translateY(105vh) rotate(720deg)}}
+.fx-banner{position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);text-align:center;background:linear-gradient(135deg,#7C3AED,#DB2777);padding:22px 36px;border-radius:26px;box-shadow:0 0 60px #F472B6;animation:bn .6s cubic-bezier(.2,1.6,.4,1)}.fx-banner b{font-size:46px;display:block}@keyframes bn{from{transform:translate(-50%,-50%) scale(.2);opacity:0}}
+.foot{text-align:center;color:var(--dim);font-size:12px;margin-top:24px}
+@media(max-width:520px){.opts.grid{grid-template-columns:1fr 1fr}.opts.row3{grid-template-columns:1fr 1fr 1fr}.opt{padding:8px;min-height:58px}.opt .ol{display:none}.ordergrid{grid-template-columns:1fr}.resgrid{grid-template-columns:1fr}.shift-table{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+</head><body>
+<div class="wrap">
+<header class="top"><div class="logo">전국 수학 랭커 · 5학년 2학기 4단원</div><h1 data-act="secret">소수의 곱셈</h1><div class="sub">정확하게 · 빠르게 · 전국 TOP 100에 도전!</div><div id="conn" class="conn wait">랭킹 서버 연결 중…</div> <button class="link" data-act="mute" aria-label="소리">🔊</button></header>
+<nav class="tabs"><button class="tab on" data-act="tab" data-tab="game">🎮 게임 모드</button><button class="tab" data-act="tab" data-tab="hof">🏆 명예의 전당</button><button class="tab" data-act="tab" data-tab="dict">📖 핵심 개념</button></nav>
+
+<main id="tab-game">
+ <section id="view-intro">
+  <div id="who" class="who"></div>
+  <div class="modes">
+   <button class="modecard" data-act="start" data-mode="1"><span class="mi">🧠</span><div><b>1모드 · 개념·계산 연습</b><span>20문제 · 쉬운 문제부터 어려운 문제까지 · 랭킹 없음</span></div></button>
+   <button class="modecard" data-act="start" data-mode="2"><span class="mi">🛠️</span><div><b>2모드 · 직접 해 보기</b><span>10문제 · 소수점 찍기, 계산 과정 완성, 모눈 색칠, 오류 찾기 · 랭킹 없음</span></div></button>
+   <button class="modecard rank" data-act="start" data-mode="3"><span class="mi">🏆</span><div><b>3모드 · 전국 랭킹전</b><span>20문제 · 전국/지역 TOP 100 · 최고 점수만 기록</span></div></button>
+  </div>
+  <div id="diff-legend" class="diffleg"></div>
+  <p class="hint2">점수 = 기본 점수 + 스피드 보너스(최대 25%) + 콤보 보너스 − 오답 감점. 찍기는 손해예요!</p>
+ </section>
+ <section id="view-play" hidden>
+  <div class="card">
+   <div class="dash"><div><small id="p-mode"></small><b>문제 <span id="p-q">1</span>/<span id="p-n">20</span></b> <span id="p-combo" class="combo"></span></div><div style="text-align:right"><small>점수</small><span class="sc" id="p-score">0</span></div></div>
+   <div class="prog"><i id="p-prog"></i></div>
+   <div class="timer"><div class="tb"><div id="tbar" class="tbar"></div></div><span id="ttxt">0초</span></div>
+  </div>
+  <div class="card qcard" id="qcard" style="margin-top:12px">
+   <div class="qhead"><span id="q-tag"></span><span id="q-diff"></span></div>
+   <div id="q-text"></div><div id="q-fig"></div>
+   <div id="stage" class="stage"></div>
+   <div id="feedback" class="feedback" hidden></div>
+  </div>
+  <div class="actions"><button class="btn3d ghost sm" data-act="quit">그만하기</button></div>
+ </section>
+ <section id="view-result" hidden>
+  <div class="card resc">
+   <div id="res-head"></div>
+   <small class="dim">최종 점수</small><span id="res-score">0</span>
+   <div id="res-grid" class="resgrid"></div>
+   <div id="res-rank" class="rankbox" hidden><b>🏅 내 순위</b><div class="rr"><div><small>내 최고점</small><b id="rk-best">…</b></div><div><small>전국 순위</small><b id="rk-nat">…</b></div><div><small>지역 순위</small><b id="rk-reg">…</b></div></div><div id="rk-state" class="hint2"></div><button id="btn-retry-submit" class="btn3d sm" data-act="retry-submit" hidden>다시 저장하기</button></div>
+   <div class="actions"><button class="btn3d" data-act="again">🏠 처음으로</button><button class="btn3d ghost" data-act="to-hof">🏆 명예의 전당</button></div>
+  </div>
+  <div id="res-wrong" class="card" style="margin-top:12px"></div>
+ </section>
+</main>
+
+<main id="tab-hof" hidden>
+ <div class="card"><h2 id="hof-title" style="margin:0 0 6px">🏆 전국 TOP 100</h2><div id="hof-chips"></div><p class="hint2">실시간으로 바뀌어요. 한 학생당 최고 점수 1개만 올라가요.</p><div id="hof-list"></div></div>
+</main>
+<main id="tab-dict" hidden><div id="dict-body"></div></main>
+<div class="foot">개발자 시니나 · 교과서·수학익힘 4단원(소수의 곱셈) 범위</div>
+</div>
+
+<div id="modal-auth" class="modal" hidden><div class="card">
+ <h3>🏆 랭킹전 로그인</h3><p class="hint2" style="text-align:left">2·3단원 아이디와 비밀번호를 그대로 쓸 수 있어요. (처음이면 새로 만들어요)</p>
+ <input id="auth-id" placeholder="아이디 (영문·숫자 4~10자)" autocomplete="username" autocapitalize="off" maxlength="10">
+ <input id="auth-pw" type="password" inputmode="numeric" placeholder="비밀번호 (숫자 4자리)" autocomplete="current-password" maxlength="4">
+ <input id="auth-nick" placeholder="닉네임 (한글·숫자 1~4자)" maxlength="4">
+ <select id="auth-region" aria-label="지역"></select>
+ <div id="auth-msg" class="amsg"></div>
+ <div class="actions"><button class="btn3d ghost" data-act="auth-close">취소</button><button id="auth-go" class="btn3d" data-act="auth-go">입장하기</button></div>
+ <p class="hint2">비밀번호는 암호화(해시)되어 저장돼요. 다른 사람과 같은 번호를 쓰지 마세요.</p>
+</div></div>
+<div id="modal-admin" class="modal" hidden><div class="card" id="admin-body"></div></div>
+<div id="fx" class="fx" hidden></div>
+<div id="toast" class="toast" role="status"></div>
+
+<script>
+(function(){'use strict';
+/* ========================================================================
+   00. 핵심 유틸 — 소수 계산은 모두 "정수 n × 10^-d" 표현으로 처리해
+   부동소수점 오차가 생기지 않도록 합니다. (예: 3.14 → {n:314, d:2})
+======================================================================== */
+const rnd = (a, b) => Math.floor(Math.random() * (b - a + 1)) + a;
+const pick = a => a[Math.floor(Math.random() * a.length)];
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
+const P10 = k => Math.pow(10, k);
+const uniq = a => Array.from(new Set(a));
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+
+/* ---- 소수 값 {n,d} ---- */
+function nz(x) { let n = x.n, d = x.d; while (d > 0 && n % 10 === 0) { n /= 10; d--; } return { n, d }; }
+function V(s) { s = String(s); const i = s.indexOf('.'); if (i < 0) return { n: parseInt(s, 10), d: 0 }; const f = s.slice(i + 1); return { n: parseInt(s.slice(0, i) + f, 10), d: f.length }; }
+const mul = (a, b) => nz({ n: a.n * b.n, d: a.d + b.d });
+const add = (a, b) => { const d = Math.max(a.d, b.d); return nz({ n: a.n * P10(d - a.d) + b.n * P10(d - b.d), d }); };
+const sub = (a, b) => { const d = Math.max(a.d, b.d); return nz({ n: a.n * P10(d - a.d) - b.n * P10(d - b.d), d }); };
+const cmp = (a, b) => { const d = Math.max(a.d, b.d), x = a.n * P10(d - a.d), y = b.n * P10(d - b.d); return x < y ? -1 : x > y ? 1 : 0; };
+const eq = (a, b) => cmp(a, b) === 0;
+/* 10^k 배 (k>0: 소수점 오른쪽 이동, k<0: 왼쪽 이동) */
+function shiftD(a, k) { let n = a.n, d = a.d - k; if (d < 0) { n *= P10(-d); d = 0; } return nz({ n, d }); }
+function S(a) {            // 문자열 "3.14"
+  const x = nz(a); let s = String(Math.abs(x.n));
+  if (x.d > 0) { s = s.padStart(x.d + 1, '0'); s = s.slice(0, s.length - x.d) + '.' + s.slice(s.length - x.d); }
+  return (x.n < 0 ? '-' : '') + s;
+}
+const DOT = '<span class="dp" aria-label="소수점"></span>';
+const H = a => S(a).replace('.', DOT);                 // 소수점이 잘 보이는 HTML
+const Hs = str => String(str).replace('.', DOT);
+function parseNum(s) {     // 학생이 입력한 문자열 → {n,d} 또는 null
+  s = String(s || '').trim();
+  if (!/^(\d+\.?\d*|\.\d+)$/.test(s)) return null;
+  if (s.replace('.', '').length > 12) return null;
+  return nz(V(s.startsWith('.') ? '0' + s : s.endsWith('.') ? s.slice(0, -1) : s));
+}
+function val(a) { return a.n / P10(a.d); }            // 표시·어림용(비교에는 쓰지 않음)
+
+/* 소수점 아래 정확히 dp자리, 마지막 자리는 0이 아닌 수 */
+function rd(dp, lo, hi, o) {
+  o = o || {};
+  for (let t = 0; t < 400; t++) {
+    const ip = rnd(lo, hi);
+    if (dp === 0) { if (ip > 0) return { n: ip, d: 0 }; continue; }
+    const f = rnd(1, P10(dp) - 1);
+    if (f % 10 === 0) continue;
+    if (o.firstNZ && dp >= 2 && f < P10(dp - 1)) continue;   // 첫째 자리가 0이 아니도록
+    if (o.noHalf && f === 5 * P10(dp - 1)) continue;
+    const n = ip * P10(dp) + f;
+    if (n % 10 === 0) continue;
+    return { n, d: dp };
+  }
+  throw new Error('rd failed');
+}
+const natD = n => ({ n, d: 0 });
+
+/* ---- 표시용 도우미 ---- */
+const F = (num, den) => `<span class="frac"><span class="fn">${num}</span><span class="fd">${den}</span></span>`;
+const fr = x => x.d ? F(x.n, P10(x.d)) : String(x.n);                // 소수 → 분수(자연수는 그대로)
+const OP = '<span class="op">×</span>';
+const expr = (a, b) => `${H(a)}${OP}${H(b)}`;
+const circ = ['㉠', '㉡', '㉢', '㉣'];
+const NAMES = ['민서', '지호', '서윤', '도현', '하린', '준우', '예은', '시우', '지안', '하준', '수아', '건우'];
+
+/* ---- 난이도 · 점수 ---- */
+const DIFF = {
+  1: { name: '쉬움', stars: '⭐', base: 100, pen: 35, time: 25 },
+  2: { name: '보통', stars: '⭐⭐', base: 150, pen: 50, time: 40 },
+  3: { name: '어려움', stars: '⭐⭐⭐', base: 220, pen: 75, time: 60 }
+};
+const SPEED_RATE = 0.25;   // 스피드 보너스는 기본 점수의 최대 25%
+const COMBO_STEP = 10, COMBO_CAP = 5;
+
+/* 점수는 문제별 결과 기록(log)에서만 계산합니다. (화면의 점수 변수를 고쳐도 최종 점수는 바뀌지 않음) */
+function scoreFromLog(log) {
+  let score = 0, combo = 0, maxCombo = 0, base = 0, speed = 0, comboB = 0, pen = 0, correct = 0;
+  for (const e of log) {
+    const D = DIFF[e.diff];
+    if (e.ok) {
+      combo++; if (combo > maxCombo) maxCombo = combo;
+      const ratio = clamp((e.limit - e.ms) / e.limit, 0, 1);
+      const sp = Math.round(D.base * SPEED_RATE * ratio);
+      const cb = Math.min(combo - 1, COMBO_CAP) * COMBO_STEP;
+      base += D.base; speed += sp; comboB += cb; score += D.base + sp + cb; correct++;
+    } else {
+      combo = 0;
+      const p = e.timeout ? Math.round(D.pen / 2) : D.pen;
+      const lost = Math.min(p, score);
+      score -= lost; pen += lost;
+    }
+  }
+  return { score, base, speed, comboB, pen, correct, maxCombo };
+}
+function maxPossible(diffs) {   // 랭킹전 구성(난이도 목록)의 이론상 최고점
+  let s = 0, c = 0;
+  diffs.forEach(d => { const D = DIFF[d]; c++; s += D.base + Math.round(D.base * SPEED_RATE) + Math.min(c - 1, COMBO_CAP) * COMBO_STEP; });
+  return s;
+}
+function gradeOf(correct, total) {
+  const r = total ? correct / total : 0;
+  if (correct === total) return { g: 'SSS', c: '#F43F5E' };
+  if (r >= 0.9) return { g: 'SS', c: '#EC4899' };
+  if (r >= 0.8) return { g: 'S', c: '#FACC15' };
+  if (r >= 0.7) return { g: 'A', c: '#8B5CF6' };
+  if (r >= 0.55) return { g: 'B', c: '#34D399' };
+  return { g: 'C', c: '#94A3B8' };
+}
+
+/* ---- 숫자 오답 진단(직접 입력용) ---- */
+function digitsOf(a) { const x = nz(a); return String(x.n).replace(/0+$/, ''); }
+function diagnoseNum(user, corr) {
+  if (!user) return '숫자를 입력하지 않았어요.';
+  if (eq(user, corr)) return '';
+  if (digitsOf(user) === digitsOf(corr)) {
+    const k = (corr.d - user.d);
+    return `숫자 배열은 맞았지만 <b>소수점 위치</b>가 달라요. 소수점 아래 자릿수의 합을 다시 세어 보세요. (정답은 소수점 아래 ${corr.d}자리)`;
+  }
+  return '자연수의 곱셈 단계에서 계산이 달라졌어요. 소수점을 없애고 자연수끼리 곱한 값을 먼저 확인해 보세요.';
+}
+
+/* ---- 오답 선택지: 소수점을 잘못 찍는 대표적 실수를 활용 ---- */
+function shiftWhy(k) {
+  return k > 0 ? `소수점을 오른쪽으로 ${k}칸 더 옮겼어요. 곱의 소수점 위치를 다시 확인해요.` : `소수점을 왼쪽으로 ${-k}칸 더 옮겼어요. 곱의 소수점 위치를 다시 확인해요.`;
+}
+function pickDistractors(corr, o) {
+  o = o || {};
+  const seen = new Set([S(corr)]), g1 = [], g2 = [], g3 = [], g4 = [];
+  const push = (arr, v, why) => { v = nz(v); if (v.n <= 0 || v.n > 1e9) return; const s = S(v); if (seen.has(s)) return; seen.add(s); arr.push({ val: v, why }); };
+  if (o.rawN !== undefined) {
+    const T = o.d1 + o.d2;
+    uniq([o.d1, o.d2, Math.max(o.d1, o.d2)]).forEach(dd => {
+      if (dd !== T) push(g1, { n: o.rawN, d: dd }, `곱의 소수점 아래 자릿수는 두 수의 소수점 아래 자릿수의 <b>합</b>(${o.d1}+${o.d2}=${T}자리)이에요. 한쪽 자릿수만 세었어요.`);
+    });
+  }
+  [1, -1].forEach(k => push(g2, shiftD(corr, k), shiftWhy(k)));
+  [2, -2].forEach(k => push(g3, shiftD(corr, k), shiftWhy(k)));
+  if (o.rawN !== undefined && corr.d > 0) push(g3, { n: o.rawN, d: 0 }, '소수점을 찍지 않고 자연수의 곱만 썼어요. 소수점을 찍어야 해요.');
+  if (o.slip) {
+    [10, -10, 1, -1, 100, -100].forEach(dl => { if (corr.n + dl > 0) push(g4, { n: corr.n + dl, d: corr.d }, '자연수의 곱셈 과정에서 계산이 틀렸어요. 소수점을 없앤 곱을 다시 확인해요.'); });
+  }
+  const out = [];
+  if (g1.length) out.push(shuffle(g1)[0]);
+  if (o.slip && g4.length) out.push(shuffle(g4)[0]);
+  const rest = shuffle(g2).concat(shuffle(g3), shuffle(g1.slice(1)), shuffle(g4));
+  for (const r of rest) { if (out.length >= 3) break; if (!out.includes(r)) out.push(r); }
+  if (out.length < 3) throw new Error('not enough distractors');
+  return shuffle(out.slice(0, 3));
+}
+
+/* ---- 객관식(보기) 만들기 ---- */
+function mcStage(o) {
+  const right = Object.assign({}, o.right, { ok: true });
+  let items = [right].concat(o.wrongs.map(w => Object.assign({}, w, { ok: false })));
+  if (!o.keepOrder) items = shuffle(items);
+  const texts = new Set(items.map(i => i.text));
+  if (texts.size !== items.length) throw new Error('duplicate options');
+  return {
+    type: 'mc', layout: o.layout || 'grid', title: o.title || '',
+    options: items.map(i => ({ html: i.html, text: i.text, why: i.why || '' })),
+    answer: items.findIndex(i => i.ok)
+  };
+}
+function numOpt(v, unit) { return { html: H(v) + (unit ? `<small class="u">${unit}</small>` : ''), text: S(v) + (unit || '') }; }
+
+/* ---- sha256 (비밀번호를 평문으로 저장하지 않기 위한 해시) ---- */
+const sha256hex = (function () {
+  const K = [], H0 = [];
+  for (let n = 2, cnt = 0; cnt < 64; n++) {
+    let prime = true;
+    for (let d = 2; d * d <= n; d++) if (n % d === 0) { prime = false; break; }
+    if (!prime) continue;
+    if (cnt < 8) H0[cnt] = (Math.pow(n, 1 / 2) % 1 * 4294967296) | 0;
+    K[cnt] = (Math.pow(n, 1 / 3) % 1 * 4294967296) | 0;
+    cnt++;
+  }
+  const rr = (v, a) => (v >>> a) | (v << (32 - a));
+  return function (str) {
+    const bytes = unescape(encodeURIComponent(str)).split('').map(ch => ch.charCodeAt(0));
+    const bits = bytes.length * 8;
+    bytes.push(0x80);
+    while (bytes.length % 64 !== 56) bytes.push(0);
+    for (let i = 7; i >= 0; i--) bytes.push(i >= 4 ? 0 : (bits >>> (i * 8)) & 255);
+    const h = H0.slice();
+    for (let o = 0; o < bytes.length; o += 64) {
+      const w = new Array(64);
+      for (let i = 0; i < 16; i++) w[i] = (bytes[o + 4 * i] << 24) | (bytes[o + 4 * i + 1] << 16) | (bytes[o + 4 * i + 2] << 8) | bytes[o + 4 * i + 3];
+      for (let i = 16; i < 64; i++) {
+        const s0 = rr(w[i - 15], 7) ^ rr(w[i - 15], 18) ^ (w[i - 15] >>> 3);
+        const s1 = rr(w[i - 2], 17) ^ rr(w[i - 2], 19) ^ (w[i - 2] >>> 10);
+        w[i] = (w[i - 16] + s0 + w[i - 7] + s1) | 0;
+      }
+      let a = h[0], b = h[1], c = h[2], d = h[3], e = h[4], f = h[5], g = h[6], hh = h[7];
+      for (let i = 0; i < 64; i++) {
+        const S1 = rr(e, 6) ^ rr(e, 11) ^ rr(e, 25), ch = (e & f) ^ (~e & g);
+        const t1 = (hh + S1 + ch + K[i] + w[i]) | 0;
+        const S0 = rr(a, 2) ^ rr(a, 13) ^ rr(a, 22), maj = (a & b) ^ (a & c) ^ (b & c);
+        const t2 = (S0 + maj) | 0;
+        hh = g; g = f; f = e; e = (d + t1) | 0; d = c; c = b; b = a; a = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a) | 0; h[1] = (h[1] + b) | 0; h[2] = (h[2] + c) | 0; h[3] = (h[3] + d) | 0;
+      h[4] = (h[4] + e) | 0; h[5] = (h[5] + f) | 0; h[6] = (h[6] + g) | 0; h[7] = (h[7] + hh) | 0;
+    }
+    return h.map(x => (x >>> 0).toString(16).padStart(8, '0')).join('');
+  };
+})();
+function randHex(n) {
+  let s = '';
+  try { const a = new Uint8Array(n); (self.crypto || window.crypto).getRandomValues(a); a.forEach(b => { s += (b % 16).toString(16); }); return s; } catch (e) { }
+  for (let i = 0; i < n; i++) s += Math.floor(Math.random() * 16).toString(16);
+  return s;
+}
+/* 비밀번호 해시: 아이디·계정별 salt + 반복 해시. 평문은 어디에도 저장하지 않습니다. */
+function hashPw(id, salt, pw) {
+  let h = sha256hex('ch4|' + id + '|' + salt + '|' + pw);
+  for (let i = 0; i < 1000; i++) h = sha256hex(h + salt);
+  return h;
+}
+/* 랭킹 기록의 공개 키: 로그인 아이디가 랭킹 데이터에 노출되지 않도록 해시한 값을 씁니다. */
+function rankKey(id) { return sha256hex('ch4-rank|' + id).slice(0, 16); }
+function recordCheck(r) {   // 기록 변조 확인용 검증값(관리자가 확인)
+  return sha256hex(['ch4v1', r.rk, r.score, r.correct, r.total, r.dur, r.sid].join('|')).slice(0, 10);
+}
+
+/* ---- 부정 이름 필터(기존 게임과 동일한 목록 계승) ---- */
+function hasProfanity(text) {
+  const badWords = [
+    '게이', '레즈', '레즈비언', '트랜스젠더', '남친', '여친', '뻐큐', 'ㅗ', '쌰갈', '샤갈', '니얼굴', '찐따', '찐따새끼',
+    'fuck', 'fck', 'fuk', 'shit', 'bitch', 'bastrd', 'asshole', 'dick', 'pussy',
+    '시발', '씨발', '싯팔', '십팔', '씨바', '씨벌', '씨빨', '찌발', 'ㅅㅂ', 'ㅅㅃ', '지랄', '지랄병', '쥐랄', 'ㅈㄹ',
+    '병신', '뼝신', '븅신', 'ㅂㅅ', 'ㅄ', '개새끼', '새끼', '새키', '섀끼', '쌕끼', 'ㄱㅅㄱ', '존나', '좆나', '줫나', '존마니', 'ㅈㄴ',
+    '좆', '줫', '찌찌', '보지', '자지', '꼬추', '섹스', '색스', '쎅스', '꼴린다', '야동', '야사',
+    '느금마', '느검마', '니엄마', '니아빠', '엠창', '애미', '애비', 'ㅁㅊ', '한남', '맘충', '틀딱', '장애인', '짱깨', '쪽발이',
+    '야르', '야발', '야기분좋다', '노무', '잼민이', '억까', '억빠'
+  ];
+  const clean = text.replace(/[^a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ]/g, '').toLowerCase();
+  if (clean === '찐') return true;
+  for (const w of badWords) if (clean.includes(w.replace(/\s+/g, '').toLowerCase())) return true;
+  return false;
+}
+const REGIONS = ['서울', '경기', '인천', '부산', '대구', '광주', '대전', '울산', '세종', '강원', '충북', '충남', '전북', '전남', '경북', '경남', '제주'];
+
+/* ========================================================================
+   10. 문제 은행 — 교과서(86~106쪽)·수학익힘(53~68쪽) 범위의 유형을 바탕으로
+   숫자만 바꾸는 방식이 아니라 "개념·상황·오류 찾기·조작 활동"별 생성기로 구성했습니다.
+   모든 정답은 정수 기반 계산(mul/add/cmp)으로 구하고, 보기는 서로 겹치지 않는지 검증합니다.
+======================================================================== */
+const LESSON = {
+  1: '(소수)×(자연수) ⑴ 소수 한 자리 수', 2: '(소수)×(자연수) ⑵ 소수 두 자리 수',
+  3: '(자연수)×(소수) ⑴ 소수 한 자리 수', 4: '(자연수)×(소수) ⑵ 소수 두 자리 수',
+  5: '(소수)×(소수) ⑴ 소수 한 자리 수', 6: '(소수)×(소수) ⑵ 소수 두 자리 수',
+  7: '곱의 소수점 위치', 8: '생활 속 문제해결'
+};
+const PAGES = { 1: '교과서 86~87쪽', 2: '교과서 88~89쪽', 3: '교과서 90~91쪽', 4: '교과서 92~93쪽', 5: '교과서 94~95쪽', 6: '교과서 96~97쪽', 7: '교과서 98~99쪽', 8: '교과서 100~101쪽' };
+const CON = {
+  cnt: { t: '0.1이 몇 개인지 생각하기', d: `0.3은 0.1이 3개인 수예요. 그래서 0.3×4는 0.1이 3×4=12개이고, 0.1이 12개이면 1.2예요. 0.12처럼 두 자리 수는 0.01이 몇 개인지 생각해요.` },
+  frac: { t: '분수의 곱셈으로 계산하기', d: `소수를 분수로 바꾸어 곱해요. 1.4×6 = 14/10×6 = 84/10 = 8.4. 소수 한 자리는 분모 10, 두 자리는 분모 100이에요.` },
+  int: { t: '자연수의 곱셈 이용하기', d: `14×6=84에서 1.4는 14의 1/10배이니까 곱도 84의 1/10배, 즉 8.4예요. 곱해지는 수가 1/10배, 1/100배가 되면 곱도 1/10배, 1/100배가 돼요.` },
+  line: { t: '(자연수)×(소수)와 수직선', d: `2의 0.1배는 0.2예요. 그러면 2의 0.9배는 0.2가 9개이므로 1.8이에요. 수직선에서 0.1씩 10칸으로 나누어 생각해요.` },
+  area: { t: '넓이 모델로 (소수)×(소수) 이해하기', d: `가로 0.8, 세로 0.6인 직사각형을 모눈(한 칸=0.01)에 색칠하면 8×6=48칸이에요. 0.01이 48개이므로 0.8×0.6=0.48이에요.` },
+  dp: { t: '곱의 소수점 위치', d: `소수점을 없애고 자연수처럼 곱한 뒤, <b>두 수의 소수점 아래 자릿수의 합</b>만큼 오른쪽에서 소수점을 찍어요. 3.4×1.7 → 34×17=578, 1+1=2자리 → 5.78.` },
+  shift: { t: '10, 100, 1000 / 0.1, 0.01, 0.001을 곱할 때', d: `×10, ×100, ×1000은 소수점이 오른쪽으로 1, 2, 3칸, ×0.1, ×0.01, ×0.001은 왼쪽으로 1, 2, 3칸 움직여요.` },
+  est: { t: '어림셈으로 확인하기', d: `수를 가까운 자연수로 바꾸어 곱하면 계산 결과의 크기를 알 수 있어요. 4.32×1.8 → 4×2=8이니까 결과는 8쯤이어야 해요 (7.776).` },
+  cmp: { t: '곱셈에서 1과 비교하기', d: `어떤 수에 <b>1보다 작은 수</b>를 곱하면 원래 수보다 작아지고, <b>1보다 큰 수</b>를 곱하면 원래 수보다 커져요.` },
+  zero: { t: '앞의 0과 끝의 0', d: `자연수 곱의 자릿수가 모자라면 앞에 0을 채우고(0.04×0.7=0.028), 소수의 끝자리 0은 생략해요(0.30=0.3).` },
+  ctx: { t: '생활 속 곱셈식 세우기', d: `'한 번에 ~씩 ~번', '~의 ~배', '둘레와 넓이'처럼 같은 양을 여러 번 또는 몇 배 할 때는 곱셈식을 세워요.` },
+  err: { t: '계산 과정에서 잘못된 곳 찾기', d: `① 자연수의 곱셈이 맞는지 ② 분모나 1/10배·1/100배가 맞는지 ③ 소수점 위치가 맞는지 차례로 확인해요.` },
+  ord: { t: '곱의 크기 비교하기', d: `곱을 모두 구해 소수점 위치를 맞춘 뒤 크기를 비교해요. 곱하는 수가 1보다 작은지 큰지도 힌트가 돼요.` }
+};
+
+/* ---- 조사(을/를, 이/가 …) ---- */
+function jos(word, pair) {
+  const [a, b] = pair.split('/');
+  const ch = String(word).slice(-1);
+  let jong;
+  if (/[0-9]/.test(ch)) jong = '013678'.includes(ch) ? ('1' === ch || '7' === ch || '8' === ch || '0' === ch || '3' === ch || '6' === ch ? ch : '') : '';
+  else if (/[가-힣]/.test(ch)) jong = ((ch.charCodeAt(0) - 0xAC00) % 28) !== 0 ? ch : '';
+  else if (/[Ll]/.test(ch)) jong = 'l';       // L(엘)
+  else if (/[Mm]/.test(ch)) jong = 'm';       // m(엠)
+  else jong = '';
+  if (pair === '으로/로') { if (!jong) return b; if (/[가-힣]/.test(jong) && ((jong.charCodeAt(0) - 0xAC00) % 28) === 8) return b; return '1780'.includes(jong) && /[0-9]/.test(jong) ? (jong === '0' ? a : b) : a; }
+  return jong ? a : b;
+}
+
+function Q(o) {
+  const q = Object.assign({ figure: '', extra: 0, explain: '', meta: {}, concept: 'dp' }, o);
+  q.time = DIFF[q.diff].time + q.extra;
+  q.tag = LESSON[q.lesson] || '';
+  q.sig = q.gen + '|' + JSON.stringify(q.meta);
+  return q;
+}
+const STEP = (h) => `<div class="st">${h}</div>`;
+
+/* ---- 풀이(설명) ---- */
+function estLine(a, b) {
+  const ra = Math.round(val(a)), rb = Math.round(val(b));
+  if (ra < 1 || rb < 1) return '';
+  return STEP(`<b>어림</b> ${S(a)}은 약 ${ra}, ${S(b)}은 약 ${rb} → ${ra}×${rb}=${ra * rb}이니까 계산 결과가 ${ra * rb}과 비슷한지 확인해요.`);
+}
+function explainMul(a, b) {
+  const A = a.n, B = b.n, Pn = A * B, T = a.d + b.d, c = mul(a, b);
+  const pad = String(Pn).padStart(T + 1, '0');
+  const rawS = T ? pad.slice(0, pad.length - T) + '.' + pad.slice(pad.length - T) : pad;
+  let h = STEP(`<b>① 자연수의 곱셈</b> 소수점이 없다고 생각하고 ${A} × ${B} = <b>${Pn}</b>`);
+  h += STEP(`<b>② 소수점 아래 자릿수</b> ${a.d} + ${b.d} = <b>${T}</b>자리`);
+  h += STEP(`<b>③ 소수점 찍기</b> ${Pn}의 오른쪽에서 ${T}칸 앞에 소수점 → ${Hs(rawS)}${rawS !== S(c) ? ` (소수 끝의 0은 생략) → <b>${H(c)}</b>` : ''}`);
+  h += STEP(`<b>분수로 풀면</b> ${fr(a)} × ${fr(b)} = ${F(Pn, P10(T))} = <b>${H(c)}</b>`);
+  return h + estLine(a, b);
+}
+
+/* ---- 그림(SVG) ---- */
+function gridSVG(w, h, o) {
+  o = o || {}; const S0 = o.size || 150, c = S0 / 10;
+  let s = `<svg class="gridfig" viewBox="-30 -6 ${S0 + 42} ${S0 + 28}" role="img" aria-label="모눈 ${w}×${h}">`;
+  s += `<rect x="0" y="0" width="${S0}" height="${S0}" fill="#0B1230" stroke="#5B6BB5" stroke-width="1.5"/>`;
+  s += `<rect x="0" y="${S0 - h * c}" width="${w * c}" height="${h * c}" fill="rgba(251,191,36,.55)"/>`;
+  for (let i = 0; i <= 10; i++) { s += `<line x1="${i * c}" y1="0" x2="${i * c}" y2="${S0}" stroke="#3E4C8F" stroke-width=".7"/><line x1="0" y1="${i * c}" x2="${S0}" y2="${i * c}" stroke="#3E4C8F" stroke-width=".7"/>`; }
+  s += `<rect x="0" y="${S0 - h * c}" width="${w * c}" height="${h * c}" fill="none" stroke="#FACC15" stroke-width="2"/>`;
+  s += `<text x="0" y="${S0 + 12}" font-size="9" fill="#9AA6D1" text-anchor="middle">0</text><text x="${S0}" y="${S0 + 12}" font-size="9" fill="#9AA6D1" text-anchor="middle">1</text>`;
+  s += `<text x="-5" y="${S0 + 3}" font-size="9" fill="#9AA6D1" text-anchor="end">0</text><text x="-5" y="6" font-size="9" fill="#9AA6D1" text-anchor="end">1</text>`;
+  if (o.labels) { s += `<text x="${w * c / 2}" y="${S0 + 12}" font-size="10" fill="#FACC15" text-anchor="middle" font-weight="800">${o.labels[0]}</text><text x="-5" y="${S0 - h * c / 2 + 3}" font-size="10" fill="#FACC15" text-anchor="end" font-weight="800">${o.labels[1]}</text>`; }
+  return s + '</svg>';
+}
+function jumpSVG(a, m) {
+  const W = 340, x0 = 18, x1 = 322, step = (x1 - x0) / m;
+  let s = `<svg class="jumpfig" viewBox="0 0 ${W} 100" role="img" aria-label="뛰어 세기">`;
+  s += `<line x1="${x0 - 8}" y1="62" x2="${x1 + 12}" y2="62" stroke="#7C8BD0" stroke-width="2"/>`;
+  for (let i = 0; i <= m; i++) {
+    const x = x0 + i * step, lab = i === 0 ? '0' : i === m ? '?' : S(mul(a, natD(i)));
+    s += `<line x1="${x}" y1="55" x2="${x}" y2="69" stroke="#C4B5FD" stroke-width="2"/><text x="${x}" y="88" font-size="13" font-weight="800" fill="${i === m ? '#FACC15' : '#E5E9FF'}" text-anchor="middle">${lab}</text>`;
+    if (i < m) { const nx = x + step; s += `<path d="M${x + 3} 55 Q${(x + nx) / 2} 12 ${nx - 3} 55" fill="none" stroke="#F472B6" stroke-width="2.2"/><path d="M${nx - 3} 55 l-6 -5 m6 5 l-7 1" stroke="#F472B6" stroke-width="2" fill="none"/><text x="${(x + nx) / 2}" y="20" font-size="11" fill="#F9A8D4" text-anchor="middle" font-weight="800">+${S(a)}</text>`; }
+  }
+  return s + '</svg>';
+}
+
+/* ========================================================================
+   객관식 · 계산
+======================================================================== */
+function calcQ(o) {
+  const { a, b } = o, corr = mul(a, b), lesson = o.lesson || (b.d === 0 ? (a.d === 1 ? 1 : 2) : a.d === 0 ? (b.d === 1 ? 3 : 4) : (a.d + b.d <= 2 ? 5 : 6));
+  const meta = { t: 'calc', a: S(a), b: S(b) };
+  const stageExp = explainMul(a, b);
+  const head = `<div class="q-main">${o.mode === 'input' ? '다음을 계산해 보세요. (정답을 직접 입력)' : '다음을 계산한 값을 찾아보세요.'}</div><div class="bigexpr">${expr(a, b)}${o.mode === 'input' ? ' = <span class="blankq">?</span>' : ''}</div>`;
+  let stage;
+  if (o.mode === 'input') stage = { type: 'input', ans: corr, unit: '', title: '' };
+  else {
+    const ds = pickDistractors(corr, { rawN: a.n * b.n, d1: a.d, d2: b.d, slip: o.slip });
+    stage = mcStage({ right: numOpt(corr), wrongs: ds.map(d => Object.assign(numOpt(d.val), { why: d.why })) });
+  }
+  return Q({ gen: o.gen, diff: o.diff, lesson, concept: 'dp', text: head, stages: [stage], extra: o.mode === 'input' ? 10 : 0, explain: stageExp, meta });
+}
+const gCalcA1 = () => calcQ({ gen: 'calcA1', diff: 1, a: rd(1, 1, 9), b: natD(rnd(2, 6)) });
+const gCalcA2 = () => {
+  if (Math.random() < 0.35) { const a = rd(1, 1, 9), b = natD(pick([11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25])); return calcQ({ gen: 'calcA2', diff: 2, a, b, slip: true }); }
+  return calcQ({ gen: 'calcA2', diff: 2, a: rd(2, 0, 5), b: natD(rnd(2, 9)) });
+};
+const gCalcB1 = () => calcQ({ gen: 'calcB1', diff: 1, a: natD(rnd(2, 9)), b: rd(1, 0, 3) });
+const gCalcB2 = () => calcQ({ gen: 'calcB2', diff: 2, a: natD(rnd(2, 9)), b: rd(2, 0, 3) });
+const gCalcC1 = () => calcQ({ gen: 'calcC1', diff: 2, a: rd(1, 0, 6), b: rd(1, 0, 6) });
+const gCalcC2 = () => Math.random() < 0.5 ? calcQ({ gen: 'calcC2', diff: 2, a: rd(2, 0, 5), b: rd(1, 0, 4) }) : calcQ({ gen: 'calcC2', diff: 2, a: rd(1, 0, 4), b: rd(2, 0, 5) });
+const gCalcC2h = () => Math.random() < 0.5 ? calcQ({ gen: 'calcC2h', diff: 3, a: rd(2, 1, 9), b: rd(1, 1, 9), slip: true }) : calcQ({ gen: 'calcC2h', diff: 3, a: rd(1, 1, 9), b: rd(2, 1, 9), slip: true });
+const gInputCalc = () => {
+  const k = pick(['A', 'B', 'C']);
+  if (k === 'A') return calcQ({ gen: 'inputCalc', diff: 2, mode: 'input', a: rd(2, 0, 6), b: natD(rnd(2, 9)) });
+  if (k === 'B') return calcQ({ gen: 'inputCalc', diff: 2, mode: 'input', a: natD(rnd(2, 9)), b: rd(2, 0, 4) });
+  return calcQ({ gen: 'inputCalc', diff: 2, mode: 'input', a: rd(1, 1, 9), b: rd(1, 1, 9) });
+};
+
+/* ---- 개념: 0.1이 몇 개? ---- */
+function gUnit01() {
+  const k = rnd(2, 9), m = rnd(3, 6), a = { n: k, d: 1 }, p = mul(a, natD(m));
+  const right = { html: `${k * m}개`, text: `${k * m}개` };
+  const wrongs = [
+    { html: `${k + m}개`, text: `${k + m}개`, why: `${k}개씩 ${m}번 '더하는' 것이 아니라 ${k}×${m}으로 곱해야 해요.` },
+    { html: `${k}개`, text: `${k}개`, why: `${k}개는 ${H(a)} 그대로예요. ${m}배를 해야 해요.` },
+    { html: `${k * m * 10}개`, text: `${k * m * 10}개`, why: `개수가 너무 많아요. 0.1이 ${k * m}개이면 ${H(p)}이에요.` }
+  ];
+  return Q({
+    gen: 'unit01', diff: 1, lesson: 1, concept: 'cnt',
+    text: `<div class="q-main">${expr(a, natD(m))}는 <b>0.1이 몇 개</b>인 수와 같을까요?</div>`,
+    stages: [mcStage({ right, wrongs })],
+    explain: STEP(`${H(a)}은 0.1이 ${k}개인 수예요.`) + STEP(`${expr(a, natD(m))}는 0.1이 ${k}×${m}=<b>${k * m}</b>개인 수예요.`) + STEP(`0.1이 ${k * m}개 → <b>${H(p)}</b>`),
+    meta: { t: 'unit01', k, m }
+  });
+}
+function gUnit02() {
+  const n2 = pick([11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 35]), m = rnd(2, 4), a = { n: n2, d: 2 }, p = mul(a, natD(m));
+  const right = { html: `${n2 * m}개`, text: `${n2 * m}개` };
+  const wrongs = [
+    { html: `${n2 + m}개`, text: `${n2 + m}개`, why: `더하기가 아니라 곱셈이에요. 0.01이 ${n2}개씩 ${m}번이니까 ${n2}×${m}!` },
+    { html: `${n2}개`, text: `${n2}개`, why: `${H(a)} 자체가 0.01이 ${n2}개예요. ${m}배를 해야 해요.` },
+    { html: `${n2 * m * 10}개`, text: `${n2 * m * 10}개`, why: `0.01이 ${n2 * m}개이면 ${H(p)}이에요. 개수를 10배로 잘못 셌어요.` }
+  ];
+  return Q({
+    gen: 'unit02', diff: 1, lesson: 2, concept: 'cnt',
+    text: `<div class="q-main">${expr(a, natD(m))}는 <b>0.01이 몇 개</b>인 수와 같을까요?</div>`,
+    stages: [mcStage({ right, wrongs })],
+    explain: STEP(`${H(a)}은 0.01이 ${n2}개인 수예요.`) + STEP(`${expr(a, natD(m))}는 0.01이 ${n2}×${m}=<b>${n2 * m}</b>개인 수예요.`) + STEP(`0.01이 ${n2 * m}개 → <b>${H(p)}</b>`),
+    meta: { t: 'unit02', n2, m }
+  });
+}
+function gFrac10() {
+  const dp = pick([1, 2]), a = dp === 1 ? rd(1, 1, 9) : rd(2, 1, 5), m = rnd(2, 6), A = a.n;
+  const mk = (num, den, ok, why) => ({ html: den === 'x' ? `${num}배` : `${F(1, num)}배`, text: den === 'x' ? `${num}배` : `1/${num}배`, why: why || '' });
+  const right = { html: `${F(1, P10(dp))}배`, text: `1/${P10(dp)}배` };
+  const pool = [{ v: 10, t: 'up' }, { v: 100, t: 'up' }, { v: 10, t: 'down' }, { v: 100, t: 'down' }, { v: 1000, t: 'down' }].filter(x => !(x.t === 'down' && x.v === P10(dp)));
+  const wrongs = shuffle(pool).slice(0, 3).map(x => x.t === 'up'
+    ? { html: `${x.v}배`, text: `${x.v}배`, why: `${H(a)}은 ${A}보다 작은 수예요. 곱도 작아져야 하니까 ${x.v}배로 커지지 않아요.` }
+    : { html: `${F(1, x.v)}배`, text: `1/${x.v}배`, why: `소수 ${dp === 1 ? '한' : '두'} 자리 수는 ${A}의 1/${P10(dp)}배예요. 소수점 아래 자릿수를 다시 세어 보세요.` });
+  return Q({
+    gen: 'frac10', diff: 1, lesson: dp === 1 ? 1 : 2, concept: 'int',
+    text: `<div class="q-main"><b>${A} × ${m} = ${A * m}</b>입니다. ${expr(a, natD(m))}의 값은 ${A * m}의 몇 배일까요?</div>`,
+    stages: [mcStage({ right, wrongs })],
+    explain: STEP(`${H(a)}은 ${A}의 ${F(1, P10(dp))}배예요.`) + STEP(`곱해지는 수가 ${F(1, P10(dp))}배가 되면 곱도 ${F(1, P10(dp))}배가 돼요.`) + STEP(`${A * m}의 ${F(1, P10(dp))}배 → <b>${H(mul(a, natD(m)))}</b>`),
+    meta: { t: 'frac10', A, m, dp }
+  });
+}
+function gRepeat() {
+  const a = Math.random() < 0.6 ? rd(1, 0, 0) : rd(2, 0, 0), m = rnd(3, 5), corr = mul(a, natD(m));
+  const ds = pickDistractors(corr, { rawN: a.n * m, d1: a.d, d2: 0 });
+  return Q({
+    gen: 'repeat', diff: 1, lesson: a.d === 1 ? 1 : 2, concept: 'cnt', figure: `<div class="fig">${jumpSVG(a, m)}</div>`,
+    text: `<div class="q-main">수직선에서 ${H(a)}씩 ${m}번 뛰어 세었어요. <b>${expr(a, natD(m))}</b>의 값은?</div>`,
+    stages: [mcStage({ right: numOpt(corr), wrongs: ds.map(d => Object.assign(numOpt(d.val), { why: d.why })) })],
+    explain: STEP(`${H(a)}씩 ${m}번 뛰어 세는 것은 ${H(a)}을 ${m}번 더하는 것과 같아요.`) + explainMul(a, natD(m)),
+    meta: { t: 'calc', a: S(a), b: String(m) }
+  });
+}
+
+/* ---- 곱과 1의 비교 ---- */
+function gCmpBase() {
+  const a = rd(1, 1, 9), small = Math.random() < 0.5, f = small ? rd(1, 0, 0) : rd(1, 1, 1);
+  const fv = f; const corr = small ? '더 작아요' : '더 커요';
+  const right = { html: corr, text: corr };
+  const wrongs = [small ? '더 커요' : '더 작아요', '같아요'].map(t => ({ html: t, text: t, why: t === '같아요' ? '곱하는 수가 1일 때만 원래 수와 같아요.' : (small ? `곱하는 수 ${H(f)}가 1보다 작으니까 곱은 ${H(a)}보다 작아져요.` : `곱하는 수 ${H(f)}가 1보다 크니까 곱은 ${H(a)}보다 커져요.`) }));
+  return Q({
+    gen: 'cmpBase', diff: 1, lesson: 3, concept: 'cmp',
+    text: `<div class="q-main">${expr(a, f)}의 곱은 ${H(a)}보다 어떨까요? (계산하지 않고 생각해 보세요)</div>`,
+    stages: [mcStage({ right, wrongs, layout: 'row3' })],
+    explain: STEP(`${H(f)}은 ${small ? '1보다 작은' : '1보다 큰'} 수예요.`) + STEP(`어떤 수에 ${small ? '1보다 작은 수를 곱하면 원래 수보다 작아지고' : '1보다 큰 수를 곱하면 원래 수보다 커지고'} 있어요.`) + STEP(`확인: ${expr(a, f)} = <b>${H(mul(a, f))}</b> ${small ? '<' : '>'} ${H(a)}`),
+    meta: { t: 'cmpBase', a: S(a), f: S(f), ans: small ? 'less' : 'greater' }
+  });
+}
+
+/* ---- 10, 100, 1000 / 0.1, 0.01, 0.001 ---- */
+function gShiftUp() {
+  const a = pick([rd(1, 0, 9), rd(2, 0, 9)]), z = rnd(1, 3), k = P10(z), corr = mul(a, natD(k));
+  const ds = pickDistractors(corr, {});
+  return Q({
+    gen: 'shiftUp', diff: 1, lesson: 7, concept: 'shift',
+    text: `<div class="q-main">곱의 소수점 위치를 생각하며 계산해 보세요.</div><div class="bigexpr">${expr(a, natD(k))}</div>`,
+    stages: [mcStage({ right: numOpt(corr), wrongs: ds.map(d => Object.assign(numOpt(d.val), { why: d.why })) })],
+    explain: STEP(`${k}는 0이 ${z}개 → 곱하는 수가 ${P10(z)}배가 되면 소수점이 <b>오른쪽으로 ${z}칸</b> 움직여요.`) + STEP(`${H(a)} → <b>${H(corr)}</b>${corr.d === 0 && a.d < z ? ' (모자라는 자리는 0으로 채워요)' : ''}`) + STEP(`분수로: ${fr(a)} × ${k} = ${F(a.n * k, P10(a.d))} = ${H(corr)}`),
+    meta: { t: 'calc', a: S(a), b: String(k) }
+  });
+}
+function gShiftDown() {
+  const z = rnd(1, 3), a = pick([natD(pick([528, 76, 345, 4251, 62, 819, 357, 94])), rd(1, 10, 99)]), b = V('0.' + '0'.repeat(z - 1) + '1'), corr = mul(a, b);
+  const ds = pickDistractors(corr, {});
+  return Q({
+    gen: 'shiftDown', diff: 2, lesson: 7, concept: 'shift',
+    text: `<div class="q-main">곱의 소수점 위치를 생각하며 계산해 보세요.</div><div class="bigexpr">${expr(a, b)}</div>`,
+    stages: [mcStage({ right: numOpt(corr), wrongs: ds.map(d => Object.assign(numOpt(d.val), { why: d.why })) })],
+    explain: STEP(`${S(b)}은 ${F(1, P10(z))}배예요. 곱하는 수가 ${F(1, P10(z))}배가 되면 소수점이 <b>왼쪽으로 ${z}칸</b> 움직여요.`) + STEP(`${H(a)} → <b>${H(corr)}</b>${a.d < z ? ' (앞의 빈 자리는 0으로 채워요)' : ''}`),
+    meta: { t: 'calc', a: S(a), b: S(b) }
+  });
+}
+/* ---- 곱셈 결과 이용하기 (보기를 이용하여 계산) ---- */
+function reuseQ(o) {
+  let A, B, dpA, dpB;
+  for (let t = 0; t < 200; t++) {
+    A = rnd(12, 99); B = rnd(12, 99); if (A % 10 === 0 || B % 10 === 0) continue;
+    [dpA, dpB] = pick(o.combos);
+    if (dpA === 0 && B < 10) continue;
+    break;
+  }
+  const a = { n: A, d: dpA }, b = { n: B, d: dpB }, corr = mul(a, b), T = dpA + dpB, P = A * B;
+  const ds = pickDistractors(corr, { rawN: P, d1: dpA, d2: dpB, slip: o.slip });
+  return Q({
+    gen: o.gen, diff: o.diff, lesson: 7, concept: 'dp',
+    text: `<div class="q-main"><b>${A} × ${B} = ${P}</b>입니다. 이것을 이용하여 아래 곱셈의 값을 구해 보세요.</div><div class="bigexpr">${expr(a, b)}</div>`,
+    stages: [mcStage({ right: numOpt(corr), wrongs: ds.map(d => Object.assign(numOpt(d.val), { why: d.why })) })],
+    explain: STEP(`${H(a)}은 ${A}의 ${dpA ? F(1, P10(dpA)) + '배' : '1배'}, ${H(b)}은 ${B}의 ${dpB ? F(1, P10(dpB)) + '배' : '1배'}예요.`) + STEP(`소수점 아래 자릿수의 합 ${dpA} + ${dpB} = <b>${T}</b> → ${P}의 오른쪽에서 ${T}칸 앞에 소수점!`) + STEP(`${expr(a, b)} = <b>${H(corr)}</b>`),
+    meta: { t: 'calc', a: S(a), b: S(b), given: P }
+  });
+}
+const gReuse = () => reuseQ({ gen: 'reuse', diff: 2, combos: [[1, 1], [0, 1], [1, 0], [2, 0], [0, 2], [1, 2], [2, 1]] });
+const gReuseH = () => reuseQ({ gen: 'reuseH', diff: 3, combos: [[2, 2], [1, 2], [2, 1]], slip: true });
+
+/* ---- 소수점 위치 찾기 (직접 찍기) ---- */
+function gPlaceA() {
+  let A, B, dpA, dpB, P;
+  for (let t = 0; t < 300; t++) {
+    A = rnd(12, 99); B = rnd(12, 99); [dpA, dpB] = pick([[1, 1], [0, 2], [2, 0], [1, 1], [1, 2], [2, 1], [0, 1], [1, 0]]);
+    if (A % 10 === 0 || B % 10 === 0) continue; P = A * B; if (P % 10 === 0) continue;
+    if (String(P).length <= dpA + dpB) continue; break;
+  }
+  const a = { n: A, d: dpA }, b = { n: B, d: dpB }, corr = mul(a, b), T = dpA + dpB;
+  const digits = String(P), pos = digits.length - T;
+  return Q({
+    gen: 'placeA', diff: 1, lesson: 7, concept: 'dp', extra: 10,
+    text: `<div class="q-main"><b>${A} × ${B} = ${P}</b>입니다. ${expr(a, b)}의 곱에 <b>소수점을 찍어</b> 보세요.<small class="hint">숫자 사이의 ▾를 눌러 소수점 위치를 정해요.</small></div>`,
+    stages: [{ type: 'place', digits, pos, title: '' }],
+    explain: STEP(`${H(a)}의 소수점 아래 자릿수 ${dpA}개 + ${H(b)}의 소수점 아래 자릿수 ${dpB}개 = <b>${T}개</b>`) + STEP(`${P}의 오른쪽에서 ${T}칸 앞에 소수점을 찍으면 → <b>${H(corr)}</b>`) + estLine(a, b),
+    meta: { t: 'calc', a: S(a), b: S(b), given: P, place: pos }
+  });
+}
+/* 앞자리 0 채우기 */
+function gPlaceC() {
+  for (let t = 0; t < 200; t++) {
+    const k = pick([1, 2]); let a, b;
+    if (k === 1) { a = { n: rnd(2, 9), d: 2 }; b = rd(1, 0, 0); } else { a = rd(1, 0, 0); b = rd(1, 0, 0); }
+    const corr = mul(a, b), P = a.n * b.n, T = a.d + b.d;
+    if (String(P).length > T - 0 && !(String(P).length <= T - 1)) continue;
+    if (corr.d <= 1 && k === 2 && P % 10 === 0) continue;
+    if (String(P).length > T - 1) continue;    // 앞에 0이 필요한 경우만
+    const special = { val: nz({ n: P, d: String(P).length }), why: `곱의 소수점 아래 자릿수가 ${T}자리인데 숫자가 ${String(P).length}개뿐이에요. <b>앞에 0을 채워야</b> 해요.` };
+    let ds = pickDistractors(corr, { rawN: P, d1: a.d, d2: b.d });
+    ds = ds.filter(d => S(d.val) !== S(special.val));
+    const list = [special].concat(ds).slice(0, 3);
+    if (S(special.val) === S(corr) || list.length < 3) continue;
+    return Q({
+      gen: 'placeC', diff: 3, lesson: 7, concept: 'zero',
+      text: `<div class="q-main">다음을 계산한 값을 찾아보세요. <small class="hint">앞에 0이 필요한지 생각해요.</small></div><div class="bigexpr">${expr(a, b)}</div>`,
+      stages: [mcStage({ right: numOpt(corr), wrongs: list.map(d => Object.assign(numOpt(d.val), { why: d.why })) })],
+      explain: STEP(`<b>① 자연수의 곱셈</b> ${a.n} × ${b.n} = ${P}`) + STEP(`<b>② 소수점 아래 자릿수</b> ${a.d} + ${b.d} = ${T}자리`) + STEP(`<b>③</b> ${P}는 ${String(P).length}자리뿐이라 모자라요. 앞에 0을 채워서 소수점 아래 ${T}자리를 만들어요 → <b>${H(corr)}</b>`),
+      meta: { t: 'calc', a: S(a), b: S(b) }
+    });
+  }
+  throw new Error('placeC');
+}
+
+/* ---- 어림셈 ---- */
+function gEstimateMC() {
+  for (let t = 0; t < 200; t++) {
+    const a = rd(1, 1, 9, { noHalf: true }); const natB = Math.random() < 0.5;
+    const b = natB ? natD(rnd(2, 9)) : rd(1, 1, 9, { noHalf: true });
+    const ra = Math.round(val(a)), rb = Math.round(val(b)), est = ra * rb;
+    if (est < 4 || est === ra + rb || est % 10 === 0 || est * 10 === ra + rb) continue;
+    const e10 = shiftD(natD(est), -1);
+    const right = { html: `약 ${est}`, text: `약 ${est}` };
+    const wrongs = [
+      { html: `약 ${S(e10)}`, text: `약 ${S(e10)}`, why: `곱이 ${S(e10)}쯤이면 너무 작아요. 어림한 곱 ${ra}×${rb}=${est}을 다시 확인해요.` },
+      { html: `약 ${est * 10}`, text: `약 ${est * 10}`, why: `곱이 ${est * 10}쯤이면 너무 커요. 어림한 곱 ${ra}×${rb}=${est}이에요.` },
+      { html: `약 ${ra + rb}`, text: `약 ${ra + rb}`, why: `어림도 '곱셈'으로 해야 해요. ${ra}과 ${rb}을 더한 것이 아니에요.` }
+    ];
+    const corr = mul(a, b);
+    return Q({
+      gen: 'estimateMC', diff: 2, lesson: 8, concept: 'est',
+      text: `<div class="q-main">어림셈으로 <b>${expr(a, b)}</b>의 결과가 얼마쯤 될지 찾아보세요. <small class="hint">각 수를 가까운 자연수로 바꾸어 곱해요.</small></div>`,
+      stages: [mcStage({ right, wrongs })],
+      explain: STEP(`${S(a)}은 약 ${ra}, ${S(b)}은 약 ${rb}`) + STEP(`${ra} × ${rb} = <b>${est}</b> → 약 ${est}`) + STEP(`실제 계산: ${expr(a, b)} = <b>${H(corr)}</b> (어림한 값과 비슷해요!)`),
+      meta: { t: 'estimateMC', a: S(a), b: S(b), ans: est }
+    });
+  }
+  throw new Error('estimateMC');
+}
+function gEstimatePlace() {
+  for (let t = 0; t < 300; t++) {
+    const a = rd(1, 1, 9, { noHalf: true }), natB = Math.random() < 0.4;
+    const b = natB ? natD(rnd(3, 9)) : rd(1, 1, 9, { noHalf: true });
+    const corr = mul(a, b), est = Math.round(val(a)) * Math.round(val(b)), r = val(corr) / est;
+    if (r < 0.6 || r > 1.65 || corr.d === 0) continue;
+    const digs = String(corr.n);
+    const cands = [shiftD(corr, 2), shiftD(corr, 1), corr, shiftD(corr, -1)].map(nz).sort((x, y) => cmp(x, y));
+    const items = cands.map(c => Object.assign(numOpt(c), { ok: eq(c, corr), why: `어림한 값 ${est}과 많이 달라요. 소수점 위치를 다시 생각해 보세요.` }));
+    const right = items.find(i => i.ok), wrongs = items.filter(i => !i.ok);
+    return Q({
+      gen: 'estimatePlace', diff: 2, lesson: 8, concept: 'est',
+      text: `<div class="q-main">${expr(a, b)}의 계산에서 소수점이 지워져 숫자 <b class="big2">${digs}</b>만 보여요. <b>어림셈</b>으로 소수점을 알맞게 찍은 값을 찾아보세요.</div>`,
+      stages: [mcStage({ right, wrongs, keepOrder: true })],
+      explain: STEP(`${S(a)}은 약 ${Math.round(val(a))}, ${S(b)}은 약 ${Math.round(val(b))} → 어림한 곱 <b>${est}</b>`) + STEP(`숫자 ${digs}에서 ${est}과 가장 비슷해지도록 소수점을 찍으면 → <b>${H(corr)}</b>`) + STEP(`소수점 아래 자릿수의 합 ${a.d}+${b.d}=${a.d + b.d}자리로도 확인할 수 있어요.`),
+      meta: { t: 'calc', a: S(a), b: S(b) }
+    });
+  }
+  throw new Error('estimatePlace');
+}
+
+/* ---- 곱의 크기 비교 ---- */
+function gCompare() {
+  for (let t = 0; t < 200; t++) {
+    const equal = Math.random() < 0.28;
+    let a, b, c, d;
+    if (equal) {
+      const A = rnd(12, 79), B = rnd(2, 9); if (A % 10 === 0) continue;
+      const T = rnd(1, 2); const dpA = rnd(0, Math.min(T, 2)), dpB = T - dpA; const dpC = rnd(0, Math.min(T, 2)), dpD = T - dpC;
+      if (dpA === dpC) continue;
+      a = { n: A, d: dpA }; b = { n: B, d: dpB }; c = { n: A, d: dpC }; d = { n: B, d: dpD };
+    } else {
+      a = rd(pick([0, 1]), 2, 9); b = rd(pick([1, 2]), 1, 9); c = rd(pick([0, 1]), 2, 9); d = rd(pick([1, 2]), 1, 9);
+    }
+    if (a.d + b.d > 3 || c.d + d.d > 3) continue;
+    const p1 = mul(a, b), p2 = mul(c, d), r = cmp(p1, p2);
+    if (!equal && Math.abs(val(p1) - val(p2)) < 0.4) continue;
+    if (equal && r !== 0) continue;
+    const ans = r === 0 ? '=' : r > 0 ? '>' : '<';
+    const mkw = s => ({ html: `<b class="sym">${s}</b>`, text: s, why: '' });
+    const right = mkw(ans), wrongs = ['>', '=', '<'].filter(s => s !== ans).map(mkw);
+    wrongs.forEach(w => { w.why = '두 곱을 각각 구해서 소수점 위치까지 맞추어 비교해요.'; });
+    const dispOrder = ['>', '=', '<'].map(s => s === ans ? right : wrongs.find(w => w.text === s));
+    const st = { type: 'mc', layout: 'row3', title: '', options: dispOrder.map(o => ({ html: o.html, text: o.text, why: o.why || '' })), answer: ['>', '=', '<'].indexOf(ans) };
+    return Q({
+      gen: 'compare', diff: 2, lesson: 7, concept: 'ord',
+      text: `<div class="q-main">곱의 크기를 비교하여 <b>○ 안에 알맞은 기호</b>를 골라 보세요.</div><div class="bigexpr cmpx"><span>${expr(a, b)}</span><span class="circq">○</span><span>${expr(c, d)}</span></div>`,
+      stages: [st],
+      explain: STEP(`${expr(a, b)} = <b>${H(p1)}</b>`) + STEP(`${expr(c, d)} = <b>${H(p2)}</b>`) + STEP(`${H(p1)} ${ans} ${H(p2)}`),
+      meta: { t: 'compare', a: S(a), b: S(b), c: S(c), d: S(d), ans }
+    });
+  }
+  throw new Error('compare');
+}
+
+/* ---- 곱이 같은 것 / 다른 하나 ---- */
+function gSameProd() {
+  for (let t = 0; t < 200; t++) {
+    const A = rnd(12, 98), B = rnd(12, 98); if (A % 10 === 0 || B % 10 === 0 || A === B) continue;
+    const same = shuffle([[0, 2], [1, 1], [2, 0]]);
+    const odd = pick([[1, 2], [2, 1], [0, 1], [1, 0], [2, 2]]);
+    const exprs = same.map(p => ({ a: { n: A, d: p[0] }, b: { n: B, d: p[1] }, odd: false })).concat([{ a: { n: A, d: odd[0] }, b: { n: B, d: odd[1] }, odd: true }]);
+    if (exprs.some(e => e.a.d > 2 || e.b.d > 2)) continue;
+    const ord = shuffle(exprs);
+    const ansIdx = ord.findIndex(e => e.odd);
+    const items = ord.map((e, i) => ({ html: `<b class="circn">${circ[i]}</b> ${expr(e.a, e.b)}`, text: `${circ[i]} ${S(e.a)}×${S(e.b)}`, ok: e.odd, why: e.odd ? '' : `${expr(e.a, e.b)}의 소수점 아래 자릿수의 합이 ${e.a.d + e.b.d}이에요. 곱이 다른 것은 자릿수의 합이 다른 식이에요.` }));
+    const st = { type: 'mc', layout: 'list', title: '', options: items.map(i => ({ html: i.html, text: i.text, why: i.why })), answer: ansIdx };
+    const val0 = mul(exprs[0].a, exprs[0].b);
+    return Q({
+      gen: 'sameProd', diff: 2, lesson: 7, concept: 'dp',
+      text: `<div class="q-main">곱이 <b>다른 하나</b>를 찾아보세요. <small class="hint">모두 계산하지 않아도 풀 수 있어요.</small></div>`,
+      stages: [st],
+      explain: STEP(`${A} × ${B}의 소수점 아래 자릿수의 합이 <b>2</b>이면 곱이 모두 ${H(val0)}이에요.`) + ord.map((e, i) => STEP(`${circ[i]} ${expr(e.a, e.b)}: ${e.a.d}+${e.b.d}=${e.a.d + e.b.d}자리 → ${H(mul(e.a, e.b))}${e.odd ? ' ← <b>다른 하나</b>' : ''}`)).join(''),
+      meta: { t: 'sameProd', exprs: ord.map(e => [S(e.a), S(e.b)]), ans: ansIdx }
+    });
+  }
+  throw new Error('sameProd');
+}
+function gLessThan() {
+  for (let t = 0; t < 400; t++) {
+    const T = pick([6, 8, 9, 12, 15]), wantLess = Math.random() < 0.6;
+    const es = [0, 1, 2].map(() => ({ a: natD(rnd(2, 9)), b: rd(pick([1, 2]), 0, 3) }));
+    es.forEach(e => { e.p = mul(e.a, e.b); e.lt = cmp(e.p, natD(T)); });
+    if (es.some(e => e.lt === 0 || e.p.d > 3)) continue;
+    const cnt = es.filter(e => (wantLess ? e.lt < 0 : e.lt > 0)).length;
+    if (cnt !== 1) continue;
+    const idx = es.findIndex(e => (wantLess ? e.lt < 0 : e.lt > 0));
+    if (new Set(es.map(e => S(e.a) + 'x' + S(e.b))).size < 3) continue;
+    const items = es.map((e, i) => ({ html: `<b class="circn">${circ[i]}</b> ${expr(e.a, e.b)}`, text: `${circ[i]} ${S(e.a)}×${S(e.b)}`, why: `${expr(e.a, e.b)} = ${H(e.p)}이므로 ${T}보다 ${e.lt < 0 ? '작아요' : '커요'}.` }));
+    return Q({
+      gen: 'lessThan', diff: 2, lesson: 4, concept: 'cmp',
+      text: `<div class="q-main">곱이 <b>${T}보다 ${wantLess ? '작은' : '큰'}</b> 것을 찾아보세요.</div>`,
+      stages: [{ type: 'mc', layout: 'list', title: '', options: items.map(i => ({ html: i.html, text: i.text, why: i.why })), answer: idx }],
+      explain: es.map((e, i) => STEP(`${circ[i]} ${expr(e.a, e.b)} = <b>${H(e.p)}</b> → ${T}보다 ${e.lt < 0 ? '작아요' : '커요'}`)).join('') + STEP(`곱하는 수가 1보다 작으면 곱이 줄고, 1보다 크면 곱이 커져요.`),
+      meta: { t: 'lessThan', exprs: es.map(e => [S(e.a), S(e.b)]), T, less: wantLess, ans: idx }
+    });
+  }
+  throw new Error('lessThan');
+}
+
+/* ---- 어림해서 가장 많은/적은 양 찾기 (교과서 104쪽 유형) ---- */
+function gCompareAmount() {
+  for (let t = 0; t < 200; t++) {
+    const nm = shuffle(NAMES).slice(0, 3), base = pick([4, 5, 6, 8, 12]);
+    const thing = pick([['물', 'L'], ['주스', 'L'], ['리본', 'm'], ['끈', 'm'], ['우유', 'L']]);
+    const mode = pick(['min', 'max', 'min']);
+    let f1, f2;
+    if (mode === 'min') { f1 = rd(2, 0, 0, { firstNZ: true }); f1 = nz({ n: rnd(82, 98), d: 2 }); f2 = nz({ n: rnd(102, 118), d: 2 }); }
+    else { f1 = nz({ n: rnd(82, 98), d: 2 }); f2 = nz({ n: rnd(102, 118), d: 2 }); }
+    if (f1.n % 10 === 0 || f2.n % 10 === 0) continue;
+    const v = [natD(base), mul(natD(base), f1), mul(natD(base), f2)];
+    const ext = mode === 'min' ? v.indexOf(v.slice().sort(cmp)[0]) : v.indexOf(v.slice().sort(cmp)[2]);
+    if (new Set(v.map(S)).size < 3) continue;
+    const opts = nm.map((n, i) => ({ html: `<b>${n}</b>`, text: n, why: i === 0 ? `${n}${jos(n, '은/는')} ${base} ${thing[1]} 그대로예요. 1보다 작은 수를 곱한 사람은 ${mode === 'min' ? '더 적고' : '더 줄어들어요'}, 1보다 큰 수를 곱한 사람은 더 많아요.` : `${n}의 양은 ${base} ${thing[1]}의 ${i === 1 ? H(f1) : H(f2)}배예요. ${val(i === 1 ? f1 : f2) < 1 ? '1보다 작은 수를 곱하면 줄어들어요.' : '1보다 큰 수를 곱하면 늘어나요.'}` }));
+    return Q({
+      gen: 'compareAmount', diff: 3, lesson: 4, concept: 'cmp', extra: 10,
+      text: `<div class="q-main"><b>어림셈</b>으로 ${mode === 'min' ? '가장 적은' : '가장 많은'} ${thing[0]}${jos(thing[0], '을/를')} 가진 사람을 찾아보세요.</div><div class="story">${nm[0]}: ${thing[0]} ${base} ${thing[1]}<br>${nm[1]}: ${nm[0]}가 가진 ${thing[0]}의 ${H(f1)}배<br>${nm[2]}: ${nm[0]}가 가진 ${thing[0]}의 ${H(f2)}배</div>`,
+      stages: [{ type: 'mc', layout: 'row3', title: '', options: opts.map(o => ({ html: o.html, text: o.text, why: o.why })), answer: ext }],
+      explain: STEP(`${H(f1)}은 1보다 <b>작고</b>, ${H(f2)}는 1보다 <b>커요</b>.`) + STEP(`${nm[1]}은 ${base}보다 적고, ${nm[2]}는 ${base}보다 많아요.`) + STEP(`확인: ${nm[1]} ${base}×${H(f1)}=${H(v[1])}, ${nm[2]} ${base}×${H(f2)}=${H(v[2])}`) + STEP(`${mode === 'min' ? '가장 적은' : '가장 많은'} 사람은 <b>${nm[ext]}</b>`),
+      meta: { t: 'compareAmount', base, f1: S(f1), f2: S(f2), mode, ans: ext }
+    });
+  }
+  throw new Error('compareAmount');
+}
+
+/* ========================================================================
+   생활 속 계산 미션 (길이·무게·가격·거리·넓이)
+======================================================================== */
+const WP_DN = [
+  (dp) => { const a = rd(dp, 0, 2), n = rnd(3, 9), nm = pick(NAMES); return { a, b: natD(n), unit: 'L', text: `${nm}${jos(nm, '은/는')} 매일 우유를 ${H(a)} L씩 마십니다. ${n}일 동안 마신 우유는 모두 몇 L일까요?` }; },
+  (dp) => { const a = rd(dp, 1, 6), n = pick([12, 15, 20, 25, 30, 40, 60]); return { a, b: natD(n), unit: 'g', text: `구슬 한 개의 무게가 ${H(a)} g입니다. 같은 구슬 ${n}개의 무게는 모두 몇 g일까요?` }; },
+  (dp) => { const a = rd(dp, 0, 2), n = rnd(3, 9); return { a, b: natD(n), unit: 'm', text: `길이가 ${H(a)} m인 리본 ${n}도막을 겹치지 않게 이어 붙였습니다. 이어 붙인 리본의 전체 길이는 몇 m일까요?` }; },
+  (dp) => { const a = rd(dp, 0, 3); return { a, b: natD(4), unit: 'm', text: `한 변의 길이가 ${H(a)} m인 정사각형 모양의 액자가 있습니다. 이 액자의 둘레는 몇 m일까요?` }; },
+  (dp) => { const a = rd(dp, 1, 5); return { a, b: natD(4), unit: 'm', text: `한 변의 길이가 ${H(a)} m인 마름모 모양의 텃밭이 있습니다. 이 텃밭의 둘레는 몇 m일까요?` }; },
+  (dp) => { const a = rd(dp, 0, 0), n = rnd(12, 40); return { a, b: natD(n), unit: '킬로칼로리', text: `계단을 한 칸 오를 때마다 열량 ${H(a)} 킬로칼로리를 소모한다고 합니다. 계단 ${n}칸을 오르면 소모하는 열량은 몇 킬로칼로리일까요?` }; },
+  (dp) => { const a = rd(dp, 0, 1), n = rnd(8, 30); return { a, b: natD(n), unit: 'm', text: `한 걸음의 길이가 ${H(a)} m인 학생이 같은 걸음으로 ${n}걸음을 걸었습니다. 걸은 거리는 몇 m일까요?` }; },
+  (dp) => { const a = rd(dp, 2, 7); return { a, b: natD(3), unit: 'cm', text: `한 변의 길이가 ${H(a)} cm인 정삼각형의 둘레는 몇 cm일까요?` }; }
+];
+const WP_ND = [
+  (dp) => { const n = rnd(2, 9), b = rd(dp, 0, 2), nm = pick(NAMES); return { a: natD(n), b, unit: 'm', text: `${nm}${jos(nm, '은/는')} 철사를 ${n} m의 ${H(b)}배만큼 사용했습니다. 사용한 철사는 몇 m일까요?` }; },
+  (dp) => { const n = rnd(2, 8), b = rd(dp, 0, 1); return { a: natD(n), b, unit: 'L', text: `벽화를 그리는 데 페인트 ${n} L의 ${H(b)}배만큼을 사용했습니다. 사용한 페인트는 몇 L일까요?` }; },
+  (dp) => { const n = pick([120, 130, 140, 150, 160]), b = rd(1, 1, 1), nm = pick(NAMES); return { a: natD(n), b, unit: 'cm', text: `${nm}의 키는 ${n} cm이고, 삼촌의 키는 ${nm}의 키의 ${H(b)}배입니다. 삼촌의 키는 몇 cm일까요?` }; },
+  (dp) => { for (let t = 0; t < 100; t++) { const p = pick([800, 1200, 1500, 2000, 2500, 3000]), b = rd(dp, 1, 4); if (mul(natD(p), b).d === 0) return { a: natD(p), b, unit: '원', text: `1 m에 ${p}원인 끈을 ${H(b)} m 샀습니다. 끈의 값은 얼마일까요?` }; } return null; },
+  (dp) => { for (let t = 0; t < 100; t++) { const p = pick([1500, 2000, 2500, 3000, 4000]), b = rd(dp, 1, 4); if (mul(natD(p), b).d === 0) return { a: natD(p), b, unit: '원', text: `고구마 1 kg의 값이 ${p}원입니다. 고구마 ${H(b)} kg의 값은 얼마일까요?` }; } return null; },
+  (dp) => { const n = pick([40, 50, 60]), b = rd(dp, 0, 1); return { a: natD(n), b, unit: 'g', text: `색점토 ${n} g의 ${H(b)}배만큼으로 고양이를 만들었습니다. 사용한 색점토는 몇 g일까요?` }; },
+  (dp) => { const n = rnd(2, 6), b = rd(dp, 0, 0); return { a: natD(n), b, unit: 'kg', text: `커피 찌꺼기 ${n} kg의 ${H(b)}배만큼을 재활용하여 작품을 만들었습니다. 재활용한 커피 찌꺼기는 몇 kg일까요?` }; }
+];
+const WP_DD = [
+  (da, db) => ({ a: rd(da, 1, 9), b: rd(db, 1, 4), unit: 'km', get text() { return `한 시간에 ${H(this.a)} km를 가는 자전거를 타고 ${H(this.b)}시간 동안 달렸습니다. 달린 거리는 몇 km일까요?`; } }),
+  (da, db) => ({ a: rd(da, 1, 6), b: rd(db, 1, 6), unit: 'm²', get text() { return `가로가 ${H(this.a)} m, 세로가 ${H(this.b)} m인 직사각형 모양의 천이 있습니다. 천의 넓이는 몇 m²일까요?`; } }),
+  (da, db) => ({ a: rd(da, 1, 5), b: rd(db, 0, 2), unit: 'L', get text() { return `어제 물을 ${H(this.a)} L 마셨고, 오늘은 어제 마신 양의 ${H(this.b)}배만큼 마셨습니다. 오늘 마신 물은 몇 L일까요?`; } }),
+  (da, db) => ({ a: rd(da, 0, 0), b: rd(db, 0, 0), unit: 'kg', get text() { return `흙을 ${H(this.a)} kg 사용하여 그릇을 만들었고, 접시는 그릇에 사용한 흙의 ${H(this.b)}배만큼 사용하여 만들었습니다. 접시에 사용한 흙은 몇 kg일까요?`; } }),
+  (da, db) => ({ a: rd(da, 1, 4), b: rd(db, 1, 3), unit: 'L', get text() { return `한 시간에 ${H(this.a)} L씩 물이 새는 수도꼭지가 있습니다. ${H(this.b)}시간 동안 샌 물은 모두 몇 L일까요?`; } })
+];
+function makeWP(form, dpA, dpB) {
+  for (let t = 0; t < 100; t++) {
+    let w;
+    if (form === 'dn') w = pick(WP_DN)(dpA); else if (form === 'nd') w = pick(WP_ND)(dpB); else w = pick(WP_DD)(dpA, dpB);
+    if (!w) continue;
+    w.ans = mul(w.a, w.b); w.form = form;
+    if (w.ans.d > 3 || w.ans.n > 99999999) continue;
+    if (w.ans.n === 0) continue;
+    return w;
+  }
+  throw new Error('makeWP');
+}
+function wpLesson(w) { return w.form === 'dn' ? (w.a.d === 1 ? 1 : 2) : w.form === 'nd' ? (w.b.d === 1 ? 3 : 4) : (w.a.d + w.b.d <= 2 ? 5 : 6); }
+function bump(x) { return x.d > 0 ? shiftD(x, 1) : shiftD(x, -1); }
+function exprStage(w, title) {
+  const a = w.a, b = w.b;
+  const T = (x, y, o) => ({ html: `${H(x)}${o || OP}${H(y)}`, text: `${S(x)}${o === '+' ? '+' : '×'}${S(y)}` });
+  const right = Object.assign(T(a, b), {});
+  const wrongs = [
+    Object.assign(T(a, b, '<span class="op">+</span>'), { text: `${S(a)}+${S(b)}`, why: "'~씩 ~번', '~의 ~배'처럼 같은 양을 여러 번 모으는 상황은 더하기가 아니라 곱셈식이에요." }),
+    Object.assign(T(bump(a), b), { why: `${H(a)}의 소수점 위치(자릿수)를 잘못 쓴 식이에요. 문제의 수를 그대로 써야 해요.` }),
+    Object.assign(T(a, bump(b)), { why: `${H(b)}의 소수점 위치(자릿수)를 잘못 쓴 식이에요. 문제의 수를 그대로 써야 해요.` })
+  ];
+  return mcStage({ right, wrongs, layout: 'list', title: title || '' });
+}
+function wpMC(o) {
+  const w = makeWP(o.form, o.dpA, o.dpB), ds = pickDistractors(w.ans, { rawN: w.a.n * w.b.n, d1: w.a.d, d2: w.b.d, slip: o.slip });
+  return Q({
+    gen: o.gen, diff: o.diff, lesson: wpLesson(w), concept: 'ctx', extra: 5,
+    text: `<div class="q-main">${w.text}</div>`,
+    stages: [mcStage({ right: numOpt(w.ans, w.unit), wrongs: ds.map(d => Object.assign(numOpt(d.val, w.unit), { why: d.why })) })],
+    explain: STEP(`<b>식</b> ${expr(w.a, w.b)}`) + explainMul(w.a, w.b) + STEP(`답: <b>${H(w.ans)} ${w.unit}</b>`),
+    meta: { t: 'calc', a: S(w.a), b: S(w.b) }
+  });
+}
+const gWpMC1 = () => wpMC({ gen: 'wpMC1', diff: 1, form: pick(['dn', 'nd']), dpA: 1, dpB: 1 });
+const gWpMC2 = () => { const f = pick(['dn', 'nd', 'dd']); return wpMC({ gen: 'wpMC2', diff: 2, form: f, dpA: f === 'dd' ? 1 : 2, dpB: f === 'dd' ? 1 : 2 }); };
+function gExprMC() {
+  const f = pick(['dn', 'nd']), w = makeWP(f, 1, 1);
+  return Q({
+    gen: 'exprMC', diff: 1, lesson: wpLesson(w), concept: 'ctx',
+    text: `<div class="q-main">${w.text.replace(/ ?몇 [^ ]+일까요\?| ?얼마일까요\?/, '')}<br><b>구하는 식</b>으로 알맞은 것을 골라 보세요.</div>`,
+    stages: [exprStage(w, '')],
+    explain: STEP(`같은 양을 여러 번 모으거나 몇 배 하는 상황이므로 <b>곱셈식</b> ${expr(w.a, w.b)}을 써요.`) + STEP(`계산하면 ${expr(w.a, w.b)} = <b>${H(w.ans)} ${w.unit}</b>`),
+    meta: { t: 'expr', a: S(w.a), b: S(w.b) }
+  });
+}
+function gWpTwo() {
+  const f = pick(['dn', 'nd', 'dd']), dpA = f === 'dd' ? 1 : pick([1, 2]), w = makeWP(f, dpA, f === 'dd' ? pick([1, 1, 2]) : dpA);
+  if (f === 'dd' && w.a.d + w.b.d > 3) return gWpTwo();
+  return Q({
+    gen: 'wpTwo', diff: 2, lesson: wpLesson(w), concept: 'ctx', extra: 25,
+    text: `<div class="q-main">${w.text}</div>`,
+    stages: [exprStage(w, '① 알맞은 식을 골라요'), { type: 'input', ans: w.ans, unit: w.unit, title: '② 답을 구해요' }],
+    explain: STEP(`<b>① 식</b> ${expr(w.a, w.b)}`) + STEP('<b>② 계산</b>') + explainMul(w.a, w.b) + STEP(`답: <b>${H(w.ans)} ${w.unit}</b>`),
+    meta: { t: 'wpTwo', a: S(w.a), b: S(w.b), unit: w.unit }
+  });
+}
+
+/* ========================================================================
+   넓이 모델 · 수직선 (그림 / 직접 조작)
+======================================================================== */
+function gAreaCells() {
+  let w, h; do { w = rnd(2, 9); h = rnd(2, 9); } while (w === h);
+  const a = { n: w, d: 1 }, b = { n: h, d: 1 }, p = mul(a, b);
+  const right = { html: `${w * h}칸 · ${H(p)} m²`, text: `${w * h}칸 · ${S(p)} m²` };
+  const wrongs = [
+    { html: `${w + h}칸 · ${H(mul(natD(w + h), V('0.01')))} m²`, text: `${w + h}칸 · ${S(mul(natD(w + h), V('0.01')))} m²`, why: `칸 수는 가로 칸 수와 세로 칸 수를 <b>곱해야</b> 해요. (${w}×${h})` },
+    { html: `${w * h}칸 · ${H(shiftD(p, 1))} m²`, text: `${w * h}칸 · ${S(shiftD(p, 1))} m²`, why: `한 칸의 넓이는 0.01 m²이니까 ${w * h}칸은 ${H(p)} m²예요. 소수점 위치를 확인해요.` },
+    { html: `${w * h}칸 · ${H(shiftD(p, -1))} m²`, text: `${w * h}칸 · ${S(shiftD(p, -1))} m²`, why: `한 칸의 넓이는 0.01 m²이니까 ${w * h}칸은 ${H(p)} m²예요. 소수점 위치를 확인해요.` }
+  ];
+  return Q({
+    gen: 'areaCells', diff: 1, lesson: 5, concept: 'area', figure: `<div class="fig">${gridSVG(w, h, { labels: [S(a), S(b)] })}</div>`,
+    text: `<div class="q-main">가로 ${H(a)} m, 세로 ${H(b)} m인 직사각형을 모눈(한 칸의 넓이 0.01 m²)에 색칠했어요. 색칠한 칸 수와 넓이는?</div>`,
+    stages: [mcStage({ right, wrongs, layout: 'list' })],
+    explain: STEP(`가로 ${w}칸, 세로 ${h}칸 → ${w}×${h}=<b>${w * h}칸</b>`) + STEP(`한 칸은 0.01 m²이므로 0.01이 ${w * h}개 → <b>${H(p)} m²</b>`) + STEP(`곱셈식: ${expr(a, b)} = ${H(p)}`),
+    meta: { t: 'calc', a: S(a), b: S(b), cells: w * h }
+  });
+}
+function gAreaRead() {
+  let w, h; do { w = rnd(3, 9); h = rnd(2, 8); } while (w === h);
+  const a = { n: w, d: 1 }, b = { n: h, d: 1 }, p = mul(a, b);
+  const eqs = (x, y, z) => ({ html: `${expr(x, y)} = ${H(z)}`, text: `${S(x)}×${S(y)}=${S(z)}` });
+  const a2 = { n: w < 9 ? w + 1 : w - 1, d: 1 };
+  const right = eqs(a, b, p);
+  const wrongs = [
+    Object.assign(eqs(a, b, shiftD(p, 1)), { why: `0.01이 ${w * h}개이면 ${H(p)}이에요. 곱의 소수점 위치(1+1=2자리)를 확인해요.` }),
+    Object.assign(eqs(a, b, shiftD(p, -1)), { why: `0.01이 ${w * h}개이면 ${H(p)}이에요. 곱의 소수점 위치(1+1=2자리)를 확인해요.` }),
+    Object.assign(eqs(a2, b, mul(a2, b)), { why: `그림의 가로는 ${H(a)}인데 ${H(a2)}로 썼어요. 그림에서 가로 칸 수를 다시 세어 보세요.` })
+  ];
+  return Q({
+    gen: 'areaRead', diff: 1, lesson: 5, concept: 'area', figure: `<div class="fig">${gridSVG(w, h)}</div>`,
+    text: `<div class="q-main">모눈 전체의 가로와 세로는 각각 1이에요. 색칠한 부분을 나타내는 <b>곱셈식(가로 × 세로)</b>은 무엇일까요?</div>`,
+    stages: [mcStage({ right, wrongs, layout: 'list' })],
+    explain: STEP(`가로 ${w}칸 → ${H(a)}, 세로 ${h}칸 → ${H(b)}`) + STEP(`색칠한 칸은 ${w}×${h}=${w * h}칸이고, 한 칸이 0.01이므로 <b>${H(p)}</b>`) + STEP(`${expr(a, b)} = ${H(p)}`),
+    meta: { t: 'calc', a: S(a), b: S(b) }
+  });
+}
+function gAreaShade() {
+  let w, h; do { w = rnd(2, 9); h = rnd(2, 9); } while (w === h);
+  const a = { n: w, d: 1 }, b = { n: h, d: 1 }, p = mul(a, b);
+  return Q({
+    gen: 'areaShade', diff: 2, lesson: 5, concept: 'area', extra: 35,
+    text: `<div class="q-main">가로 ${H(a)} m, 세로 ${H(b)} m인 직사각형 천을 모눈(한 칸은 0.01 m²)에 나타내고, <b>넓이</b>를 구해 보세요.</div>`,
+    stages: [{ type: 'area', w, h, title: `① 모눈에서 오른쪽 위 꼭짓점 칸을 눌러 가로 ${S(a)}, 세로 ${S(b)}만큼 색칠해요` }, { type: 'input', ans: p, unit: 'm²', title: '② 색칠한 부분의 넓이는 몇 m²일까요?' }],
+    explain: STEP(`가로 ${w}칸, 세로 ${h}칸 → ${w}×${h}=<b>${w * h}칸</b>`) + STEP(`한 칸이 0.01 m²이므로 0.01이 ${w * h}개 → <b>${H(p)} m²</b>`) + STEP(`곱셈식: ${expr(a, b)} = ${H(p)}`),
+    meta: { t: 'calc', a: S(a), b: S(b), w, h }
+  });
+}
+function gNumline(level) {
+  const k = rnd(2, 6), d = rnd(1, 9), db = { n: d, d: 1 }, p = mul(natD(k), db);
+  const stages = [{ type: 'numline', k, dd: d, title: level === 2 ? `① 수직선에서 ${k}×${S(db)}의 위치를 눌러요` : '' }];
+  if (level === 2) stages.push({ type: 'input', ans: p, unit: '', title: `② ${k}의 ${S(db)}배는 얼마일까요?` });
+  return Q({
+    gen: level === 2 ? 'numline2' : 'numline1', diff: level, lesson: 3, concept: 'line', extra: level === 2 ? 30 : 15,
+    text: `<div class="q-main">수직선에서 <b>${expr(natD(k), db)}</b>에 해당하는 곳을 찾아 눌러 보세요.<small class="hint">위: 0~${k}를 10칸으로 나눔 / 아래: 0~1(배)를 10칸으로 나눔</small></div>`,
+    stages,
+    explain: STEP(`${k}의 1배는 ${k}이므로 ${k}의 0.1배는 ${H(shiftD(natD(k), -1))}이에요.`) + STEP(`${k}의 ${S(db)}배는 ${H(shiftD(natD(k), -1))}이 ${d}개 → <b>${H(p)}</b>`) + STEP(`분수로: ${k} × ${F(d, 10)} = ${F(k * d, 10)} = ${H(p)}`),
+    meta: { t: 'calc', a: String(k), b: S(db), tick: d }
+  });
+}
+
+/* ========================================================================
+   계산 과정 완성하기 (빈칸 채우기)
+======================================================================== */
+const BL = i => `[[${i}]]`;
+function gFillFrac(level) {
+  const kinds = level === 1 ? ['dn1', 'nd1'] : ['dn2', 'dd1', 'dd2'];
+  const k = pick(kinds); let a, b, lines, blanks, lesson;
+  if (k === 'dn1') { a = rd(1, 1, 9); b = natD(rnd(2, 8)); lesson = 1; const c = mul(a, b); lines = [`${H(a)} ${OP} ${b.n} = ${F(a.n, 10)} ${OP} ${b.n} = ${F(BL(0), 10)} = ${BL(1)}`]; blanks = [natD(a.n * b.n), c]; }
+  else if (k === 'nd1') { a = natD(rnd(2, 9)); b = rd(1, 0, 3); lesson = 3; const c = mul(a, b); lines = [`${a.n} ${OP} ${H(b)} = ${a.n} ${OP} ${F(b.n, 10)} = ${F(BL(0), 10)} = ${BL(1)}`]; blanks = [natD(a.n * b.n), c]; }
+  else if (k === 'dn2') { a = rd(2, 0, 5); b = natD(rnd(2, 7)); lesson = 2; const c = mul(a, b); lines = [`${H(a)} ${OP} ${b.n} = ${F(a.n, 100)} ${OP} ${b.n} = ${F(BL(0), 100)} = ${BL(1)}`]; blanks = [natD(a.n * b.n), c]; }
+  else if (k === 'dd1') { a = rd(1, 1, 9); b = rd(1, 1, 9); lesson = 5; const c = mul(a, b); lines = [`${H(a)} ${OP} ${H(b)} = ${F(a.n, 10)} ${OP} ${F(b.n, 10)} = ${F(BL(0), 100)} = ${BL(1)}`]; blanks = [natD(a.n * b.n), c]; }
+  else { a = rd(2, 1, 5); b = rd(1, 1, 5); lesson = 6; const c = mul(a, b); lines = [`${H(a)} ${OP} ${H(b)} = ${F(a.n, 100)} ${OP} ${F(b.n, 10)} = ${F(BL(0), 1000)} = ${BL(1)}`]; blanks = [natD(a.n * b.n), c]; }
+  const c = mul(a, b);
+  return Q({
+    gen: level === 1 ? 'fillFrac1' : 'fillFrac2', diff: level, lesson, concept: 'frac', extra: 25,
+    text: `<div class="q-main">분수의 곱셈으로 바꾸어 계산하는 과정을 <b>완성</b>해 보세요.</div>`,
+    stages: [{ type: 'fill', lines, blanks: blanks.map(x => ({ ans: x })), title: '' }],
+    explain: explainMul(a, b), meta: { t: 'calc', a: S(a), b: S(b) }
+  });
+}
+function gFillVert() {
+  const a = pick([rd(1, 1, 9), rd(2, 1, 6)]), b = a.d === 2 ? rd(1, 1, 5) : pick([rd(1, 1, 9), rd(2, 1, 6)]);
+  const T = a.d + b.d, c = mul(a, b);
+  return Q({
+    gen: 'fillVert', diff: 2, lesson: a.d + b.d <= 2 ? 5 : 6, concept: 'dp', extra: 35,
+    text: `<div class="q-main">${expr(a, b)}을 <b>소수점의 위치</b>를 생각하며 계산하는 과정을 완성해 보세요.</div>`,
+    stages: [{
+      type: 'fill', title: '', lines: [
+        `<b>①</b> 소수점을 없애고 자연수처럼 곱해요: ${a.n} ${OP} ${b.n} = ${BL(0)}`,
+        `<b>②</b> 소수점 아래 자릿수의 합: ${a.d} + ${b.d} = ${BL(1)}(자리)`,
+        `<b>③</b> ①의 곱에서 오른쪽부터 ②칸 앞에 소수점을 찍어요: ${expr(a, b)} = ${BL(2)}`
+      ], blanks: [{ ans: natD(a.n * b.n) }, { ans: natD(T) }, { ans: c }]
+    }],
+    explain: explainMul(a, b), meta: { t: 'calc', a: S(a), b: S(b) }
+  });
+}
+function gMachine() {
+  const natF = Math.random() < 0.55, f = natF ? natD(rnd(3, 8)) : rd(1, 1, 2), x1 = natF ? rd(1, 0, 1) : natD(rnd(2, 9)), x2 = natF ? rd(1, 1, 3) : rd(1, 1, 5);
+  if (x1.n === x2.n && x1.d === x2.d) return gMachine();
+  const y1 = mul(x1, f), y2 = mul(x2, f);
+  return Q({
+    gen: 'machine', diff: natF ? 1 : 2, lesson: natF ? 1 : 3, concept: natF ? 'int' : 'line', extra: 20,
+    text: `<div class="q-main"><b>${OP}${H(f)} 기계</b>에 수를 넣으면 넣은 수에 ${H(f)}를 곱한 값이 나와요. 빈칸을 채워 보세요.</div>`,
+    stages: [{ type: 'fill', title: '', lines: [`${H(x1)} → <span class="mach">${OP}${H(f)}</span> → ${BL(0)}`, `${H(x2)} → <span class="mach">${OP}${H(f)}</span> → ${BL(1)}`], blanks: [{ ans: y1 }, { ans: y2 }] }],
+    explain: STEP(`${expr(x1, f)} = <b>${H(y1)}</b>`) + explainMul(x1, f) + STEP(`${expr(x2, f)} = <b>${H(y2)}</b>`) + explainMul(x2, f),
+    meta: { t: 'machine', f: S(f), x1: S(x1), x2: S(x2) }
+  });
+}
+
+/* ---- 크기 순서 정하기 ---- */
+function gOrder() {
+  for (let t = 0; t < 300; t++) {
+    const es = [0, 1, 2, 3].map(() => ({ a: natD(rnd(2, 9)), b: rd(1, 0, 2) }));
+    es.forEach(e => { e.p = mul(e.a, e.b); });
+    if (new Set(es.map(e => S(e.p))).size < 4 || es.some(e => e.p.d > 2)) continue;
+    if (new Set(es.map(e => S(e.a) + S(e.b))).size < 4) continue;
+    const desc = Math.random() < 0.6, idx = [0, 1, 2, 3].sort((i, j) => (desc ? -1 : 1) * cmp(es[i].p, es[j].p));
+    return Q({
+      gen: 'order', diff: 2, lesson: 4, concept: 'ord', extra: 30,
+      text: `<div class="q-main">곱의 크기가 <b>${desc ? '큰' : '작은'} 것부터</b> 차례대로 눌러 보세요.</div>`,
+      stages: [{ type: 'order', items: es.map((e, i) => ({ html: `<b class="circn">${circ[i]}</b> ${expr(e.a, e.b)}`, text: `${circ[i]} ${S(e.a)}×${S(e.b)}` })), ans: idx, title: '' }],
+      explain: es.map((e, i) => STEP(`${circ[i]} ${expr(e.a, e.b)} = <b>${H(e.p)}</b>`)).join('') + STEP(`${desc ? '큰' : '작은'} 것부터: <b>${idx.map(i => circ[i]).join(' → ')}</b>`),
+      meta: { t: 'order', exprs: es.map(e => [S(e.a), S(e.b)]), desc, ans: idx }
+    });
+  }
+  throw new Error('order');
+}
+
+/* ========================================================================
+   어려움: 오류 탐정 · 수 카드 · 복합 상황
+======================================================================== */
+function gDetective() {
+  const nm = pick(NAMES), kind = pick(['den', 'dpOne', 'slip', 'zero']);
+  let lines, wrongLine, a, b, corr, wrongRes, lesson, title;
+  if (kind === 'den') {
+    const dp = pick([1, 2]), m = rnd(2, 6); a = dp === 2 ? rd(2, 1, 5) : rd(1, 1, 9); b = natD(m); corr = mul(a, b); const wd = dp === 2 ? 10 : 100;
+    const wr = { n: a.n * m, d: Math.round(Math.log10(wd)) }; wrongRes = nz(wr); lesson = dp === 2 ? 2 : 1;
+    lines = [`${H(a)} ${OP} ${m} = ${F(a.n, wd)} ${OP} ${m}`, `= ${F(a.n * m, wd)}`, `= ${H(wrongRes)}`]; wrongLine = 0;
+  } else if (kind === 'dpOne') {
+    const d2 = pick([[1, 1], [2, 1], [1, 2]]); a = rd(d2[0], 1, 9); b = rd(d2[1], 1, 9); corr = mul(a, b); lesson = 5 + (d2[0] + d2[1] > 2 ? 1 : 0);
+    const T = a.d + b.d, wd = Math.min(a.d, b.d) === a.d && a.d !== b.d ? a.d : (a.d !== b.d ? b.d : 1); const dpWrong = a.d !== b.d ? Math.min(a.d, b.d) : T - 1;
+    wrongRes = nz({ n: a.n * b.n, d: dpWrong });
+    lines = [`${a.n} × ${b.n} = ${a.n * b.n}`, `${H(a)}은 ${a.n}의 ${F(1, P10(a.d))}배, ${H(b)}는 ${b.n}의 ${F(1, P10(b.d))}배`, `곱은 ${a.n * b.n}의 ${F(1, P10(dpWrong))}배이므로 ${H(wrongRes)}`]; wrongLine = 2;
+  } else if (kind === 'slip') {
+    const dp = pick([1, 2]); a = dp === 1 ? rd(1, 1, 9) : rd(2, 1, 5); const m = rnd(3, 9); b = natD(m); corr = mul(a, b); lesson = dp;
+    const P = a.n * m; let bad = P + pick([10, -10, 20, -20, 1, -1]); if (bad <= 0) bad = P + 10; wrongRes = nz({ n: bad, d: dp });
+    lines = [`${a.n} × ${m} = ${bad}`, `${H(a)}은 ${a.n}의 ${F(1, P10(dp))}배이므로 곱도 ${bad}의 ${F(1, P10(dp))}배`, `${H(a)} ${OP} ${m} = ${H(wrongRes)}`]; wrongLine = 0;
+  } else {
+    for (let t = 0; t < 100; t++) { const k = pick([1, 2]); if (k === 1) { a = { n: rnd(2, 9), d: 2 }; b = rd(1, 0, 0); } else { a = rd(1, 0, 0); b = rd(1, 0, 0); } const P = a.n * b.n, T = a.d + b.d; if (String(P).length <= T - 1) break; }
+    corr = mul(a, b); lesson = 7; const P = a.n * b.n, T = a.d + b.d; wrongRes = nz(V('0.' + String(P)));
+    if (eq(wrongRes, corr)) return gDetective();
+    lines = [`${a.n} × ${b.n} = ${P}`, `${H(a)}은 ${a.n}의 ${F(1, P10(a.d))}배, ${H(b)}는 ${b.n}의 ${F(1, P10(b.d))}배`, `곱은 ${P}의 ${F(1, P10(T))}배이므로 ${H(wrongRes)}`]; wrongLine = 2;
+  }
+  if (eq(wrongRes, corr)) return gDetective();
+  const circn = ['①', '②', '③'];
+  const opts1 = lines.map((l, i) => ({ html: `<b class="circn">${circn[i]}</b> ${l}`, text: `${circn[i]} ${stripTags(l)}`, why: i < wrongLine ? `${circn[i]} 줄은 옳게 계산했어요. 처음으로 틀린 줄을 찾아야 해요.` : `${circn[i]} 줄은 앞에서 잘못된 값을 이어받은 계산이에요. 처음으로 잘못된 곳은 더 앞에 있어요.` }));
+  const ds = pickDistractors(corr, { rawN: a.n * b.n, d1: a.d, d2: b.d });
+  const wrongOpt = Object.assign(numOpt(wrongRes), { why: `${nm}가 구한 잘못된 값이에요. 틀린 줄을 고쳐서 다시 계산해야 해요.` });
+  const list = [wrongOpt].concat(ds.filter(d => S(d.val) !== S(wrongRes)).slice(0, 2).map(d => Object.assign(numOpt(d.val), { why: d.why })));
+  if (list.length < 3) return gDetective();
+  const expl = {
+    den: STEP(`${H(a)}을 분수로 나타낼 때 소수 ${a.d === 2 ? '두' : '한'} 자리 수이므로 분모는 <b>${P10(a.d)}</b>이어야 해요.`) + STEP(`${F(a.n, P10(a.d))} × ${b.n} = ${F(a.n * b.n, P10(a.d))} = <b>${H(corr)}</b>`),
+    dpOne: STEP(`곱의 소수점 아래 자릿수는 두 수의 자릿수의 <b>합</b> ${a.d}+${b.d}=${a.d + b.d}자리예요. ${nm}${jos(nm, '은/는')} ${a.d + b.d - 0 === (a.d + b.d) ? '' : ''}자릿수를 잘못 셌어요.`) + STEP(`${a.n * b.n}의 오른쪽에서 ${a.d + b.d}칸 앞에 소수점 → <b>${H(corr)}</b>`),
+    slip: STEP(`${a.n} × ${b.n} = <b>${a.n * b.n}</b>이에요. 자연수 곱셈에서 틀렸어요.`) + STEP(`${a.n * b.n}의 ${F(1, P10(a.d))}배 → <b>${H(corr)}</b>`),
+    zero: STEP(`곱의 소수점 아래 자릿수는 ${a.d}+${b.d}=${a.d + b.d}자리예요. ${a.n * b.n}은 ${String(a.n * b.n).length}자리뿐이라 앞에 <b>0을 채워야</b> 해요.`) + STEP(`정답: <b>${H(corr)}</b>`)
+  }[kind];
+  return Q({
+    gen: 'detective', diff: 3, lesson, concept: 'err', extra: 40,
+    text: `<div class="q-main">🕵️ <b>오류 탐정!</b> ${nm}${jos(nm, '이/가')} ${expr(a, b)}을 계산한 과정이에요. <b>처음으로 잘못된 줄</b>을 찾고, 옳은 값을 구해 보세요.</div>`,
+    stages: [
+      { type: 'mc', layout: 'list', title: '① 처음으로 틀린 곳은?', options: opts1.map(o => ({ html: o.html, text: o.text, why: o.why })), answer: wrongLine },
+      mcStage({ right: Object.assign(numOpt(corr), {}), wrongs: list, title: '② 옳게 계산한 값은?' })
+    ],
+    explain: expl, meta: { t: 'detective', kind, a: S(a), b: S(b), ans: S(corr), wrongRes: S(wrongRes), wrongLine }
+  });
+}
+function stripTags(h) { return String(h).replace(/<[^>]*>/g, ''); }
+
+function gCards() {
+  const form = pick(['nd', 'nd', 'dd']), goal = pick(['max', 'max', 'min']), n = form === 'nd' ? 3 : 4;
+  const digs = shuffle([2, 3, 4, 5, 6, 7, 8, 9]).slice(0, n);
+  const ev = arr => form === 'nd' ? mul(natD(arr[0]), { n: arr[1] * 10 + arr[2], d: 1 }) : mul({ n: arr[0] * 10 + arr[1], d: 1 }, { n: arr[2] * 10 + arr[3], d: 1 });
+  const perms = []; (function rec(cur, rest) { if (!rest.length) { perms.push(cur); return; } rest.forEach((x, i) => rec(cur.concat([x]), rest.slice(0, i).concat(rest.slice(i + 1)))); })([], digs);
+  const vals = perms.map(p => ev(p)); let best = vals[0];
+  vals.forEach(v => { if (goal === 'max' ? cmp(v, best) > 0 : cmp(v, best) < 0) best = v; });
+  const bestPerm = perms[vals.findIndex(v => eq(v, best))];
+  const showExpr = arr => form === 'nd' ? `${arr[0]} ${OP} ${arr[1]}${DOT}${arr[2]}` : `${arr[0]}${DOT}${arr[1]} ${OP} ${arr[2]}${DOT}${arr[3]}`;
+  const uniqVals = []; perms.forEach((p, i) => { if (!uniqVals.some(u => eq(u.v, vals[i]))) uniqVals.push({ p, v: vals[i] }); });
+  uniqVals.sort((x, y) => (goal === 'max' ? -1 : 1) * cmp(x.v, y.v));
+  return Q({
+    gen: 'cards', diff: 3, lesson: form === 'nd' ? 3 : 5, concept: 'ord', extra: 45,
+    text: `<div class="q-main">수 카드 <b class="big2">${digs.join(' , ')}</b>를 한 번씩만 사용하여 곱이 <b>가장 ${goal === 'max' ? '큰' : '작은'}</b> 곱셈식을 만들고, 그 곱을 구해 보세요.</div>`,
+    stages: [{ type: 'cards', digits: digs, form, goal, best, title: '① 카드를 눌러 식을 완성해요' }, { type: 'input', ans: best, unit: '', title: '② 만든 곱셈식의 곱은?' }],
+    explain: STEP(`가능한 식의 값을 비교하면 곱이 가장 ${goal === 'max' ? '큰' : '작은'} 식은 <b>${showExpr(bestPerm)}</b> 이에요.`) + STEP(`값: <b>${H(best)}</b>`) + STEP('<b>비교</b> ' + uniqVals.slice(0, 4).map(u => `${showExpr(u.p)} = ${H(u.v)}`).join(' / ')),
+    meta: { t: 'cards', form, goal, digits: digs, ans: S(best) }
+  });
+}
+function gMaxInt() {
+  for (let t = 0; t < 200; t++) {
+    const a = rd(1, 1, 9), b = pick([rd(1, 1, 9), rd(2, 1, 6)]), p = mul(a, b); if (p.d === 0 || a.d + b.d > 3) continue;
+    const fl = Math.floor(p.n / P10(p.d)), less = Math.random() < 0.5;
+    const ans = less ? fl : fl + 1;
+    return Q({
+      gen: 'maxInt', diff: 3, lesson: 6, concept: 'est', extra: 35,
+      text: `<div class="q-main"><span class="bigexpr">${less ? `${expr(a, b)} &gt; <span class="sqr">□</span>` : `<span class="sqr">□</span> &gt; ${expr(a, b)}`}</span><br>□ 안에 들어갈 수 있는 자연수 중에서 <b>가장 ${less ? '큰' : '작은'} 수</b>는 얼마일까요?</div>`,
+      stages: [{ type: 'input', ans: natD(ans), unit: '', intOnly: true, title: '' }],
+      explain: STEP(`${expr(a, b)} = <b>${H(p)}</b>`) + STEP(less ? `${H(p)} &gt; □ 에서 □는 ${H(p)}보다 작은 자연수이므로 가장 큰 수는 <b>${ans}</b>` : `□ &gt; ${H(p)} 에서 □는 ${H(p)}보다 큰 자연수이므로 가장 작은 수는 <b>${ans}</b>`),
+      meta: { t: 'maxInt', a: S(a), b: S(b), less, ans }
+    });
+  }
+  throw new Error('maxInt');
+}
+function gExtremes() {
+  for (let t = 0; t < 300; t++) {
+    const xs = [rd(2, 1, 19), rd(1, 1, 19), rd(1, 1, 19), rd(2, 1, 19)].sort(() => Math.random() - 0.5);
+    if (new Set(xs.map(S)).size < 4) continue;
+    const sorted = xs.slice().sort(cmp), mx = sorted[3], mn = sorted[0], p = mul(mx, mn);
+    if (mx.d + mn.d > 3 || p.d > 3 || val(mx) / val(mn) < 2 || (mx.d === 2 && mn.d === 2)) continue;
+    return Q({
+      gen: 'extremes', diff: 2, lesson: 6, concept: 'ord', extra: 30,
+      text: `<div class="q-main">네 수 중에서 <b>가장 큰 수와 가장 작은 수의 곱</b>을 구해 보세요.</div><div class="cardrow">${xs.map(x => `<span class="numcard">${H(x)}</span>`).join('')}</div>`,
+      stages: [{ type: 'input', ans: p, unit: '', title: '' }],
+      explain: STEP(`가장 큰 수 <b>${H(mx)}</b>, 가장 작은 수 <b>${H(mn)}</b>`) + explainMul(mx, mn),
+      meta: { t: 'extremes', xs: xs.map(S), ans: S(p) }
+    });
+  }
+  throw new Error('extremes');
+}
+function gReverse() {
+  for (let t = 0; t < 200; t++) {
+    const x = rd(pick([1, 2]), 1, 9), m = rd(1, 0, 0), s = add(x, m), c = mul(x, m);
+    if (m.n < 2 || x.d + m.d > 3 || c.d > 3) continue;
+    return Q({
+      gen: 'reverse', diff: 3, lesson: 6, concept: 'ctx', extra: 45,
+      text: `<div class="q-main">어떤 수와 ${H(m)}의 <b>곱</b>을 구해야 하는데 잘못하여 어떤 수와 ${H(m)}의 <b>합</b>을 구했더니 ${H(s)}${jos(S(s), '이/가')} 되었습니다.</div>`,
+      stages: [{ type: 'input', ans: x, unit: '', title: '① 어떤 수는 얼마일까요?' }, { type: 'input', ans: c, unit: '', title: '② 옳게 계산한 값은 얼마일까요?' }],
+      explain: STEP(`어떤 수 + ${H(m)} = ${H(s)} → 어떤 수 = ${H(s)} − ${H(m)} = <b>${H(x)}</b>`) + STEP(`옳게 계산: ${expr(x, m)} = <b>${H(c)}</b>`) + explainMul(x, m),
+      meta: { t: 'reverse', x: S(x), m: S(m), s: S(s), ans: S(c) }
+    });
+  }
+  throw new Error('reverse');
+}
+function gMulti() {
+  for (let t = 0; t < 200; t++) {
+    const [it, un] = pick([['세제', 'L'], ['주스', 'L'], ['쌀', 'kg'], ['식용유', 'L'], ['고구마', 'kg']]);
+    const p = pick([2500, 3000, 3500, 4000, 4500, 5000]), a = natD(rnd(2, 5)), k = rd(1, 1, 2), amt = mul(a, k), price = mul(natD(p), amt);
+    if (amt.d === 0 || price.d !== 0 || k.n % 10 === 0) continue;
+    const [n1, n2] = shuffle(NAMES).slice(0, 2);
+    return Q({
+      gen: 'multi', diff: 3, lesson: 4, concept: 'ctx', extra: 45,
+      text: `<div class="q-main">어느 가게에서는 빈 통을 가져오면 ${it}${jos(it, '을/를')} 1 ${un}당 ${p}원에 판매합니다. ${n1}${jos(n1, '은/는')} ${it}${jos(it, '을/를')} ${a.n} ${un} 샀고, ${n2}${jos(n2, '은/는')} ${n1}${jos(n1, '이/가')} 산 양의 ${H(k)}배만큼 샀습니다. ${n2}${jos(n2, '이/가')} 산 ${it}의 값은 얼마일까요?</div>`,
+      stages: [{ type: 'input', ans: amt, unit: un, title: `① ${n2}${jos(n2, '이/가')} 산 ${it}은 몇 ${un}일까요?` }, { type: 'input', ans: price, unit: '원', title: `② ${n2}${jos(n2, '이/가')} 산 ${it}의 값은 얼마일까요?` }],
+      explain: STEP(`<b>① 산 양</b> ${a.n} × ${H(k)} = <b>${H(amt)} ${un}</b>`) + STEP(`<b>② 값</b> ${p} × ${H(amt)} = <b>${price.n}원</b>`) + explainMul(natD(p), amt),
+      meta: { t: 'multi', p, a: a.n, k: S(k), amt: S(amt), price: S(price) }
+    });
+  }
+  throw new Error('multi');
+}
+function gGrow() {
+  for (let t = 0; t < 400; t++) {
+    const a = rd(1, 2, 9), b = rd(1, 2, 9), k = pick([V('1.2'), V('1.5'), V('1.4'), V('1.3'), V('2.5'), V('1.6')]);
+    const na = mul(a, k), nb = mul(b, k);
+    if (na.d > 1 || nb.d > 1 || a.n === b.n) continue;
+    const area = mul(na, nb), area0 = mul(a, b);
+    return Q({
+      gen: 'grow', diff: 3, lesson: 5, concept: 'ctx', extra: 55,
+      text: `<div class="q-main">가로 ${H(a)} m, 세로 ${H(b)} m인 직사각형 모양의 꽃밭이 있습니다. 가로와 세로를 각각 <b>${H(k)}배</b>씩 늘여 새로운 꽃밭을 만들려고 합니다.</div>`,
+      stages: [{
+        type: 'fill', title: '', lines: [
+          `새 가로 = ${H(a)} ${OP} ${H(k)} = ${BL(0)} m`, `새 세로 = ${H(b)} ${OP} ${H(k)} = ${BL(1)} m`, `새 넓이 = (새 가로) ${OP} (새 세로) = ${BL(2)} m²`
+        ], blanks: [{ ans: na }, { ans: nb }, { ans: area }]
+      }],
+      explain: STEP(`<b>새 가로</b> ${expr(a, k)} = <b>${H(na)} m</b>`) + STEP(`<b>새 세로</b> ${expr(b, k)} = <b>${H(nb)} m</b>`) + STEP(`<b>새 넓이</b> ${expr(na, nb)} = <b>${H(area)} m²</b>`) + explainMul(na, nb),
+      meta: { t: 'grow', a: S(a), b: S(b), k: S(k), na: S(na), nb: S(nb), area: S(area) }
+    });
+  }
+  throw new Error('grow');
+}
+const FOODS = [['비빔밥', '그릇', [480, 520, 540]], ['된장국', '그릇', [56, 62.5, 70]], ['삶은 달걀', '개', [75.5, 78, 80.5]], ['우유', '컵', [67, 125, 130.5]], ['사과', '개', [95.5, 120, 105]], ['김밥', '줄', [420, 435, 390]], ['떡', '개', [45.5, 52, 38.5]], ['주스', '컵', [88, 95.5, 110]]];
+function gCalorie() {
+  for (let t = 0; t < 300; t++) {
+    const fs = shuffle(FOODS).slice(0, 3).map(f => ({ n: f[0], u: f[1], e: V(String(pick(f[2]))) }));
+    fs.forEach(f => { f.q = pick([rd(1, 0, 2), natD(rnd(2, 3)), rd(1, 0, 0)]); f.p = mul(f.e, f.q); });
+    if (fs.some(f => f.p.d > 2)) continue;
+    const total = fs.reduce((s, f) => add(s, f.p), natD(0)), lim = natD(600);
+    if (eq(total, lim) || total.d > 2 || Math.abs(val(total) - 600) < 30) continue;
+    const more = cmp(total, lim) > 0;
+    const lines = fs.map((f, i) => `${f.n} ${H(f.q)}${f.u}: ${H(f.e)} ${OP} ${H(f.q)} = ${BL(i)} 킬로칼로리`).concat([`합계: ${BL(3)} 킬로칼로리`]);
+    return Q({
+      gen: 'calorie', diff: 3, lesson: 8, concept: 'ctx', extra: 70,
+      text: `<div class="q-main">${pick(NAMES)}가 먹은 음식입니다. 한 끼 식사의 적절한 열량은 <b>600 킬로칼로리</b>라고 할 때, 먹은 음식의 열량을 구해 보세요.<small class="hint">${fs.map(f => `${f.n} 1${f.u}=${H(f.e)} 킬로칼로리`).join(' · ')}</small></div>`,
+      stages: [{ type: 'fill', title: '① 음식별 열량과 합계', lines, blanks: fs.map(f => ({ ans: f.p })).concat([{ ans: total }]) },
+        mcStage({ right: { html: more ? '600보다 많아요' : '600보다 적어요', text: more ? '많음' : '적음' }, wrongs: [{ html: more ? '600보다 적어요' : '600보다 많아요', text: more ? '적음' : '많음', why: `합계 ${H(total)}를 600과 다시 비교해 보세요.` }, { html: '똑같아요', text: '같음', why: `합계는 ${H(total)}로 600과 달라요.` }], layout: 'row3', title: '② 적절한 열량(600)과 비교하면?', keepOrder: false })],
+      explain: fs.map(f => STEP(`${f.n}: ${expr(f.e, f.q)} = <b>${H(f.p)}</b>`)).join('') + STEP(`합계: ${fs.map(f => H(f.p)).join(' + ')} = <b>${H(total)}</b> 킬로칼로리`) + STEP(`${H(total)} ${more ? '&gt;' : '&lt;'} 600 → 적절한 열량보다 ${more ? '많아요' : '적어요'}.`),
+      meta: { t: 'calorie', items: fs.map(f => [S(f.e), S(f.q)]), total: S(total), more }
+    });
+  }
+  throw new Error('calorie');
+}
+
+/* ========================================================================
+   등록 · 출제 구성
+======================================================================== */
+const GEN = {
+  unit01: gUnit01, unit02: gUnit02, frac10: gFrac10, repeat: gRepeat, calcA1: gCalcA1, calcA2: gCalcA2, calcB1: gCalcB1, calcB2: gCalcB2,
+  calcC1: gCalcC1, calcC2: gCalcC2, calcC2h: gCalcC2h, inputCalc: gInputCalc, cmpBase: gCmpBase, exprMC: gExprMC, shiftUp: gShiftUp, shiftDown: gShiftDown,
+  reuse: gReuse, reuseH: gReuseH, placeA: gPlaceA, placeC: gPlaceC, estimateMC: gEstimateMC, estimatePlace: gEstimatePlace, compare: gCompare,
+  sameProd: gSameProd, lessThan: gLessThan, compareAmount: gCompareAmount, wpMC1: gWpMC1, wpMC2: gWpMC2, wpTwo: gWpTwo,
+  areaCells: gAreaCells, areaRead: gAreaRead, areaShade: gAreaShade, numline1: () => gNumline(1), numline2: () => gNumline(2),
+  fillFrac1: () => gFillFrac(1), fillFrac2: () => gFillFrac(2), fillVert: gFillVert, machine: gMachine, order: gOrder,
+  detective: gDetective, cards: gCards, maxInt: gMaxInt, extremes: gExtremes, reverse: gReverse, multi: gMulti, grow: gGrow, calorie: gCalorie
+};
+const BLUEPRINT = {
+  1: [ // 개념·계산 20문제 (쉬움 7 → 보통 7 → 어려움 6)
+    [1, ['unit01', 'unit02']], [1, ['frac10', 'repeat']], [1, ['calcA1']], [1, ['calcB1']], [1, ['cmpBase', 'exprMC']], [1, ['shiftUp', 'areaCells']], [1, ['areaRead', 'wpMC1']],
+    [2, ['calcA2']], [2, ['calcB2']], [2, ['calcC1']], [2, ['calcC2']], [2, ['reuse', 'shiftDown']], [2, ['estimateMC', 'estimatePlace']], [2, ['sameProd', 'compare', 'lessThan', 'wpMC2']],
+    [3, ['placeC']], [3, ['compareAmount']], [3, ['calcC2h']], [3, ['reuseH']], [3, ['maxInt', 'cards']], [3, ['multi', 'reverse', 'calorie']]
+  ],
+  2: [ // 실력 향상 10문제 (직접 입력·계산 과정·그림·오류 찾기 …)
+    [1, ['placeA']], [1, ['fillFrac1', 'machine']], [1, ['numline1', 'areaRead']],
+    [2, ['fillVert', 'fillFrac2']], [2, ['areaShade']], [2, ['order', 'extremes']], [2, ['wpTwo']],
+    [3, ['detective']], [3, ['cards', 'maxInt']], [3, ['grow', 'calorie', 'multi', 'reverse']]
+  ],
+  3: [ // 랭킹전 20문제 (쉬움 6 / 보통 8 / 어려움 6)
+    [1, ['unit01', 'unit02', 'frac10', 'repeat']], [1, ['calcA1', 'calcB1']], [1, ['calcB1', 'calcA1']], [1, ['placeA', 'shiftUp']], [1, ['areaCells', 'areaRead', 'numline1']], [1, ['exprMC', 'cmpBase', 'wpMC1']],
+    [2, ['calcA2']], [2, ['calcB2']], [2, ['calcC1', 'calcC2']], [2, ['reuse', 'shiftDown']], [2, ['estimatePlace', 'estimateMC']], [2, ['wpTwo', 'areaShade']], [2, ['order', 'sameProd', 'lessThan', 'compare']], [2, ['fillVert', 'fillFrac2', 'numline2', 'extremes', 'inputCalc']],
+    [3, ['detective']], [3, ['multi', 'calorie']], [3, ['reverse', 'grow']], [3, ['cards', 'maxInt']], [3, ['calcC2h', 'placeC', 'reuseH']], [3, ['compareAmount', 'detective']]
+  ]
+};
+function buildGame(mode) {
+  const used = new Set(), keys = new Set(), out = [];
+  BLUEPRINT[mode].forEach(([diff, cands]) => {
+    let order = shuffle(cands); const fresh = order.filter(k => !keys.has(k)); if (fresh.length) order = fresh.concat(order.filter(k => keys.has(k)));
+    let q = null;
+    for (const key of order) {
+      for (let t = 0; t < 40 && !q; t++) {
+        let c; try { c = GEN[key](); } catch (e) { continue; }
+        if (!used.has(c.sig) && c.diff === diff) q = c;
+      }
+      if (q) { keys.add(key); break; }
+    }
+    if (!q) throw new Error('문제 생성 실패: ' + cands.join(','));
+    used.add(q.sig); out.push(q);
+  });
+  const g = { 1: [], 2: [], 3: [] }; out.forEach(q => g[q.diff].push(q));
+  return mode === 2 ? out : shuffle(g[1]).concat(shuffle(g[2]), shuffle(g[3]));
+}
+
+/* ========================================================================
+   20. Firebase (실시간 랭킹) — 4단원 전용 경로만 사용합니다.
+   기존 2·3단원 데이터(ch2_*, ch3_*)는 "읽기 전용"으로만 조회하고 절대 쓰거나 지우지 않습니다.
+======================================================================== */
+const FB_CFG = {
+  apiKey: "AIzaSyBKnvmdFG7A2PP8FCmTSgDLVjCf5FJ34_I",
+  authDomain: "math30-163fd.firebaseapp.com",
+  databaseURL: "https://math30-163fd-default-rtdb.firebaseio.com",
+  projectId: "math30-163fd",
+  storageBucket: "math30-163fd.firebasestorage.app",
+  messagingSenderId: "345277070711",
+  appId: "1:345277070711:web:5fb50e1fc1409fa8e9b572"
+};
+const DB_USERS = 'ch4_users', DB_ALL = 'ch4_rank_all', DB_REG = 'ch4_rank_regions';
+const LEGACY = ['ch3_users', 'ch2_users'];       // 읽기 전용(이어서 쓰기)
+const NET_MS = 9000;
+const FB = { db: null, auth: null, ready: false, connected: false, listeners: [], adminUser: null };
+
+function loadScript(src) {
+  return new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = () => rej(new Error('load ' + src)); document.head.appendChild(s); });
+}
+async function ensureSDK() {
+  if (window.firebase && firebase.database) return true;
+  const v = '9.22.0', base = 'https://cdnjs.cloudflare.com/ajax/libs/firebase/' + v + '/';
+  try {
+    await loadScript(base + 'firebase-app-compat.min.js');
+    await loadScript(base + 'firebase-database-compat.min.js');
+    await loadScript(base + 'firebase-auth-compat.min.js');
+    return !!(window.firebase && firebase.database);
+  } catch (e) { return false; }
+}
+function withTimeout(p, ms) {
+  return new Promise((res, rej) => { const t = setTimeout(() => rej(new Error('timeout')), ms || NET_MS); p.then(v => { clearTimeout(t); res(v); }, e => { clearTimeout(t); rej(e); }); });
+}
+async function fbInit(onStatus) {
+  const ok = await ensureSDK();
+  if (!ok) { onStatus && onStatus('fail'); return false; }
+  try {
+    if (!firebase.apps.length) firebase.initializeApp(FB_CFG);
+    FB.db = firebase.database();
+    try { FB.auth = firebase.auth(); } catch (e) { FB.auth = null; }
+    FB.ready = true;
+    FB.db.ref('.info/connected').on('value', s => { FB.connected = s.val() === true; onStatus && onStatus(FB.connected ? 'on' : 'wait'); });
+    // 학생은 익명 인증으로 접속(규칙에서 로그인한 사용자만 쓰기 허용). 실패해도 읽기 위주로 계속 동작.
+    if (FB.auth) {
+      FB.auth.onAuthStateChanged(u => { FB.adminUser = u && !u.isAnonymous ? u : null; });
+      if (!FB.auth.currentUser) { FB.auth.signInAnonymously().catch(() => { }); }
+    }
+    return true;
+  } catch (e) { onStatus && onStatus('fail'); return false; }
+}
+const dbGet = path => withTimeout(FB.db.ref(path).once('value'));
+
+/* ---- 계정 ---------------------------------------------------------- */
+/* 결과: ok4 / badpw / import(2·3단원 계정 이어쓰기) / badlegacy / new */
+async function findAccount(id, pw) {
+  const s4 = await dbGet(DB_USERS + '/' + id);
+  if (s4.exists()) {
+    const u = s4.val();
+    if (u.ph && u.salt) return hashPw(id, u.salt, pw) === u.ph ? { status: 'ok4', user: u } : { status: 'badpw' };
+    return { status: 'badpw' };
+  }
+  for (const p of LEGACY) {
+    try {
+      const s = await dbGet(p + '/' + id);
+      if (s.exists()) {
+        const u = s.val();
+        if (u && u.pw === pw && u.name) return { status: 'import', user: { name: u.name, region: u.region || '부산' }, from: p };
+        if (u && u.pw !== pw) return { status: 'badlegacy' };
+      }
+    } catch (e) { /* 조회 불가 시 새 계정으로 처리 */ }
+  }
+  return { status: 'new' };
+}
+/* 새 계정은 "없을 때만" 생성(트랜잭션) — 기존 계정을 덮어쓰지 않습니다. */
+async function createAccount(id, pw, name, region) {
+  const salt = randHex(16), rec = { salt, ph: hashPw(id, salt, pw), name, region, rk: rankKey(id), bestScore: 0, created: Date.now() };
+  const r = await withTimeout(FB.db.ref(DB_USERS + '/' + id).transaction(cur => (cur === null ? rec : undefined)));
+  return r.committed ? rec : null;
+}
+
+/* ---- 점수 저장 ------------------------------------------------------- */
+async function submitRecord(user, res, sid) {
+  const rk = user.rk, uref = FB.db.ref(DB_USERS + '/' + user.id);
+  // 1) 개인 최고점(증가만 허용)
+  const t = await withTimeout(uref.child('bestScore').transaction(cur => { cur = Number(cur) || 0; return res.score > cur ? res.score : cur; }));
+  const best = Number(t.snapshot.val()) || 0, improved = best === res.score && res.score > (user.best || 0);
+  user.best = Math.max(user.best || 0, best);
+  // 2) 새 기록이면 전국/지역 랭킹 노드를 한 번에 갱신(원자적 멀티패스)
+  if (improved) {
+    const rec = { rk, name: user.name, region: user.region, score: res.score, correct: res.correct, total: res.total, dur: res.dur, mx: res.maxCombo, sid, ts: firebase.database.ServerValue.TIMESTAMP };
+    rec.chk = recordCheck(rec);
+    const up = {};
+    up[DB_ALL + '/' + rk] = rec;
+    up[DB_REG + '/' + user.region + '/' + rk] = rec;
+    await withTimeout(FB.db.ref().update(up));
+  }
+  uref.child('lastSid').set(sid).catch(() => { });
+  return { improved, best };
+}
+/* 순위 계산(상위 100 안에서 검색 → 없으면 100위 밖) */
+async function fetchRanks(user) {
+  const all = await withTimeout(FB.db.ref(DB_ALL).orderByChild('score').limitToLast(100).once('value'));
+  const reg = await withTimeout(FB.db.ref(DB_REG + '/' + user.region).orderByChild('score').limitToLast(100).once('value'));
+  const rankIn = snap => {
+    const a = []; snap.forEach(c => { a.push(Object.assign({ _k: c.key }, c.val())); });
+    a.sort((x, y) => y.score - x.score || x.ts - y.ts);
+    const i = a.findIndex(r => r.rk === user.rk);
+    return i < 0 ? null : i + 1;
+  };
+  return { nat: rankIn(all), reg: rankIn(reg) };
+}
+/* 명예의 전당 실시간 구독 */
+function watchRank(region, cb, err) {
+  unwatchRank();
+  const ref = (region === 'ALL' ? FB.db.ref(DB_ALL) : FB.db.ref(DB_REG + '/' + region)).orderByChild('score').limitToLast(100);
+  const fn = ref.on('value', s => {
+    const a = []; s.forEach(c => { a.push(Object.assign({ _k: c.key }, c.val())); });
+    a.sort((x, y) => y.score - x.score || (x.ts || 0) - (y.ts || 0));
+    cb(a);
+  }, e => err && err(e));
+  FB.listeners.push({ ref, fn });
+}
+function unwatchRank() { FB.listeners.forEach(l => { try { l.ref.off('value', l.fn); } catch (e) { } }); FB.listeners = []; }
+
+/* ---- 관리자(Firebase 인증) ------------------------------------------- */
+async function adminLogin(email, pw) {
+  if (!FB.auth) throw new Error('auth');
+  const c = await FB.auth.signInWithEmailAndPassword(email, pw);
+  FB.adminUser = c.user; return c.user;
+}
+async function adminLogout() { try { await FB.auth.signOut(); await FB.auth.signInAnonymously(); } catch (e) { } FB.adminUser = null; }
+/* 기록 1건만 삭제(전국+지역). 전체 삭제 기능은 의도적으로 만들지 않았습니다. */
+async function adminDeleteRecord(rk, region) {
+  const up = {}; up[DB_ALL + '/' + rk] = null; up[DB_REG + '/' + region + '/' + rk] = null;
+  await withTimeout(FB.db.ref().update(up));
+}
+async function adminListUsers() {
+  const s = await withTimeout(FB.db.ref(DB_USERS).orderByKey().limitToFirst(500).once('value'), 15000);
+  const a = []; s.forEach(c => { const v = c.val() || {}; a.push({ id: c.key, name: v.name, region: v.region, rk: v.rk, best: v.bestScore || 0, created: v.created || 0 }); });
+  return a;
+}
+async function adminResetPin(id, pin) {
+  const salt = randHex(16);
+  await withTimeout(FB.db.ref(DB_USERS + '/' + id).update({ salt, ph: hashPw(id, salt, pin) }));
+}
+async function adminDeleteAccount(u) {
+  const up = {}; up[DB_USERS + '/' + u.id] = null; if (u.rk) { up[DB_ALL + '/' + u.rk] = null; up[DB_REG + '/' + u.region + '/' + u.rk] = null; }
+  await withTimeout(FB.db.ref().update(up));
+}
+async function adminListRank(region) {
+  const ref = region === 'ALL' ? FB.db.ref(DB_ALL) : FB.db.ref(DB_REG + '/' + region);
+  const s = await withTimeout(ref.orderByChild('score').limitToLast(300).once('value'), 15000);
+  const a = []; s.forEach(c => { a.push(Object.assign({ _k: c.key }, c.val())); }); a.sort((x, y) => y.score - x.score); return a;
+}
+async function pingMs() { const t0 = Date.now(); await dbGet('.info/serverTimeOffset'); return Date.now() - t0; }
+
+/* ========================================================================
+   40. 핵심 개념 사전 — 데이터(DICT)와 화면 만들기를 분리했습니다.
+   예제의 풀이·정답은 숫자만 적어 두고, 화면에서 정수 계산(explainMul)으로 만들기 때문에 틀릴 수 없습니다.
+======================================================================== */
+const DICT = [
+  {
+    id: 'l1', no: 1, title: '(소수)×(자연수) ⑴', sub: '소수 한 자리 수', pages: '교과서 86~87쪽', icon: '🔢',
+    summary: '0.3×4처럼 소수 한 자리 수에 자연수를 곱해요.',
+    principle: [
+      '0.3은 <b>0.1이 3개</b>인 수예요. 0.3×4는 0.1이 3×4=12개이므로 <b>1.2</b>예요.',
+      '<b>분수로 바꾸어 계산</b>: 1.4×6 = 14/10×6 = 84/10 = 8.4',
+      '<b>자연수의 곱셈 이용</b>: 14×6=84이고, 1.4는 14의 1/10배이니까 곱도 84의 1/10배 → 8.4'
+    ],
+    visual: 'jump', visA: '0.3', visM: 4,
+    steps: ['소수점을 없애고 <b>자연수처럼</b> 곱해요.', '곱해지는 소수의 <b>소수점 아래 자릿수</b>(1자리)를 세요.', '곱의 오른쪽에서 그만큼 앞에 <b>소수점</b>을 찍어요.'],
+    examples: [['1.4', '6'], ['2.7', '3'], ['0.8', '5']],
+    mistakes: ['곱이 5.0처럼 소수 끝에 0이 생기면 0을 생략해서 <b>5</b>로 써요. (0.5×10=5)', '자연수 부분만 곱하고 소수 부분을 빠뜨리지 않도록 해요.']
+  },
+  {
+    id: 'l2', no: 2, title: '(소수)×(자연수) ⑵', sub: '소수 두 자리 수', pages: '교과서 88~89쪽', icon: '🧮',
+    summary: '0.12×3, 2.35×4처럼 소수 두 자리 수에 자연수를 곱해요.',
+    principle: [
+      '0.12는 <b>0.01이 12개</b>인 수예요. 0.12×3은 0.01이 12×3=36개이므로 <b>0.36</b>이에요.',
+      '<b>분수로 바꾸기</b>: 2.35×4 = 235/100×4 = 940/100 = 9.4',
+      '소수 두 자리 수는 분모가 <b>100</b>이에요. (한 자리 수는 10)'
+    ],
+    visual: 'none',
+    steps: ['소수점을 없애고 자연수처럼 곱해요.', '소수점 아래 자릿수(2자리)를 세요.', '곱의 오른쪽에서 2칸 앞에 소수점을 찍어요.', '소수 끝자리의 0은 지워도 돼요.'],
+    examples: [['0.12', '3'], ['2.35', '4'], ['1.25', '8']],
+    mistakes: ['2.35×4=9.40에서 끝의 0은 생략하여 <b>9.4</b>라고 써요.', '분수로 바꿀 때 분모를 10으로 잘못 쓰지 않도록 해요. (소수 두 자리 → 100)']
+  },
+  {
+    id: 'l3', no: 3, title: '(자연수)×(소수) ⑴', sub: '소수 한 자리 수', pages: '교과서 90~91쪽', icon: '📏',
+    summary: '4×0.3처럼 자연수에 소수 한 자리 수를 곱해요.',
+    principle: [
+      '4×0.1=0.4이므로 4×0.3은 0.4가 3개, 즉 <b>1.2</b>예요.',
+      '<b>분수로 바꾸기</b>: 4×0.3 = 4×3/10 = 12/10 = 1.2',
+      '<b>곱하는 수가 1보다 작으면</b> 곱은 원래 수보다 작아져요. 1보다 크면 커져요.'
+    ],
+    visual: 'line', visA: '4', visD: 3,
+    steps: ['곱하는 소수의 소수점을 없애고 자연수끼리 곱해요.', '소수점 아래 자릿수(1자리)만큼 소수점을 찍어요.'],
+    examples: [['4', '0.3'], ['7', '2.4'], ['12', '1.5']],
+    mistakes: ['4×0.3=12처럼 소수점을 안 찍으면 곱이 4보다 커져요. 0.3은 1보다 작으니까 곱이 4보다 작아야 해요!']
+  },
+  {
+    id: 'l4', no: 4, title: '(자연수)×(소수) ⑵', sub: '소수 두 자리 수', pages: '교과서 92~93쪽', icon: '🧾',
+    summary: '3×1.24처럼 자연수에 소수 두 자리 수를 곱해요.',
+    principle: [
+      '<b>분수로 바꾸기</b>: 3×1.24 = 3×124/100 = 372/100 = 3.72',
+      '3×124=372이고, 1.24는 124의 1/100배이므로 곱도 372의 1/100배 → <b>3.72</b>',
+      '곱하는 수가 소수 두 자리이면 곱의 소수점 아래도 <b>2자리</b>예요.'
+    ],
+    visual: 'none',
+    steps: ['소수점을 없애고 자연수처럼 곱해요.', '소수점 아래 자릿수(2자리)만큼 소수점을 찍어요.'],
+    examples: [['3', '1.24'], ['5', '0.36'], ['8', '2.75']],
+    mistakes: ['5×0.36=1.80에서 끝의 0은 생략해서 <b>1.8</b>이에요.']
+  },
+  {
+    id: 'l5', no: 5, title: '(소수)×(소수) ⑴', sub: '소수 한 자리 수끼리', pages: '교과서 94~95쪽', icon: '🟨',
+    summary: '0.6×0.8처럼 소수 한 자리 수끼리 곱해요.',
+    principle: [
+      '가로 0.8, 세로 0.6인 직사각형을 모눈(한 칸=0.01)에 색칠하면 8×6=<b>48칸</b>이에요. 0.01이 48개이므로 <b>0.48</b>이에요.',
+      '<b>분수로 바꾸기</b>: 0.6×0.8 = 6/10×8/10 = 48/100 = 0.48',
+      '두 수의 소수점 아래 자릿수의 합 1+1=<b>2</b>자리가 곱의 소수점 아래 자릿수예요.'
+    ],
+    visual: 'area', visW: 8, visH: 6,
+    steps: ['소수점을 없애고 자연수처럼 곱해요.', '두 수의 소수점 아래 자릿수를 <b>더해요</b>.', '그만큼 곱의 오른쪽에서 소수점을 찍어요.'],
+    examples: [['0.6', '0.8'], ['1.4', '2.5'], ['3.2', '1.5']],
+    mistakes: ['0.6×0.8=4.8이 아니에요. 두 수가 모두 1보다 작으면 곱은 두 수보다도 작아요.', '자릿수를 <b>더하는</b> 것이에요. 곱하거나 하나만 세면 안 돼요.']
+  },
+  {
+    id: 'l6', no: 6, title: '(소수)×(소수) ⑵', sub: '소수 두 자리 수가 섞인 곱셈', pages: '교과서 96~97쪽', icon: '🔍',
+    summary: '1.2×2.35처럼 소수 두 자리 수가 섞인 곱셈이에요.',
+    principle: [
+      '<b>분수로 바꾸기</b>: 1.2×2.35 = 12/10×235/100 = 2820/1000 = 2.82',
+      '소수점 아래 자릿수의 합이 1+2=<b>3</b>자리이므로 2820에서 3칸 앞에 소수점 → 2.820 → <b>2.82</b>',
+      '자연수의 곱이 모자라면 앞에 <b>0을 채워요</b>. 0.04×0.7 → 4×7=28, 3자리 필요 → 0.028'
+    ],
+    visual: 'none',
+    steps: ['소수점을 없애고 자연수처럼 곱해요.', '두 수의 소수점 아래 자릿수를 더해요.', '자릿수가 모자라면 <b>앞에 0</b>을 채우고 소수점을 찍어요.'],
+    examples: [['1.2', '2.35'], ['0.04', '0.7'], ['2.5', '0.16']],
+    mistakes: ['0.04×0.7=0.28이 아니에요! 28의 오른쪽에서 <b>3칸</b> 앞이므로 0을 하나 채워 0.028이에요.']
+  },
+  {
+    id: 'l7', no: 7, title: '곱의 소수점 위치', sub: '10, 100, 1000 / 0.1, 0.01, 0.001', pages: '교과서 98~99쪽', icon: '🎯',
+    summary: '곱하는 수에 따라 소수점이 어떻게 움직이는지 알아봐요.',
+    principle: [
+      '<b>×10, ×100, ×1000</b>: 소수점이 오른쪽으로 <b>1칸, 2칸, 3칸</b> (0의 개수만큼) 움직여요. 1.234×10=12.34, ×100=123.4, ×1000=1234',
+      '<b>×0.1, ×0.01, ×0.001</b>: 소수점이 왼쪽으로 <b>1칸, 2칸, 3칸</b> (소수점 아래 자릿수만큼) 움직여요. 1234×0.1=123.4, ×0.01=12.34, ×0.001=1.234',
+      '<b>곱셈 결과 이용하기</b>: 34×17=578이면 3.4×1.7=5.78, 0.34×1.7=0.578, 3.4×0.17=0.578'
+    ],
+    visual: 'shift',
+    steps: ['곱하는 수의 <b>0의 개수</b>(10, 100, …)나 <b>소수점 아래 자릿수</b>(0.1, 0.01, …)를 세요.', '곱해지는 수의 소수점을 그만큼 오른쪽(큰 수) 또는 왼쪽(작은 수)으로 옮겨요.', '빈칸이 생기면 <b>0</b>으로 채워요.'],
+    examples: [['1.234', '10'], ['1.234', '100'], ['528', '0.01'], ['76', '0.001']],
+    mistakes: ['소수점이 움직이는 칸 수는 ×10, ×100, ×1000의 <b>0의 개수</b>와 같아요.', '0.01을 곱할 때는 왼쪽으로 <b>2칸</b>이에요. (0.01의 소수점 아래 자릿수 2)']
+  },
+  {
+    id: 'l8', no: 8, title: '생활 속 문제해결', sub: '어림하기 · 곱셈식 세우기', pages: '교과서 100~101쪽', icon: '🌍',
+    summary: '어림셈으로 확인하고, 상황에 맞는 곱셈식을 세워요.',
+    principle: [
+      '<b>어림셈</b>: 4.32×1.8 → 4×2=8이므로 결과는 8쯤이에요. (실제 7.776)',
+      '<b>곱셈식 세우기</b>: "한 개에 ~씩 ~개", "~의 ~배", 직사각형의 넓이(가로×세로), 정다각형의 둘레(한 변×변의 수)',
+      '<b>1과 비교</b>: 1보다 작은 수를 곱하면 원래 수보다 작아지고, 1보다 큰 수를 곱하면 커져요.'
+    ],
+    visual: 'none',
+    steps: ['문제에서 <b>구하는 것</b>과 <b>주어진 수</b>를 찾아요.', '곱셈식을 세워요.', '계산한 뒤 <b>어림셈</b>으로 크기가 맞는지 확인해요.', '단위(m, L, kg …)를 붙여 답을 써요.'],
+    examples: [['2.5', '3.2'], ['0.75', '12'], ['1.8', '4.5']],
+    mistakes: ['계산 결과가 어림한 값과 많이 다르면 소수점 위치부터 확인해요.', '단위를 빠뜨리지 않도록 해요.']
+  }
+];
+const COMMON_MISTAKES = [
+  { t: '소수점 위치를 틀려요', d: '곱의 소수점 아래 자릿수 = 두 수의 소수점 아래 자릿수의 <b>합</b>이에요. 먼저 자릿수를 세어 적어 두세요.' },
+  { t: '끝의 0을 지우지 않았어요', d: '소수에서 오른쪽 끝의 0은 크기가 같아서 생략해요. 2.50 = 2.5' },
+  { t: '앞에 0 채우기를 잊었어요', d: '0.04×0.7: 4×7=28인데 3자리가 필요해요. 앞에 0을 채워 <b>0.028</b>!' },
+  { t: '어림해 보지 않았어요', d: '계산 뒤 어림셈으로 크기를 확인하면 소수점 실수를 바로 찾을 수 있어요.' },
+  { t: '1보다 작은 수를 곱했는데 커졌어요', d: '1보다 작은 수를 곱하면 곱은 원래 수보다 <b>작아져요</b>.' }
+];
+
+function dictVisual(l) {
+  if (l.visual === 'jump') return `<div class="fig">${jumpSVG(V(l.visA), l.visM)}</div><p class="figcap">${H(V(l.visA))}씩 ${l.visM}번 뛰어 세기 → ${expr(V(l.visA), natD(l.visM))} = <b>${H(mul(V(l.visA), natD(l.visM)))}</b></p>`;
+  if (l.visual === 'area') return `<div class="fig">${gridSVG(l.visW, l.visH, { labels: [S(V('0.' + l.visW)), S(V('0.' + l.visH))] })}</div><p class="figcap">가로 ${H(V('0.' + l.visW))} × 세로 ${H(V('0.' + l.visH))} → ${l.visW * l.visH}칸 → <b>${H(mul(V('0.' + l.visW), V('0.' + l.visH)))}</b></p>`;
+  if (l.visual === 'line') {
+    const k = V(l.visA).n, d = l.visD, W = 320, x0 = 20, st = (W - x0 - 10) / 10;
+    let s = `<svg class="jumpfig" viewBox="0 0 340 120"><line x1="10" y1="40" x2="330" y2="40" stroke="#7C8BD0" stroke-width="2"/><line x1="10" y1="95" x2="330" y2="95" stroke="#7C8BD0" stroke-width="2"/>`;
+    for (let i = 0; i <= 10; i++) {
+      const x = x0 + i * st; s += `<line x1="${x}" y1="33" x2="${x}" y2="47" stroke="#C4B5FD" stroke-width="2"/><line x1="${x}" y1="88" x2="${x}" y2="102" stroke="#C4B5FD" stroke-width="2"/>`;
+      if (i === 0 || i === 10) { s += `<text x="${x}" y="24" font-size="13" font-weight="800" fill="#E5E9FF" text-anchor="middle">${i === 0 ? 0 : k}</text><text x="${x}" y="118" font-size="13" font-weight="800" fill="#E5E9FF" text-anchor="middle">${i === 0 ? 0 : 1}</text>`; }
+      else s += `<text x="${x}" y="118" font-size="10" fill="#9AA6D1" text-anchor="middle">0.${i}</text>`;
+    }
+    const xm = x0 + d * st; s += `<circle cx="${xm}" cy="40" r="6" fill="#FACC15"/><text x="${xm}" y="22" font-size="12" font-weight="800" fill="#FACC15" text-anchor="middle">${S(mul(natD(k), V('0.' + d)))}</text><circle cx="${xm}" cy="95" r="6" fill="#F472B6"/><line x1="${xm}" y1="46" x2="${xm}" y2="89" stroke="#FACC15" stroke-dasharray="3 3"/></svg>`;
+    return `<div class="fig">${s}</div><p class="figcap">${k}의 0.${d}배 = ${k}를 10칸으로 나눈 것의 ${d}칸 → <b>${H(mul(natD(k), V('0.' + d)))}</b></p>`;
+  }
+  if (l.visual === 'shift') {
+    const rows = [['1.234', '10', '12.34'], ['1.234', '100', '123.4'], ['1.234', '1000', '1234'], ['1234', '0.1', '123.4'], ['1234', '0.01', '12.34'], ['1234', '0.001', '1.234']];
+    return `<div class="shift-table">${rows.map(r => { const ok = S(mul(V(r[0]), V(r[1]))) === r[2]; return `<div class="sr"><span>${expr(V(r[0]), V(r[1]))}</span><b>${Hs(r[2])}</b>${ok ? '' : '⚠'}</div>`; }).join('')}</div><p class="figcap">× 큰 수 → 소수점이 오른쪽 / × 작은 수 → 소수점이 왼쪽</p>`;
+  }
+  return '';
+}
+function renderDict() {
+  const chips = DICT.map(l => `<button class="chip" data-act="dict-go" data-id="${l.id}">${l.icon} ${l.no}</button>`).join('') + `<button class="chip" data-act="dict-go" data-id="dmis">⚠ 실수</button><button class="chip" data-act="dict-go" data-id="dlab">🧪 실험</button>`;
+  const cards = DICT.map(l => `
+  <section class="dcard" id="d-${l.id}">
+    <header><span class="dno">${l.no}</span><div><h3>${l.icon} ${l.title}</h3><small>${l.sub} · ${l.pages}</small></div></header>
+    <p class="dsum">${dd(l.summary)}</p>
+    <h4>📘 원리</h4><ul class="plain">${l.principle.map(p => `<li>${dd(p)}</li>`).join('')}</ul>
+    ${dictVisual(l)}
+    <h4>🪜 계산 순서</h4><ol class="stepl">${l.steps.map(s => `<li>${dd(s)}</li>`).join('')}</ol>
+    <h4>✏️ 예제</h4>
+    ${l.examples.map(e => { const a = V(e[0]), b = V(e[1]); return `<div class="exm"><div class="exm-h">${expr(a, b)} = <b>${H(mul(a, b))}</b></div>${dd(explainMul(a, b))}</div>`; }).join('')}
+    <h4>⚠️ 자주 하는 실수</h4><ul class="plain warn">${l.mistakes.map(m => `<li>${dd(m)}</li>`).join('')}</ul>
+  </section>`).join('');
+  const mis = `<section class="dcard" id="d-dmis"><header><span class="dno">!</span><div><h3>⚠️ 이런 실수 조심!</h3><small>문제를 풀기 전에 꼭 읽어요</small></div></header>${COMMON_MISTAKES.map(m => `<div class="mis"><b>${m.t}</b><p>${dd(m.d)}</p></div>`).join('')}</section>`;
+  const lab = `<section class="dcard" id="d-dlab"><header><span class="dno">🧪</span><div><h3>소수점 실험실</h3><small>두 수를 넣고 계산 과정을 확인해 보세요</small></div></header>
+    <div class="lab"><input id="lab-a" inputmode="decimal" value="1.4" aria-label="첫 번째 수"> <span class="op">×</span> <input id="lab-b" inputmode="decimal" value="2.5" aria-label="두 번째 수"> <button class="btn3d sm" data-act="lab-go">계산 과정 보기</button></div>
+    <div id="lab-out" class="exm"></div></section>`;
+  return `<div class="dnav">${chips}</div><p class="dintro">4단원 「소수의 곱셈」의 핵심만 모았어요. 문제를 풀다가 막히면 여기서 확인해요!</p>${cards}${mis}${lab}`;
+}
+function labGo() {
+  const a = parseNum(document.getElementById('lab-a').value), b = parseNum(document.getElementById('lab-b').value), out = document.getElementById('lab-out');
+  if (!a || !b || a.d > 3 || b.d > 3 || a.n > 99999 || b.n > 99999) { out.innerHTML = '<p class="warnmsg">소수점 아래 3자리 이내의 수를 넣어 주세요.</p>'; return; }
+  out.innerHTML = `<div class="exm-h">${expr(a, b)} = <b>${H(mul(a, b))}</b></div>${dd(explainMul(a, b))}`;
+}
+
+/* ========================================================================
+   30. 화면·게임 진행 엔진
+   - 상태(ST)는 이 모듈 안에만 있고, 이벤트는 data-act 위임으로 처리합니다(전역 함수 없음).
+   - 점수는 문제별 기록(log)으로부터 scoreFromLog()로 "다시 계산"해서 만들며,
+     화면에 보이는 숫자를 고치는 것으로는 최종 점수가 바뀌지 않습니다.
+======================================================================== */
+const $ = id => document.getElementById(id);
+const ST = { mode: 0, qs: [], idx: 0, log: [], user: null, tq: 0, locked: true, si: 0, ss: null, cur: null, sid: '', timer: 0, muted: false, playing: false, hof: 'ALL', submitting: false, res: null, wrongs: [] };
+const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+const lsSet = (k, v) => { try { localStorage.setItem(k, v); } catch (e) { } };
+const lsDel = k => { try { localStorage.removeItem(k); } catch (e) { } };
+const dd = h => String(h == null ? '' : h).replace(/(<[^>]*>)|(\d)\.(?=\d)/g, (m, tag, d) => tag ? tag : d + DOT);
+const MODE_NAME = { 1: '1모드 · 개념·계산', 2: '2모드 · 직접 해 보기', 3: '3모드 · 전국 랭킹전' };
+
+/* ---- 효과음 --------------------------------------------------------- */
+let AC = null;
+function beep(f, d, type, v) {
+  if (ST.muted) return;
+  try {
+    AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+    const o = AC.createOscillator(), g = AC.createGain(); o.type = type || 'sine'; o.frequency.value = f;
+    g.gain.value = v || 0.05; o.connect(g); g.connect(AC.destination);
+    const t = AC.currentTime; g.gain.setValueAtTime(v || 0.05, t); g.gain.exponentialRampToValueAtTime(0.0001, t + d); o.start(t); o.stop(t + d);
+  } catch (e) { }
+}
+const SFX = { ok() { beep(660, .12); setTimeout(() => beep(880, .18), 90); }, bad() { beep(200, .3, 'sawtooth', .04); }, tick() { beep(520, .05, 'square', .02); }, win() { [523, 659, 784, 1046].forEach((f, i) => setTimeout(() => beep(f, .2), i * 110)); } };
+
+function toast(msg, ms) {
+  const t = $('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('show'), ms || 2600);
+}
+function setConn(s) {
+  const st = $('conn');
+  const m = { on: ['랭킹 서버 연결됨', 'ok'], wait: ['랭킹 서버 연결 중… (계속되면 네트워크를 확인해 주세요)', 'wait'], fail: ['랭킹 서버에 연결할 수 없어요 (1·2모드는 가능)', 'bad'] }[s];
+  st.textContent = m[0]; st.className = 'conn ' + m[1];
+}
+function showTab(t) {
+  if (ST.playing && t !== 'game') { toast('게임 중에는 이동할 수 없어요. 먼저 "그만하기"를 눌러 주세요.'); return; }
+  ['game', 'hof', 'dict'].forEach(k => { $('tab-' + k).hidden = k !== t; });
+  document.querySelectorAll('.tab').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
+  if (t !== 'hof') unwatchRank();
+  if (t === 'hof') loadHof(ST.hof);
+  if (t === 'game' && !ST.playing) showView('intro');
+  window.scrollTo(0, 0);
+}
+function showView(v) { ['intro', 'play', 'result'].forEach(k => { $('view-' + k).hidden = k !== v; }); }
+
+/* ---- 인트로 ---------------------------------------------------------- */
+function renderIntro() {
+  const u = ST.user;
+  $('who').innerHTML = u ? `<b>${esc(u.name)}</b> · ${esc(u.region)} · 내 최고점 <b>${(u.best || 0).toLocaleString()}</b>점 <button class="link" data-act="logout">로그아웃</button>` : '3모드 랭킹전은 로그인이 필요해요 (1·2모드는 바로 연습!)';
+  $('diff-legend').innerHTML = [1, 2, 3].map(d => `<div class="dl d${d}"><b>${DIFF[d].stars} ${DIFF[d].name}</b><span>기본 ${DIFF[d].base}점</span><span>제한 ${DIFF[d].time}초~</span><span>오답 −${DIFF[d].pen}</span></div>`).join('');
+}
+
+/* ---- 로그인 ---------------------------------------------------------- */
+let lookupTimer = 0, lookupSeq = 0;
+function openAuth() {
+  $('modal-auth').hidden = false; $('auth-id').value = lsGet('ch4_last') || ''; $('auth-pw').value = ''; $('auth-nick').value = ''; $('auth-nick').readOnly = false;
+  $('auth-msg').textContent = ''; $('auth-msg').className = 'amsg';
+  const sel = $('auth-region'); if (!sel.options.length) sel.innerHTML = REGIONS.map(r => `<option${r === '부산' ? ' selected' : ''}>${r}</option>`).join('');
+  if (!FB.ready) setAuthMsg('서버에 연결되지 않았어요. 잠시 후 다시 시도해 주세요.', 'bad');
+}
+function setAuthMsg(t, c) { const m = $('auth-msg'); m.innerHTML = t; m.className = 'amsg ' + (c || ''); }
+function scheduleLookup() {
+  clearTimeout(lookupTimer); lookupTimer = setTimeout(doLookup, 350);
+}
+async function doLookup() {
+  const id = $('auth-id').value.trim().toLowerCase(), pw = $('auth-pw').value.trim();
+  if (!/^[a-z0-9]{4,10}$/.test(id) || !/^[0-9]{4}$/.test(pw) || !FB.ready) return;
+  const seq = ++lookupSeq;
+  try {
+    const r = await findAccount(id, pw); if (seq !== lookupSeq) return;
+    if (r.status === 'ok4') { $('auth-nick').value = r.user.name; $('auth-nick').readOnly = true; $('auth-region').value = r.user.region; setAuthMsg(`✨ [${esc(r.user.name)}]님 확인! 내 최고점 ${(Number(r.user.bestScore) || 0).toLocaleString()}점`, 'ok'); }
+    else if (r.status === 'import') { $('auth-nick').value = r.user.name; $('auth-nick').readOnly = true; $('auth-region').value = r.user.region; setAuthMsg(`✨ ${r.from === 'ch3_users' ? '3' : '2'}단원 계정을 찾았어요! [${esc(r.user.name)}]님으로 4단원을 시작해요.`, 'ok'); }
+    else if (r.status === 'badpw' || r.status === 'badlegacy') { $('auth-nick').readOnly = false; setAuthMsg('❌ 비밀번호(숫자 4자리)가 맞지 않아요.', 'bad'); }
+    else { $('auth-nick').readOnly = false; setAuthMsg('🆕 처음 만나는 아이디예요! 닉네임과 지역을 정해 주세요.', 'info'); }
+  } catch (e) { if (seq === lookupSeq) setAuthMsg('⚠️ 서버 응답이 없어요. 네트워크를 확인해 주세요.', 'bad'); }
+}
+async function submitAuth() {
+  const id = $('auth-id').value.trim().toLowerCase(), pw = $('auth-pw').value.trim(), nick = $('auth-nick').value.trim(), region = $('auth-region').value;
+  if (!/^[a-z0-9]{4,10}$/.test(id)) return setAuthMsg('아이디는 영문·숫자 4~10자로 입력해 주세요. (예: math1)', 'bad');
+  if (!/^[0-9]{4}$/.test(pw)) return setAuthMsg('비밀번호는 숫자 4자리로 입력해 주세요.', 'bad');
+  if (!/^[가-힣0-9]{1,4}$/.test(nick)) return setAuthMsg('닉네임은 한글·숫자 1~4자로 입력해 주세요.', 'bad');
+  if (hasProfanity(nick)) return setAuthMsg('닉네임에 쓸 수 없는 말이 들어 있어요.', 'bad');
+  if (!FB.ready) return setAuthMsg('서버에 연결되지 않았어요. 잠시 후 다시 시도해 주세요.', 'bad');
+  const btn = $('auth-go'); btn.disabled = true;
+  try {
+    const r = await findAccount(id, pw);
+    if (r.status === 'badpw' || r.status === 'badlegacy') return setAuthMsg('이미 등록된 아이디예요. 비밀번호 4자리가 맞지 않아요.', 'bad');
+    let u;
+    if (r.status === 'ok4') u = { id, rk: r.user.rk || rankKey(id), name: r.user.name, region: r.user.region, best: Number(r.user.bestScore) || 0 };
+    else {
+      const name = r.status === 'import' ? r.user.name : nick, reg = r.status === 'import' ? r.user.region : region;
+      const rec = await createAccount(id, pw, name, reg);
+      if (!rec) return setAuthMsg('방금 다른 곳에서 같은 아이디가 만들어졌어요. 다시 시도해 주세요.', 'bad');
+      u = { id, rk: rec.rk, name, region: reg, best: 0 };
+    }
+    ST.user = u; lsSet('ch4_last', id); $('modal-auth').hidden = true; renderIntro();
+    toast(`${u.name}님 환영해요!`); tryPending();
+    startMode(3);
+  } catch (e) { setAuthMsg('⚠️ 서버 응답이 없어요. 네트워크를 확인한 뒤 다시 시도해 주세요.', 'bad'); }
+  finally { btn.disabled = false; }
+}
+
+/* ---- 게임 시작·진행 ------------------------------------------------- */
+function startMode(mode) {
+  if (mode === 3) {
+    if (!ST.user) { openAuth(); return; }
+    if (!FB.ready || !FB.connected) { if (!confirm('랭킹 서버에 연결되지 않았어요. 지금 시작하면 점수가 저장되지 않을 수 있어요. 그래도 시작할까요?')) return; }
+  }
+  let qs; try { qs = buildGame(mode); } catch (e) { console.error(e); toast('문제를 만드는 중 오류가 났어요. 다시 눌러 주세요.'); return; }
+  Object.assign(ST, { mode, qs, idx: 0, log: [], wrongs: [], sid: randHex(12), playing: true, submitting: false, res: null });
+  showView('play'); renderDash(); nextQuestion(); window.scrollTo(0, 0);
+}
+function renderDash() {
+  const r = scoreFromLog(ST.log), combo = comboNow();
+  $('p-mode').textContent = MODE_NAME[ST.mode] + (ST.mode === 3 && ST.user ? ` · ${ST.user.region} ${ST.user.name}` : '');
+  $('p-q').textContent = Math.min(ST.idx + 1, ST.qs.length); $('p-n').textContent = ST.qs.length;
+  const sc = $('p-score'); sc.textContent = r.score.toLocaleString();
+  $('p-combo').textContent = combo >= 2 ? `🔥 ${combo} COMBO` : '';
+  $('p-prog').style.width = (ST.idx / ST.qs.length * 100) + '%';
+}
+function comboNow() { let c = 0; for (let i = ST.log.length - 1; i >= 0 && ST.log[i].ok; i--) c++; return c; }
+
+function nextQuestion() {
+  if (ST.idx >= ST.qs.length) return finishGame();
+  const q = ST.qs[ST.idx]; ST.cur = { q, answers: [], t0: performance.now() }; ST.si = 0; ST.locked = false;
+  $('feedback').hidden = true; $('feedback').innerHTML = '';
+  const D = DIFF[q.diff];
+  $('q-tag').textContent = q.tag; $('q-diff').innerHTML = `<span class="pill d${q.diff}">${D.stars} ${D.name}</span><span class="qinfo">기본 <b>${D.base}</b>점 · 제한 <b>${q.time}</b>초</span>`;
+  $('q-text').innerHTML = dd(q.text); $('q-fig').innerHTML = q.figure || '';
+  $('qcard').classList.remove('ok', 'bad'); renderDash(); renderStage(); startTimer(q.time * 1000);
+}
+function startTimer(limit) {
+  clearInterval(ST.timer); const t0 = ST.cur.t0;
+  const tick = () => {
+    const el = performance.now() - t0, left = Math.max(0, limit - el), p = left / limit;
+    const bar = $('tbar'); bar.style.width = (p * 100) + '%'; bar.className = 'tbar' + (p < .25 ? ' low' : p < .5 ? ' mid' : '');
+    $('ttxt').textContent = Math.ceil(left / 1000) + '초';
+    if (left <= 0) { clearInterval(ST.timer); if (!ST.locked) endQuestion(false, true); }
+  };
+  tick(); ST.timer = setInterval(tick, 100);
+}
+
+/* ---- 단계(stage) 그리기 --------------------------------------------- */
+function curStage() { return ST.cur.q.stages[ST.si]; }
+function newStageState(st) {
+  switch (st.type) {
+    case 'input': return { buf: '' };
+    case 'fill': return { vals: st.blanks.map(() => ''), act: 0 };
+    case 'place': return { sel: null };
+    case 'area': return { x: -1, y: -1 };
+    case 'numline': return { sel: null };
+    case 'order': case 'cards': return { seq: [] };
+    default: return {};
+  }
+}
+const KEYPAD = `<div class="keypad">${['7', '8', '9', '4', '5', '6', '1', '2', '3', '.', '0', '⌫'].map(k => `<button class="key" data-act="key" data-k="${k}">${k === '.' ? '<span class="dp"></span>' : k}</button>`).join('')}<button class="key go" data-act="confirm">확인</button></div>`;
+function fillHtml(st, vals, mark) {
+  return st.lines.map(l => `<div class="fline">${l.replace(/\[\[(\d+)\]\]/g, (m, i) => {
+    i = +i; const v = vals[i]; const cls = 'blank' + (mark === 'edit' && ST.ss.act === i ? ' act' : '') + (Array.isArray(mark) && mark[i] != null ? (mark[i] ? ' good' : ' wrong') : '');
+    return `<span class="${cls}" data-act="blank" data-b="${i}">${v === '' || v == null ? '&nbsp;' : Hs(v)}</span>`;
+  })}</div>`).join('');
+}
+function renderStage() {
+  const st = curStage(), q = ST.cur.q; ST.ss = newStageState(st);
+  const total = q.stages.length, head = (st.title ? `<div class="stitle">${dd(st.title)}</div>` : '') + (total > 1 && !st.title ? `<div class="stitle">단계 ${ST.si + 1}/${total}</div>` : '');
+  let h = head;
+  if (st.type === 'mc') {
+    h += `<div class="opts ${st.layout}">${st.options.map((o, i) => `<button class="opt" data-act="mc" data-i="${i}"><span class="ol">${i + 1}</span><span class="ot">${o.html}</span></button>`).join('')}</div>`;
+  } else if (st.type === 'input') {
+    h += `<div class="ansbox"><span id="adisp" class="adisp"></span>${st.unit ? `<span class="unit">${esc(st.unit)}</span>` : ''}</div>${KEYPAD}`;
+  } else if (st.type === 'fill') {
+    h += `<div class="fillbox" id="fillbox"></div><p class="hint2">빈칸을 눌러 고른 뒤 숫자판으로 입력해요.</p>${KEYPAD}`;
+  } else if (st.type === 'place') {
+    h += `<div class="placerow" id="placerow"></div><div class="actions"><button class="btn3d" data-act="confirm">확인</button></div>`;
+  } else if (st.type === 'area') {
+    h += `<div class="areawrap"><div class="areagrid" id="areagrid">${[9, 8, 7, 6, 5, 4, 3, 2, 1, 0].map(y => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(x => `<div class="cell" data-act="cell" data-x="${x}" data-y="${y}"></div>`).join('')).join('')}</div><div class="arealab" id="arealab">눌러서 색칠 범위를 정해요 (왼쪽 아래가 시작)</div></div><div class="actions"><button class="btn3d" data-act="confirm">확인</button></div>`;
+  } else if (st.type === 'numline') {
+    h += `<div id="nlwrap"></div><div class="actions"><button class="btn3d" data-act="confirm">확인</button></div>`;
+  } else if (st.type === 'order') {
+    h += `<div class="ordergrid">${st.items.map((it, i) => `<button class="opt ord" data-act="ord" data-i="${i}"><span class="ol" id="on${i}">·</span><span class="ot">${it.html}</span></button>`).join('')}</div><div class="actions"><button class="btn3d ghost" data-act="ord-reset">다시 고르기</button><button class="btn3d" data-act="confirm">확인</button></div>`;
+  } else if (st.type === 'cards') {
+    h += `<div class="cardslots" id="cslots"></div><div class="cardpool">${st.digits.map((d, i) => `<button class="numcard big" data-act="card" data-i="${i}">${d}</button>`).join('')}</div><div class="actions"><button class="btn3d ghost" data-act="card-undo">되돌리기</button><button class="btn3d" data-act="confirm">확인</button></div>`;
+  }
+  $('stage').innerHTML = h; paintStage();
+}
+function cardsExprHtml(st, seq) {
+  const g = i => seq[i] == null ? '<span class="slot">?</span>' : `<span class="slot f">${seq[i]}</span>`;
+  return st.form === 'nd' ? `${g(0)} ${OP} ${g(1)}${DOT}${g(2)}` : `${g(0)}${DOT}${g(1)} ${OP} ${g(2)}${DOT}${g(3)}`;
+}
+function paintStage() {
+  const st = curStage(), s = ST.ss;
+  if (st.type === 'input') { const d = $('adisp'); d.innerHTML = s.buf === '' ? '<span class="ph">숫자를 입력</span>' : Hs(s.buf); }
+  if (st.type === 'fill') $('fillbox').innerHTML = fillHtml(st, s.vals, 'edit');
+  if (st.type === 'place') {
+    const n = st.digits.length; let h = '';
+    for (let i = 0; i <= n; i++) { h += `<button class="gap${s.sel === i ? ' on' : ''}" data-act="gap" data-i="${i}" aria-label="${i}번째 자리 뒤">${s.sel === i ? '<span class="dp"></span>' : '▾'}</button>`; if (i < n) h += `<span class="pd">${st.digits[i]}</span>`; }
+    $('placerow').innerHTML = h;
+  }
+  if (st.type === 'area') {
+    document.querySelectorAll('#areagrid .cell').forEach(c => { const x = +c.dataset.x, y = +c.dataset.y; c.classList.toggle('on', x <= s.x && y <= s.y && s.x >= 0); });
+    $('arealab').textContent = s.x < 0 ? '눌러서 색칠 범위를 정해요 (왼쪽 아래가 시작)' : `색칠: 가로 ${s.x + 1}칸 × 세로 ${s.y + 1}칸`;
+  }
+  if (st.type === 'numline') {
+    const W = 340, x0 = 18, step = (W - 36) / 10; let t = `<svg class="nlsvg" viewBox="0 0 ${W} 150" role="img" aria-label="수직선">`;
+    t += `<line x1="8" y1="48" x2="${W - 8}" y2="48" stroke="#7C8BD0" stroke-width="2"/><line x1="8" y1="118" x2="${W - 8}" y2="118" stroke="#7C8BD0" stroke-width="2"/>`;
+    t += `<text x="4" y="14" font-size="11" fill="#9AA6D1">0~${st.k}</text><text x="4" y="104" font-size="11" fill="#9AA6D1">몇 배(0~1)</text>`;
+    for (let i = 0; i <= 10; i++) {
+      const x = x0 + i * step, on = s.sel === i;
+      t += `<line x1="${x}" y1="${i % 5 === 0 ? 38 : 42}" x2="${x}" y2="${i % 5 === 0 ? 58 : 54}" stroke="#C4B5FD" stroke-width="2"/><line x1="${x}" y1="110" x2="${x}" y2="126" stroke="#C4B5FD" stroke-width="2"/>`;
+      t += `<text x="${x}" y="142" font-size="11" fill="${i === 0 || i === 10 ? '#E5E9FF' : '#9AA6D1'}" text-anchor="middle">${i === 0 ? 0 : i === 10 ? 1 : '0.' + i}</text>`;
+      if (i === 0 || i === 10) t += `<text x="${x}" y="30" font-size="13" font-weight="800" fill="#E5E9FF" text-anchor="middle">${i === 0 ? 0 : st.k}</text>`;
+      t += `<g data-act="tick" data-i="${i}" class="tk"><circle cx="${x}" cy="48" r="${on ? 9 : 6}" fill="${on ? '#FACC15' : '#4C1D95'}" stroke="#FACC15" stroke-width="2"/><circle cx="${x}" cy="48" r="17" fill="transparent"/></g>`;
+    }
+    if (s.sel != null) { const x = x0 + s.sel * step; t += `<line x1="${x}" y1="56" x2="${x}" y2="112" stroke="#FACC15" stroke-dasharray="4 4"/><circle cx="${x}" cy="118" r="5" fill="#F472B6"/>`; }
+    $('nlwrap').innerHTML = t + '</svg><p class="hint2">아래 수직선은 곱하는 수(몇 배)예요. 위 수직선에서 알맞은 곳을 눌러요.</p>';
+  }
+  if (st.type === 'order') st.items.forEach((it, i) => { const k = s.seq.indexOf(i), el = $('on' + i); el.textContent = k < 0 ? '·' : (k + 1); el.parentNode.classList.toggle('picked', k >= 0); });
+  if (st.type === 'cards') { $('cslots').innerHTML = cardsExprHtml(st, s.seq); document.querySelectorAll('.cardpool .numcard').forEach(b => b.classList.toggle('used', (s.used || []).includes(+b.dataset.i))); }
+}
+
+/* ---- 입력 처리 ------------------------------------------------------- */
+function keyPress(k) {
+  const st = curStage(), s = ST.ss; let target = st.type === 'input' ? 'buf' : st.type === 'fill' ? s.act : null; if (target == null) return;
+  let v = st.type === 'input' ? s.buf : s.vals[s.act];
+  if (k === '⌫') v = v.slice(0, -1);
+  else if (k === '.') { if (st.intOnly || v.includes('.')) return; v = v === '' ? '0.' : v + '.'; }
+  else { if (v.replace('.', '').length >= 9) return; v = v === '0' ? k : v + k; }
+  if (st.type === 'input') s.buf = v; else s.vals[s.act] = v;
+  SFX.tick(); paintStage();
+}
+function confirmStage() {
+  if (ST.locked) return;
+  const st = curStage(), s = ST.ss;
+  if (st.type === 'input') {
+    const u = parseNum(s.buf); if (!u) { shake('#adisp'); return; }
+    const ok = st.intOnly ? (u.d === 0 && eq(u, st.ans)) : eq(u, st.ans);
+    return judge(ok, `${H(u)}${st.unit ? ' ' + esc(st.unit) : ''}`, ok ? '' : diagnoseNum(u, st.ans));
+  }
+  if (st.type === 'fill') {
+    if (s.vals.some(v => v === '')) { shake('#fillbox'); toast('빈칸을 모두 채워 주세요.'); return; }
+    const us = s.vals.map(parseNum); if (us.some(u => !u)) { shake('#fillbox'); toast('숫자 모양을 확인해 주세요.'); return; }
+    const marks = us.map((u, i) => eq(u, st.blanks[i].ans)), ok = marks.every(Boolean);
+    $('fillbox').innerHTML = fillHtml(st, s.vals, marks);
+    const why = marks.map((m, i) => m ? '' : `빈칸 ${i + 1}: ${diagnoseNum(us[i], st.blanks[i].ans)}`).filter(Boolean).join('<br>');
+    return judge(ok, fillHtml(st, us.map(S), 'x').replace(/class="blank"/g, 'class="blank mini"'), why);
+  }
+  if (st.type === 'place') {
+    if (s.sel == null) { shake('#placerow'); toast('소수점 위치를 눌러 주세요.'); return; }
+    const ok = s.sel === st.pos;
+    const why = ok ? '' : (s.sel > st.pos ? `소수점을 ${s.sel - st.pos}칸 너무 오른쪽에 찍었어요.` : `소수점을 ${st.pos - s.sel}칸 너무 왼쪽에 찍었어요.`) + ' 두 수의 소수점 아래 자릿수의 합을 다시 세어 보세요.';
+    return judge(ok, placeHtml(st, s.sel), why);
+  }
+  if (st.type === 'area') {
+    if (s.x < 0) { shake('#areagrid'); toast('모눈을 눌러 색칠해 주세요.'); return; }
+    const ok = s.x + 1 === st.w && s.y + 1 === st.h;
+    return judge(ok, `가로 ${s.x + 1}칸 × 세로 ${s.y + 1}칸`, ok ? '' : `가로 ${st.w}칸, 세로 ${st.h}칸이어야 해요. (0.1이 가로 ${st.w}개, 세로 ${st.h}개)`);
+  }
+  if (st.type === 'numline') {
+    if (s.sel == null) { shake('#nlwrap'); toast('수직선에서 눌러 주세요.'); return; }
+    const ok = s.sel === st.dd; return judge(ok, `0.${s.sel}배 위치`, ok ? '' : `${st.k}를 10칸으로 나눈 것의 ${st.dd}칸째 위치예요. (곱하는 수 0.${st.dd})`);
+  }
+  if (st.type === 'order') {
+    if (s.seq.length < st.items.length) { shake('.ordergrid'); toast('모두 차례대로 눌러 주세요.'); return; }
+    const ok = s.seq.every((v, i) => v === st.ans[i]);
+    return judge(ok, s.seq.map(i => st.items[i].html).join(' → '), ok ? '' : '각 곱을 구해서 소수점 위치까지 맞춰 크기를 비교해 보세요.');
+  }
+  if (st.type === 'cards') {
+    if (s.seq.length < st.digits.length) { shake('#cslots'); toast('카드를 모두 놓아 주세요.'); return; }
+    const v = cardsVal(st.form, s.seq), ok = eq(v, st.best);
+    return judge(ok, cardsExprHtml(st, s.seq).replace(/class="slot f"/g, 'class="slot f mini"') + ` = ${H(v)}`, ok ? '' : `이 식의 곱은 ${H(v)}예요. 곱이 가장 ${st.goal === 'max' ? '큰' : '작은'} 식은 따로 있어요.`);
+  }
+}
+function cardsVal(form, a) { return form === 'nd' ? mul(natD(a[0]), { n: a[1] * 10 + a[2], d: 1 }) : mul({ n: a[0] * 10 + a[1], d: 1 }, { n: a[2] * 10 + a[3], d: 1 }); }
+function placeHtml(st, c) { const d = st.digits; return Hs(c === 0 ? '0.' + d : c >= d.length ? d : d.slice(0, c) + '.' + d.slice(c)); }
+function shake(sel) { const e = document.querySelector(sel); if (!e) return; e.classList.remove('shake'); void e.offsetWidth; e.classList.add('shake'); }
+function cardsBest(st) {
+  let best = null; (function rec(cur, rest) { if (best) return; if (!rest.length) { if (eq(cardsVal(st.form, cur), st.best)) best = cur; return; } rest.forEach((x, i) => rec(cur.concat([x]), rest.slice(0, i).concat(rest.slice(i + 1)))); })([], st.digits.slice());
+  return best;
+}
+function stageRightHtml(st) {
+  switch (st.type) {
+    case 'mc': return st.options[st.answer].html;
+    case 'input': return H(st.ans) + (st.unit ? ' ' + esc(st.unit) : '');
+    case 'fill': return fillHtml(st, st.blanks.map(b => S(b.ans)), 'x').replace(/class="blank"/g, 'class="blank mini"');
+    case 'place': return placeHtml(st, st.pos);
+    case 'area': return `가로 ${st.w}칸 × 세로 ${st.h}칸`;
+    case 'numline': return `0~${st.k}를 10칸으로 나눈 것의 ${st.dd}칸째`;
+    case 'order': return st.ans.map(i => st.items[i].html).join(' → ');
+    case 'cards': { const b = cardsBest(st); return b ? cardsExprHtml(st, b).replace(/class="slot f"/g, 'class="slot f mini"') + ` = ${H(st.best)}` : H(st.best); }
+  }
+  return '';
+}
+function judge(ok, myHtml, why) {
+  if (ST.locked) return;
+  const q = ST.cur.q, st = curStage();
+  ST.cur.answers.push({ ok, my: myHtml, why: why || '', right: stageRightHtml(st), title: st.title || '' });
+  if (!ok) return endQuestion(false, false);
+  if (ST.si + 1 < q.stages.length) {
+    SFX.tick(); ST.si++; const sa = $('stage'); sa.classList.add('flash'); setTimeout(() => sa.classList.remove('flash'), 400); renderStage(); return;
+  }
+  endQuestion(true, false);
+}
+/* 문제 하나 종료 → 기록 → 피드백 */
+function endQuestion(ok, timeout) {
+  if (ST.locked) return; ST.locked = true; clearInterval(ST.timer);
+  const q = ST.cur.q, ms = Math.max(0, Math.round(performance.now() - ST.cur.t0)), before = scoreFromLog(ST.log);
+  if (timeout) ST.cur.answers.push({ ok: false, my: '<span class="dim">(시간 초과)</span>', why: '제한 시간이 끝났어요.', right: q.stages.slice(ST.si).map(stageRightHtml).join(' / '), title: '' });
+  ST.log.push({ diff: q.diff, ok, timeout: !!timeout, ms, limit: q.time * 1000 });
+  const after = scoreFromLog(ST.log), gained = after.score - before.score;
+  const card = $('qcard'); card.classList.remove('ok', 'bad'); void card.offsetWidth; card.classList.add(ok ? 'ok' : 'bad');
+  ok ? SFX.ok() : SFX.bad(); popScore(gained, ok); renderDash();
+  const last = ST.cur.answers[ST.cur.answers.length - 1];
+  if (!ok) {
+    const first = ST.cur.answers.find(a => !a.ok) || last;
+    ST.wrongs.push({ n: ST.idx + 1, q, text: q.text, fig: q.figure, my: ST.cur.answers.map(a => a.my).join(' ／ '), right: q.stages.map(stageRightHtml).join(' ／ '), why: first.why || '', explain: q.explain, con: CON[q.concept] });
+  }
+  const parts = ok ? `기본 ${DIFF[q.diff].base} · 속도 +${after.speed - before.speed} · 콤보 +${after.comboB - before.comboB}` : `감점 −${after.pen - before.pen}`;
+  let fb = `<div class="fbhead ${ok ? 'ok' : 'bad'}">${ok ? '🎉 정답!' : (timeout ? '⏰ 시간 초과' : '😵 아쉬워요')} <span class="fbpts">${ok ? '+' : ''}${gained}점</span><small>${parts}</small></div>`;
+  if (!ok) {
+    fb += `<div class="fbrow"><b>내 답</b><span>${last.my}</span></div><div class="fbrow"><b>정답</b><span class="rt">${ST.wrongs[ST.wrongs.length - 1].right}</span></div>`;
+    if (last.why) fb += `<div class="fbwhy">💡 ${dd(last.why)}</div>`;
+  }
+  fb += `<details class="fbexp"${ok ? '' : ' open'}><summary>풀이 보기</summary>${dd(q.explain)}</details>`;
+  const lastQ = ST.idx + 1 >= ST.qs.length;
+  const auto = ok && ST.mode === 3;
+  fb += `<div class="actions"><button class="btn3d" data-act="next">${lastQ ? '결과 보기 🏁' : '다음 문제 ▶'}</button></div>`;
+  const f = $('feedback'); f.innerHTML = fb; f.hidden = false;
+  $('stage').querySelectorAll('button').forEach(b => b.disabled = true);
+  if (auto) { ST.autoT = setTimeout(() => { if (ST.locked && ST.cur && ST.cur.q === q) goNext(); }, 1100); }
+  else setTimeout(() => f.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80);
+}
+function goNext() { clearTimeout(ST.autoT); if (!ST.locked || !ST.playing) return; ST.idx++; nextQuestion(); }
+function popScore(n, ok) {
+  const e = document.createElement('div'); e.className = 'pop ' + (ok ? 'ok' : 'bad'); e.textContent = (n >= 0 ? '+' : '') + n; $('p-score').parentNode.appendChild(e); setTimeout(() => e.remove(), 1000);
+}
+
+/* ---- 종료·결과 ------------------------------------------------------- */
+function finishGame() {
+  clearInterval(ST.timer); ST.playing = false;
+  const r = scoreFromLog(ST.log), total = ST.qs.length, dur = Math.round(ST.log.reduce((s, e) => s + e.ms, 0) / 1000);
+  ST.res = Object.assign({}, r, { total, dur, mode: ST.mode });
+  showView('result'); renderResult(); window.scrollTo(0, 0);
+  const g = gradeOf(r.correct, total); if (g.g === 'SSS' || g.g === 'SS' || g.g === 'S') SFX.win();
+  if (ST.mode === 3) submitFinal();
+}
+function countUp(el, to, ms) { const t0 = performance.now(); (function f(t) { const p = Math.min(1, (t - t0) / ms); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))).toLocaleString(); if (p < 1) requestAnimationFrame(f); })(t0); }
+function renderResult() {
+  const r = ST.res, g = gradeOf(r.correct, r.total), u = ST.user, m3 = r.mode === 3;
+  const name = m3 && u ? esc(u.name) : '연습생';
+  $('res-head').innerHTML = `<div class="grade" style="--gc:${g.c}">${g.g}</div><h2>${r.correct === r.total ? '완벽해요! 🎊' : r.correct / r.total >= .7 ? '아주 잘했어요! 👏' : '조금만 더 힘내요! 💪'}</h2><p>${name}님 · ${MODE_NAME[r.mode]}</p>`;
+  $('res-score').textContent = '0'; countUp($('res-score'), r.score, 1100);
+  $('res-grid').innerHTML = [['닉네임', name], ['맞힌 문제', `${r.correct} / ${r.total}`], ['기본 점수', '+' + r.base.toLocaleString()], ['스피드 보너스', '+' + r.speed.toLocaleString()], ['콤보 보너스', '+' + r.comboB.toLocaleString() + ` (최대 ${r.maxCombo}연속)`], ['오답 감점', '−' + r.pen.toLocaleString()], ['걸린 시간', r.dur + '초'], ['최종 점수', r.score.toLocaleString() + '점']].map(x => `<div class="rc"><span>${x[0]}</span><b>${x[1]}</b></div>`).join('');
+  $('res-rank').hidden = !m3;
+  if (m3) { $('rk-best').textContent = '…'; $('rk-nat').textContent = '집계 중…'; $('rk-reg').textContent = '집계 중…'; $('rk-state').textContent = ''; $('btn-retry-submit').hidden = true; }
+  $('res-wrong').innerHTML = renderWrong();
+}
+function renderWrong() {
+  if (!ST.wrongs.length) return '<div class="allright">🌟 틀린 문제가 없어요! 오답 노트가 비었어요.</div>';
+  return `<h3>📝 오답 노트 <small>${ST.wrongs.length}문제</small></h3>` + ST.wrongs.map(w => `
+   <article class="wnote"><header><span class="wn">${w.n}번</span><span class="pill d${w.q.diff}">${DIFF[w.q.diff].stars}</span><small>${esc(w.q.tag)}</small></header>
+    <div class="wq">${dd(w.text)}${w.fig ? `<div class="fig">${w.fig}</div>` : ''}</div>
+    <div class="fbrow"><b>내 답</b><span class="mine">${w.my}</span></div><div class="fbrow"><b>정답</b><span class="rt">${w.right}</span></div>
+    ${w.why ? `<div class="fbwhy">❓ 왜 틀렸을까? ${dd(w.why)}</div>` : ''}
+    <details open><summary>자세한 풀이</summary>${dd(w.explain)}</details>
+    ${w.con ? `<div class="keycon">📌 핵심 개념 · <b>${w.con.t}</b><p>${dd(w.con.d)}</p></div>` : ''}
+   </article>`).join('');
+}
+/* 랭킹 저장(모드 3) — 새로고침·재시도에도 중복 기록이 생기지 않게 설계 */
+async function submitFinal() {
+  if (ST.submitting || !ST.user) return; ST.submitting = true;
+  const u = ST.user, r = ST.res, sid = ST.sid;
+  lsSet('ch4_pending', JSON.stringify({ uid: u.id, sid, log: ST.log, ts: Date.now() }));
+  $('rk-state').textContent = '서버에 저장하는 중…'; $('btn-retry-submit').hidden = true;
+  try {
+    const out = await submitRecord(u, r, sid); lsDel('ch4_pending');
+    $('rk-best').textContent = (u.best || 0).toLocaleString() + '점' + (out.improved ? ' 🔥 새 기록!' : '');
+    renderIntro();
+    const rk = await fetchRanks(u);
+    $('rk-nat').textContent = rk.nat ? rk.nat + '위' : '100위 밖'; $('rk-reg').textContent = rk.reg ? `${u.region} ${rk.reg}위` : '100위 밖';
+    $('rk-state').textContent = out.improved ? '✅ 명예의 전당에 반영됐어요.' : '이번 점수가 내 최고점보다 낮아 최고 기록은 그대로예요.';
+    if (out.improved && (rk.nat || rk.reg)) rankEntryFx(rk);
+  } catch (e) {
+    $('rk-state').textContent = '⚠️ 저장에 실패했어요. 네트워크를 확인하고 다시 시도해 주세요. (점수는 이 기기에 임시 보관돼요)'; $('btn-retry-submit').hidden = false;
+  } finally { ST.submitting = false; }
+}
+async function tryPending() {
+  const raw = lsGet('ch4_pending'); if (!raw || !ST.user || !FB.ready) return;
+  try {
+    const p = JSON.parse(raw); if (p.uid !== ST.user.id || !Array.isArray(p.log)) return;
+    const log = p.log.filter(e => DIFF[e.diff] && typeof e.ok === 'boolean').map(e => ({ diff: e.diff, ok: e.ok, timeout: !!e.timeout, ms: Math.max(0, +e.ms || 0), limit: DIFF[e.diff].time * 1000 }));
+    if (log.length !== 20) { lsDel('ch4_pending'); return; }
+    const r = scoreFromLog(log); const res = { score: r.score, correct: r.correct, total: 20, dur: Math.round(log.reduce((s, e) => s + e.ms, 0) / 1000), maxCombo: r.maxCombo };
+    await submitRecord(ST.user, res, p.sid); lsDel('ch4_pending'); renderIntro(); toast('저장하지 못했던 이전 기록을 올렸어요!');
+  } catch (e) { /* 다음에 다시 시도 */ }
+}
+function rankEntryFx(rk) {
+  const el = $('fx'); el.innerHTML = ''; el.hidden = false;
+  const best = Math.min(rk.nat || 999, rk.reg || 999);
+  const b = document.createElement('div'); b.className = 'fx-banner'; b.innerHTML = `<small>${rk.nat ? '전국' : ST.user.region} TOP 100 진입!</small><b>🏆 ${best}위</b>`; el.appendChild(b);
+  for (let i = 0; i < 60; i++) { const p = document.createElement('i'); p.style.left = Math.random() * 100 + '%'; p.style.background = ['#FACC15', '#F472B6', '#A78BFA', '#34D399', '#38BDF8'][i % 5]; p.style.animationDelay = Math.random() * .8 + 's'; p.style.animationDuration = 1.8 + Math.random() * 1.6 + 's'; el.appendChild(p); }
+  SFX.win(); setTimeout(() => { el.hidden = true; el.innerHTML = ''; }, 4200);
+}
+
+/* ---- 명예의 전당 ----------------------------------------------------- */
+function loadHof(f) {
+  ST.hof = f;
+  $('hof-chips').innerHTML = ['ALL'].concat(REGIONS).map(r => `<button class="chip${r === f ? ' on' : ''}" data-act="hof" data-r="${r}">${r === 'ALL' ? '🇰🇷 전국' : r}</button>`).join('');
+  $('hof-title').textContent = f === 'ALL' ? '🏆 전국 TOP 100' : `🏆 ${f} TOP 100`;
+  const box = $('hof-list');
+  if (!FB.ready) { box.innerHTML = '<div class="empty">랭킹 서버에 연결되지 않았어요. 잠시 후 다시 확인해 주세요.</div>'; return; }
+  box.innerHTML = '<div class="empty">불러오는 중…</div>';
+  const guard = setTimeout(() => { if (box.querySelector('.empty')) box.innerHTML = '<div class="empty">응답이 늦어지고 있어요. 네트워크를 확인해 주세요.</div>'; }, 9000);
+  watchRank(f, list => {
+    clearTimeout(guard);
+    if (!list.length) { box.innerHTML = '<div class="empty">아직 기록이 없어요. 첫 번째 주인공이 되어 보세요! 🚀</div>'; return; }
+    const mine = ST.user && ST.user.rk;
+    box.innerHTML = list.map((r, i) => {
+      const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : (i + 1);
+      const d = r.ts ? new Date(r.ts).toLocaleDateString('ko-KR', { month: 'numeric', day: 'numeric' }) : '';
+      return `<div class="hrow${r.rk === mine ? ' me' : ''}${i < 3 ? ' top' + (i + 1) : ''}"><span class="hr">${medal}</span><span class="hn">${esc(r.name)}<small>${esc(r.region)}</small></span><span class="hs">${(+r.score || 0).toLocaleString()}<small>${r.correct != null ? r.correct + '/' + r.total : ''} · ${d}</small></span></div>`;
+    }).join('');
+  }, () => { clearTimeout(guard); box.innerHTML = '<div class="empty">랭킹을 불러오지 못했어요. 잠시 후 다시 시도해 주세요.</div>'; });
+}
+
+/* ---- 관리자 ----------------------------------------------------------- */
+const ADMIN = { tab: 'rec', region: 'ALL', users: [], recs: [] };
+function openAdmin() { $('modal-admin').hidden = false; renderAdmin(); }
+function renderAdmin() {
+  const box = $('admin-body'), au = FB.adminUser;
+  if (!au) {
+    box.innerHTML = `<h3>🔐 교사 관리자</h3><p class="hint2">Firebase에 등록된 교사 계정으로 로그인해요. (비밀번호는 이 파일에 들어 있지 않아요)</p>
+    <input id="ad-mail" type="email" placeholder="관리자 이메일" autocomplete="username"><input id="ad-pw" type="password" placeholder="비밀번호" autocomplete="current-password">
+    <div id="ad-msg" class="amsg"></div><div class="actions"><button class="btn3d ghost" data-act="admin-close">닫기</button><button class="btn3d" data-act="admin-login">로그인</button></div>`; return;
+  }
+  box.innerHTML = `<div class="adhead"><h3>🛠 관리자 · <small>${esc(au.email || '')}</small></h3><div><button class="chip" data-act="admin-logout">로그아웃</button><button class="chip" data-act="admin-close">닫기</button></div></div>
+   <div class="admtabs">${[['rec', '기록 관리'], ['usr', '계정 관리'], ['sta', '서버 상태']].map(t => `<button class="chip${ADMIN.tab === t[0] ? ' on' : ''}" data-act="admin-tab" data-t="${t[0]}">${t[1]}</button>`).join('')}</div><div id="admin-pane" class="adpane">불러오는 중…</div>`;
+  adminPane();
+}
+async function adminPane() {
+  const pane = $('admin-pane');
+  try {
+    if (ADMIN.tab === 'rec') {
+      ADMIN.recs = await adminListRank(ADMIN.region);
+      pane.innerHTML = `<select id="ad-reg" data-act="admin-region">${['ALL'].concat(REGIONS).map(r => `<option value="${r}"${r === ADMIN.region ? ' selected' : ''}>${r === 'ALL' ? '전국' : r}</option>`).join('')}</select><p class="hint2">부적절한 닉네임·기록을 <b>한 건씩</b> 삭제해요. (검증값이 맞지 않으면 ⚠ 표시)</p>
+      <div class="adlist">${ADMIN.recs.map((r, i) => { const okc = r.chk === recordCheck(r); return `<div class="adrow"><span>${i + 1}</span><b>${esc(r.name)}</b><small>${esc(r.region)} · ${(+r.score || 0).toLocaleString()}점 · ${r.correct}/${r.total}${okc ? '' : ' ⚠검증값 불일치'}</small><button class="chip del" data-act="admin-delrec" data-i="${i}">삭제</button></div>`; }).join('') || '<div class="empty">기록이 없어요.</div>'}</div>`;
+    } else if (ADMIN.tab === 'usr') {
+      ADMIN.users = await adminListUsers();
+      pane.innerHTML = `<p class="hint2">비밀번호는 해시로만 저장되어 있어 볼 수 없어요. 잊어버린 학생은 <b>PIN 재설정</b>을 쓰세요.</p><div class="adlist">${ADMIN.users.map((u, i) => `<div class="adrow"><b>${esc(u.name)}</b><small>${esc(u.id)} · ${esc(u.region)} · 최고 ${u.best.toLocaleString()}점</small><button class="chip" data-act="admin-pin" data-i="${i}">PIN 재설정</button><button class="chip del" data-act="admin-deluser" data-i="${i}">계정 삭제</button></div>`).join('') || '<div class="empty">계정이 없어요.</div>'}</div>`;
+    } else {
+      const ms = await pingMs();
+      pane.innerHTML = `<div class="stat"><div>서버 연결 <b>${FB.connected ? '연결됨 ✅' : '연결 안 됨 ⚠'}</b></div><div>응답 시간 <b>${ms}ms</b></div><div>로그인 계정 <b>${esc(FB.adminUser.email || '')}</b></div><div>데이터 경로 <b>${DB_USERS} · ${DB_ALL} · ${DB_REG}</b></div></div><p class="hint2">전체 삭제 기능은 사고 방지를 위해 만들지 않았어요.</p>`;
+    }
+  } catch (e) { pane.innerHTML = `<div class="empty">불러오지 못했어요: 관리자 권한(데이터베이스 규칙)과 네트워크를 확인해 주세요.</div>`; }
+}
+
+/* ---- 이벤트 위임 ------------------------------------------------------ */
+let secretTaps = [];
+document.addEventListener('click', async ev => {
+  const el = ev.target.closest('[data-act]'); if (!el) return;
+  const a = el.dataset.act;
+  switch (a) {
+    case 'tab': return showTab(el.dataset.tab);
+    case 'start': return startMode(+el.dataset.mode);
+    case 'logout': ST.user = null; renderIntro(); return toast('로그아웃했어요.');
+    case 'login': return openAuth();
+    case 'auth-close': $('modal-auth').hidden = true; return;
+    case 'auth-go': return submitAuth();
+    case 'mc': if (!ST.locked) { const st = curStage(), i = +el.dataset.i, ok = i === st.answer; el.classList.add(ok ? 'good' : 'wrong'); if (!ok) { const rt = $('stage').querySelectorAll('.opt')[st.answer]; rt && rt.classList.add('good'); } return judge(ok, st.options[i].html, ok ? '' : st.options[i].why || '선택한 값이 정답과 달라요.'); } return;
+    case 'key': if (!ST.locked) keyPress(el.dataset.k); return;
+    case 'blank': if (!ST.locked && ST.ss && ST.ss.vals) { ST.ss.act = +el.dataset.b; paintStage(); } return;
+    case 'confirm': return confirmStage();
+    case 'gap': if (!ST.locked) { ST.ss.sel = +el.dataset.i; SFX.tick(); paintStage(); } return;
+    case 'cell': if (!ST.locked) { ST.ss.x = +el.dataset.x; ST.ss.y = +el.dataset.y; SFX.tick(); paintStage(); } return;
+    case 'tick': if (!ST.locked) { ST.ss.sel = +el.dataset.i; SFX.tick(); paintStage(); } return;
+    case 'ord': if (!ST.locked) { const i = +el.dataset.i; if (!ST.ss.seq.includes(i)) { ST.ss.seq.push(i); SFX.tick(); paintStage(); } } return;
+    case 'ord-reset': if (!ST.locked) { ST.ss.seq = []; paintStage(); } return;
+    case 'card': if (!ST.locked) { const st = curStage(), i = +el.dataset.i; ST.ss.used = ST.ss.used || []; if (!ST.ss.used.includes(i) && ST.ss.seq.length < st.digits.length) { ST.ss.used.push(i); ST.ss.seq.push(st.digits[i]); SFX.tick(); paintStage(); } } return;
+    case 'card-undo': if (!ST.locked && ST.ss.seq.length) { ST.ss.seq.pop(); ST.ss.used.pop(); paintStage(); } return;
+    case 'next': return goNext();
+    case 'quit': if (confirm('게임을 그만둘까요? 지금까지의 기록은 저장되지 않아요.')) { clearInterval(ST.timer); clearTimeout(ST.autoT); ST.playing = false; showView('intro'); renderIntro(); } return;
+    case 'again': ST.playing = false; showView('intro'); renderIntro(); window.scrollTo(0, 0); return;
+    case 'retry-submit': return submitFinal();
+    case 'to-hof': if (ST.user) ST.hof = ST.user.region; showTab('hof'); return;
+    case 'hof': return loadHof(el.dataset.r);
+    case 'mute': ST.muted = !ST.muted; el.textContent = ST.muted ? '🔇' : '🔊'; return;
+    case 'dict-go': { const t = document.getElementById('d-' + el.dataset.id); t && t.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    case 'lab-go': return labGo();
+    case 'secret': {
+      const now = Date.now(); secretTaps = secretTaps.filter(t => now - t < 4000); secretTaps.push(now);
+      if (secretTaps.length >= 7) { secretTaps = []; openAdmin(); } return;
+    }
+    case 'admin-close': $('modal-admin').hidden = true; return;
+    case 'admin-login': {
+      const m = $('ad-mail').value.trim(), p = $('ad-pw').value; $('ad-msg').textContent = '확인 중…';
+      try { await adminLogin(m, p); renderAdmin(); } catch (e) { $('ad-msg').textContent = '로그인에 실패했어요. 이메일·비밀번호를 확인해 주세요.'; $('ad-msg').className = 'amsg bad'; } return;
+    }
+    case 'admin-logout': await adminLogout(); renderAdmin(); return;
+    case 'admin-tab': ADMIN.tab = el.dataset.t; renderAdmin(); return;
+    case 'admin-delrec': {
+      const r = ADMIN.recs[+el.dataset.i]; if (!r) return;
+      if (!confirm(`[${r.region}] ${r.name} (${r.score}점) 기록 1건을 삭제할까요?\n되돌릴 수 없어요.`)) return;
+      try { await adminDeleteRecord(r.rk || r._k, r.region); toast('삭제했어요.'); adminPane(); } catch (e) { toast('삭제 권한이 없거나 실패했어요.'); } return;
+    }
+    case 'admin-pin': {
+      const u = ADMIN.users[+el.dataset.i]; if (!u) return; const pin = prompt(`[${u.name}] 새 비밀번호(숫자 4자리)`); if (!pin) return;
+      if (!/^[0-9]{4}$/.test(pin)) return toast('숫자 4자리여야 해요.');
+      try { await adminResetPin(u.id, pin); toast('재설정했어요.'); } catch (e) { toast('권한이 없거나 실패했어요.'); } return;
+    }
+    case 'admin-deluser': {
+      const u = ADMIN.users[+el.dataset.i]; if (!u) return;
+      if (!confirm(`계정 [${u.name} / ${u.id}]과(와) 4단원 기록을 삭제할까요?\n되돌릴 수 없어요.`)) return;
+      try { await adminDeleteAccount(u); toast('삭제했어요.'); adminPane(); } catch (e) { toast('권한이 없거나 실패했어요.'); } return;
+    }
+  }
+});
+document.addEventListener('change', ev => { if (ev.target.id === 'ad-reg') { ADMIN.region = ev.target.value; adminPane(); } });
+document.addEventListener('input', ev => { if (ev.target.id === 'auth-id' || ev.target.id === 'auth-pw') scheduleLookup(); });
+document.addEventListener('keydown', ev => {
+  if (!ST.playing || ST.locked || !ST.cur) { if (ev.key === 'Enter' && ST.playing && ST.locked && !$('feedback').hidden) goNext(); return; }
+  const tag = (ev.target.tagName || '').toLowerCase(); if (tag === 'input' || tag === 'select') return;
+  const st = curStage(); if (!st) return;
+  if (st.type === 'mc' && /^[1-4]$/.test(ev.key)) { const b = $('stage').querySelectorAll('.opt')[+ev.key - 1]; b && b.click(); }
+  else if (st.type === 'input' || st.type === 'fill') {
+    if (/^[0-9.]$/.test(ev.key)) keyPress(ev.key); else if (ev.key === 'Backspace') keyPress('⌫'); else if (ev.key === 'Enter') confirmStage();
+    else if (ev.key === 'Tab' && st.type === 'fill') { ev.preventDefault(); ST.ss.act = (ST.ss.act + 1) % st.blanks.length; paintStage(); }
+  } else if (ev.key === 'Enter') confirmStage();
+});
+window.addEventListener('beforeunload', e => { if (ST.playing) { e.preventDefault(); e.returnValue = ''; } });
+
+/* ---- 시작 ------------------------------------------------------------- */
+function boot() {
+  renderIntro(); $('dict-body').innerHTML = renderDict();
+  setConn('wait');
+  fbInit(setConn).then(ok => { if (!ok) setConn('fail'); });
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+
+
+})();
+</script></body></html>
